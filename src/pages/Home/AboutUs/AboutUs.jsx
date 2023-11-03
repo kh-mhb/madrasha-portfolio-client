@@ -1,38 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="px-10">
       <div className="text-center py-5">
         <h1 className="sm:text-3xl text-3xl  border-y-4 w-1/3 mx-auto py-3 font-medium title-font mb-4 text-gray-900">
-          About Us
+          Introduction
         </h1>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-        natus necessitatibus accusamus repellat nisi iure labore, veniam ratione
-        libero quisquam, beatae iste dolores soluta corrupti eligendi. Voluptas,
-        nesciunt! Laborum quidem, soluta non ullam provident veniam aut sequi
-        facere enim maxime quaerat rerum cupiditate officia dolorum suscipit
-        quod aliquam corrupti accusamus! Voluptatem dolores exercitationem
-        incidunt repellat, nostrum est, cupiditate laudantium commodi saepe nemo
-        fugiat ullam eius suscipit sit soluta! Autem aspernatur reiciendis
-        adipisci ratione quis fugit nam, nisi atque quas, tempora eligendi.
-        Consequuntur iusto deleniti possimus praesentium, cumque delectus
-        doloribus beatae ratione vel obcaecati libero hic molestias facilis ipsa
-        atque nesciunt quasi omnis dolore ullam laudantium neque sint esse
-        corrupti expedita. Tenetur dolorem tempore recusandae provident
-        suscipit, quis nemo consectetur harum labore? Blanditiis voluptatum
-        sequi voluptatem saepe dolorem sit voluptates, veniam quaerat aperiam
-        dolorum animi, mollitia at similique in pariatur nisi. Molestias at
-        accusamus suscipit reprehenderit fugit, totam molestiae assumenda ad
-        debitis, ut deleniti earum id repellendus atque inventore qui. Atque
-        itaque ipsa soluta sit veritatis? Quaerat vero perferendis quia error
-        iste, delectus porro rerum alias molestiae corporis, provident officiis
-        deleniti odio asperiores ab reiciendis tenetur praesentium blanditiis
-        obcaecati voluptatibus totam. Iure dolor temporibus fugit excepturi rem
-        veritatis dolorem quos repellat!
-      </p>
+      <div className="grid grid-cols-3  gap-x-6">
+        <div className="flex flex-col gap-2">
+          <Link to="/committe" className="btn btn-outline">
+            Committe
+          </Link>
+          <Link to="/teacher" className="btn btn-outline btn-primary">
+            Teacher
+          </Link>
+          <Link to="/student" className="btn btn-outline btn-secondary">
+            Student
+          </Link>
+        </div>
+        <div className="col-span-2 ...">
+          <h3>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Reprehenderit dolorum, tenetur vitae saepe ipsa dolores enim ab iste
+            maiores quae possimus et atque dolorem consequuntur accusamus
+            excepturi nobis, minus, odio non! Fugiat repellat reprehenderit
+            amet, accusamus, rem, animi expedita laudantium corrupti delectus
+            non dolore dolor tenetur maiores ipsa fuga hic sint voluptatum.
+            Magni perspiciatis mollitia ea minima ipsa, ipsam, delectus sit
+            illum doloribus culpa suscipit? Recusandae, adipisci, delectus animi
+            mollitia magnam qui quam, ea numquam nam aspernatur tenetur commodi
+            fuga?
+          </h3>
+        </div>
+      </div>
     </div>
   );
 };
