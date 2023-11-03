@@ -9,6 +9,8 @@ import Register from "../components/Register/Register";
 import Committe from "../components/Committe/Committe";
 import Teacher from "../components/Teacher/Teacher";
 import Student from "../components/Student/Student";
+import Admin from "./Admin";
+import AddUser from "../components/AddUser/AddUser";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +52,16 @@ export const router = createBrowserRouter([
       {
         path: "/student",
         element: <Student></Student>,
+      },
+    ],
+  },
+  {
+    path: "adminLayout",
+    element: <Admin></Admin>,
+    children: [
+      {
+        path: "adduser",
+        element: <AddUser></AddUser>,
       },
     ],
   },
