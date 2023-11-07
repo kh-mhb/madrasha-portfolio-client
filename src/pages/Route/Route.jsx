@@ -10,7 +10,9 @@ import Committe from "../components/Committe/Committe";
 import Teacher from "../components/Teacher/Teacher";
 import Student from "../components/Student/Student";
 import Admin from "./Admin";
-import AddUser from "../components/AddUser/AddUser";
+import AddStudent from "../components/AddUser/AddStudent";
+import AddTeacher from "../components/AddUser/AddTeacher";
+import AddCommitte from "../components/AddUser/AddCommitte";
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +63,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "adduser",
-        element: <AddUser></AddUser>,
+        element: <AddStudent></AddStudent>,
+      },
+      {
+        path: "addcommitte",
+        element: <AddCommitte></AddCommitte>,
+      },
+      {
+        path: "addteacher",
+        element: <AddTeacher></AddTeacher>,
       },
     ],
   },

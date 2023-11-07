@@ -29,7 +29,9 @@ const Admin = () => {
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {/* Sidebar content here */}
               <li>
-                <Link to="/adminLayout/adduser">Add User</Link>
+                <Link to="/adminLayout/adduser">Add Student</Link>
+                <Link to="/adminLayout/addcommitte">Add Committe Member</Link>
+                <Link to="/adminLayout/addteacher">Add New Teacher</Link>
               </li>
               <li>
                 <a>Sidebar Item 2</a>
