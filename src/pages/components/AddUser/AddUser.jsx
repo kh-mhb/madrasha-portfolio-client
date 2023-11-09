@@ -22,7 +22,7 @@ const AddUser = () => {
             </label>
           </div>
 
-          <div className="grid md:grid-cols-2 md:gap-6">
+          <div className="grid grid-cols-1 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <select
                 name="brandName"

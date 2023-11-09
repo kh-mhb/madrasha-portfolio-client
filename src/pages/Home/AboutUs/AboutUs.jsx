@@ -9,8 +9,8 @@ const AboutUs = () => {
           Introduction
         </h1>
       </div>
-      <div className="grid grid-cols-3  gap-x-6">
-        <div className="flex flex-col gap-2">
+      <div className="grid lg:grid-cols-3  gap-x-6">
+        <div className="flex lg:flex-col lg:py-2 gap-2">
           <Link to="/committe" className="btn btn-outline">
             Committe
           </Link>
