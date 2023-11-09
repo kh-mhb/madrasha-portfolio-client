@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
     element: <Admin></Admin>,
     children: [
       {
-        path: "adduser",
+        path: "addstudent",
         element: <AddStudent></AddStudent>,
       },
       {

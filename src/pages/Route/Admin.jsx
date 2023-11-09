@@ -7,7 +7,7 @@ const Admin = () => {
   return (
     <div>
       <Header></Header>
-      {/* <Dashboard></Dashboard> */}
+
       <div>
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -29,7 +29,7 @@ const Admin = () => {
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {/* Sidebar content here */}
               <li>
-                <Link to="/adminLayout/adduser">Add Student</Link>
+                <Link to="/adminLayout/addstudent">Add Student</Link>
                 <Link to="/adminLayout/addcommitte">Add Committe Member</Link>
                 <Link to="/adminLayout/addteacher">Add New Teacher</Link>
               </li>
