@@ -6,11 +6,11 @@ const useUpdateTeacher = () => {
     const [response,setResponse] = useState(null)
 
 
-    const editTeacher = async(data) =>{
+    const editTeacher = async(data,id) =>{
 
         setIsLoading(true)
         try{
-            const updateRes = await fetch(`http://localhost:7071/student/edit`,{
+            const updateRes = await fetch(`http://localhost:7071/teacher/edit/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,9 +18,9 @@ const useUpdateTeacher = () => {
                 body: JSON.stringify(data)
             })
 
-            if(!updateRes.ok){
-                throw new Error(`HTTP error! Status: ${response.status}`)
-            }
+            // if(!updateRes.ok){
+            //     throw new Error(`HTTP error! Status: ${response.status}`)
+            // }
 
             const res = await updateRes.json()
             setResponse(res)

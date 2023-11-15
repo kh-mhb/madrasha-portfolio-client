@@ -7,6 +7,7 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
   const [editStudent , response , isLoading , error] = useUpdateStudent()
   const [fetchStart] = useGetAllStudents()
 
+  
   const [studentData,setStudentData] = useState({
     name:'',
     father_name:'',

@@ -2,31 +2,22 @@ import { useState } from "react";
 import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
 
 const AddTeacher = () => {
-  const [teacherData, setteacherData] = useState([
+  const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher();
+  const [teacherData, setTeacherData] = useState([
     {
       name: "",
-      father_name: "",
-      mother_name: "",
-      date_of_brth: "",
-      village: "",
-      district: "",
-      stnd_class: "",
+      number: "",
       img_link: "",
     },
   ]);
 
   const handleAddField = (e) => {
     e.preventDefault();
-    setteacherData([
+    setTeacherData([
       ...teacherData,
       {
         name: "",
-        father_name: "",
-        mother_name: "",
-        date_of_brth: "",
-        village: "",
-        district: "",
-        stnd_class: "",
+        number: "",
         img_link: "",
       },
     ]);
@@ -35,31 +26,25 @@ const AddTeacher = () => {
   const handleFieldChange = (index, key, newValue) => {
     const updatedFields = [...teacherData];
     updatedFields[index][key] = newValue;
-    setteacherData(updatedFields);
+    setTeacherData(updatedFields);
   };
-  const [insertTeacher, insertStresponse, isLoading, error] =
-    useInsertTeacher();
+
 
   const handleteacherDataSubmit = async (e) => {
     e.preventDefault();
 
     await insertTeacher(teacherData);
-
-    setteacherData([
+    // console.log(teacherData)
+    setTeacherData([
       {
         name: "",
-        father_name: "",
-        mother_name: "",
-        date_of_brth: "",
-        village: "",
-        district: "",
-        stnd_class: "",
+        number: "",
         img_link: "",
       },
     ]);
   };
 
-  // console.log(insertStresponse) //message
+  console.log(insertStresponse) //message
   return (
     <div>
       <h3 className="text-center font-semibold text-2xl">Add Teacher </h3>
@@ -67,7 +52,7 @@ const AddTeacher = () => {
         <form className="bg-white shadow-mx rounded px-8 pt-6 pb-8 mb-4 d-flex flex-wrap">
           {teacherData.map((field, index) => (
             <div key={index}>
-              <p className="my-3 text-orange-600">Student No:{index + 1}</p>
+              <p className="my-3 text-orange-600">Teacher No:{index + 1}</p>
               <input
                 type="text"
                 placeholder="Name"

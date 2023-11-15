@@ -9,7 +9,7 @@ const useInsertTeacher = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:7071/student/insert', {
+      const response = await fetch('http://localhost:7071/teacher/insert', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -17,9 +17,9 @@ const useInsertTeacher = () => {
         body: JSON.stringify(insert_doc),
       })
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-      }
+      // if (!response.ok) {
+      //   throw new Error(`HTTP error! Status: ${response.status}`)
+      // }
 
       const data = await response.json()
       setInsertStresponse(data)

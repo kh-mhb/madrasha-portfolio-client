@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
+
 const useGetAllTeacher = () => {
     const  [data,setData] = useState(null)
     const  [isLoading,setIsLoading] = useState(true)
@@ -9,13 +10,12 @@ const useGetAllTeacher = () => {
 
         const fetchStart = async() =>{
             try{
-                fetch('http://localhost:7071/student/all',{
+                fetch('http://localhost:7071/teacher/all',{
                     method: 'GET'
                 })
                 .then(res => res.json())
-                .then(student => {
-                    // console.log(student.students)
-                    setData(student.students)
+                .then(teacher => {
+                    setData(teacher.teachers)
                 })
             }catch(err){
                 setError(err)

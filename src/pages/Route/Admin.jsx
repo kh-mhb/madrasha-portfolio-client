@@ -36,7 +36,7 @@ const Admin = () => {
                 <Link to="/adminLayout/addcommitte">Add Committe Member</Link>
                 <Link to="/adminLayout/addcommitte">CheckMember</Link>
                 <Link to="/adminLayout/addteacher">Add Teacher</Link>
-                <Link to="/adminLayout/addteacher">Check Teachers</Link>
+                <Link to="/adminLayout/checkteacher">Check Teachers</Link>
               </li>
             </ul>
           </div>
