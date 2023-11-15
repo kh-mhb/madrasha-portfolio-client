@@ -15,12 +15,15 @@ const Banner = () => {
       <Carousel autoPlay="true" interval={1000}>
         <div>
           <img src={img1} />
+          <p className="legend">Hello World</p>
         </div>
         <div>
           <img src={img2} />
+          <p className="legend">Hello World</p>
         </div>
         <div>
           <img src={img3} />
+          <p className="legend">Hello World</p>
         </div>
         <div>
           <img src={img4} />
