@@ -1,26 +1,30 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useDeleteStudent from "../../../hooks/student/useDeleteStudent"
 import useGetAllStudents from "../../../hooks/student/useGetAllStudents"
 
 const CheckStudents = () => {
     let content
-    const [IdStID,setIdStID] = useState()
-    const [data , isLoading1 , error1] = useGetAllStudents()
-    const [deleteStudent , response , isLoading2 , error2] = useDeleteStudent(IdStID)
+    const [IdStID,setIdStID] = useState('')
+    const [fetchStart , data , isLoading1 , error1] = useGetAllStudents()
+    const [deleteStudent , response , isLoading2 , error2] = useDeleteStudent()
     
+    useEffect(() => {
+        if (response) {
+          fetchStart()
+        }
+    }, [response]);
     
     if(isLoading1 || isLoading2){
         return content = <p>Loading</p>
     }
     
 
-    const handleDeleteStudent = async(e) =>{
-        e.preventDefault()
-        const res = await deleteStudent()
+    const handleDeleteStudent = async () =>{
+        const res = await deleteStudent(IdStID)
         console.log(res)
     } 
 
-    console.log(response)
+    
     content = (
         <div className="overflow-x-hidden 	">
             <div className="">
@@ -53,7 +57,7 @@ const CheckStudents = () => {
                             <td className={{fontSize:'10px'}}>{student?.district}</td> 
                             <td className={{fontSize:'10px'}}>{student?.date_of_brth}</td>
                             <td className={{fontSize:'10px'}}><button>Edit</button></td>
-                            <td className={{fontSize:'10px'}}><button>Delete</button></td>
+                            <td className={{fontSize:'10px'}}><button onClick={(e)=>{e.preventDefault();setIdStID(student?._id);handleDeleteStudent()}}>Delete</button></td>
                         </tr>)
                     }
                     

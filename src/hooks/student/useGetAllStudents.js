@@ -5,8 +5,8 @@ const useGetAllStudents = () => {
     const  [data,setData] = useState(null)
     const  [isLoading,setIsLoading] = useState(true)
     const  [error,setError] = useState(null)
-    
-    useEffect(()=>{
+
+
         const fetchStart = async() =>{
             try{
                 fetch('http://localhost:7071/student/all',{
@@ -24,10 +24,12 @@ const useGetAllStudents = () => {
             }
         }
 
-        fetchStart()
-    },[])
+        useEffect(() => {
+            fetchStart();
+        }, []);
 
-    return [data,isLoading,error]
+
+    return [ fetchStart , data , isLoading , error ]
 }
 
 export default useGetAllStudents

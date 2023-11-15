@@ -1,15 +1,16 @@
 import { useState } from "react"
 
-const useDeleteStudent = (id) => {
+const useDeleteStudent = () => {
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
     const [response,setResponse] = useState(null)
-    
-    const deleteStudent = async() =>{
-        console.log(id)
+
+
+    const deleteStudent = async(id) =>{
+
         setIsLoading(true)
         try{
-            const deleteRes = await fetch(`http://localhost:7071/student/${id}`,{
+            const deleteRes = await fetch(`http://localhost:7071/student/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
