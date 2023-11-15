@@ -1,33 +1,9 @@
-import { useEffect } from 'react'
-import useGetAllTeacher from '../../../hooks/teacher/UseGetAllTeacher'
-import useDeleteTeacher from '../../../hooks/teacher/useDeleteTeacher'
-import { useNavigate } from 'react-router'
-import { useState } from 'react'
+import React from 'react'
+
+const CheckCommitte = () => {
+    let content 
 
 
-const CheckTeacher = () => {
-    let content
-    const navigate = useNavigate()
-    const [ fetchStart , data , isLoading , error ] = useGetAllTeacher()
-    const [deleteTeacher , response , isLoading1 , error1] = useDeleteTeacher()
-
-    useEffect(() => {
-        if(response?.deletedCount === 1) {    
-          fetchStart();
-        }
-      }, [response?.deletedCount]);
-
-    const handleDeleteTeacher = (id) =>{
-        deleteTeacher(id)
-        window.location.reload()
-    }
-
-
-    const handleNavigate = (id) =>{
-        navigate(`/adminLayout/editteacher/${id}`)
-    }
-
-    // console.log(data)
     content = (
         <div className="overflow-x-auto">
         <table className="min-w-full table-auto">
@@ -94,4 +70,4 @@ const CheckTeacher = () => {
     return content
 }
 
-export default CheckTeacher
+export default CheckCommitte

@@ -31,55 +31,53 @@ const CheckStudents = () => {
   };
 
   content = (
-    <div className="overflow-x-hidden 	">
-      <div className="">
-        <table className="table">
+    <div className="overflow-x-auto overflow-y-auto">
+      <div className="relative">
+        <table className="min-w-full table-auto">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Img</th>
-              <th>Name</th>
-              <th>Father's name</th>
-              <th>Mother's name</th>
-              <th>DOB</th>
-              <th>Village</th>
-              <th>District</th>
-              <th>Class</th>
-              <th>Action</th>
-              <th>Action</th>
+              <th className="px-4 py-2">No</th>
+              <th className="px-4 py-2">Img</th>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Father's name</th>
+              <th className="px-4 py-2">Mother's name</th>
+              <th className="px-4 py-2">DOB</th>
+              <th className="px-4 py-2">Village</th>
+              <th className="px-4 py-2">District</th>
+              <th className="px-4 py-2">Class</th>
+              <th className="px-4 py-2">Edit</th>
+              <th className="px-4 py-2">Delete</th>
             </tr>
           </thead>
 
           <tbody>
             {data?.map((student, index) => (
               <tr key={student?._id}>
-                <th>{index + 1}</th>
-                <th>
-                  <img src={student?.img_link} />
-                </th>
-                <th className={{ fontSize: "10px" }}>{student?.name}</th>
-                <td className={{ fontSize: "10px" }}>{student?.father_name}</td>
-                <td className={{ fontSize: "10px" }}>{student?.mother_name}</td>
-                <td className={{ fontSize: "10px" }}>{student?.stnd_class}</td>
-                <td className={{ fontSize: "10px" }}>{student?.village}</td>
-                <td className={{ fontSize: "10px" }}>{student?.district}</td>
-                <td className={{ fontSize: "10px" }}>
-                  {student?.date_of_brth}
+                <td className="border px-4 py-2">{index + 1}</td>
+                <td className="border px-4 py-2">
+                  <img src={student?.img_link} className="max-w-full h-auto" />
                 </td>
-                <td className={{ fontSize: "10px" }}>
+                <td className="border px-4 py-2 text-sm">{student?.name}</td>
+                <td className="border px-4 py-2 text-sm">{student?.father_name}</td>
+                <td className="border px-4 py-2 text-sm">{student?.mother_name}</td>
+                <td className="border px-4 py-2 text-sm">{student?.date_of_brth}</td>
+                <td className="border px-4 py-2 text-sm">{student?.village}</td>
+                <td className="border px-4 py-2 text-sm">{student?.district}</td>
+                <td className="border px-4 py-2 text-sm">{student?.stnd_class}</td>
+                <td className="border px-4 py-2 text-sm">
                   <button
-                    className="btn btn-sm"
+                    className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
                     onClick={() => {
-                      setIsEditModalOpen(!isEditModalOpen)
-                      setEditDataId(student?._id)
+                      setIsEditModalOpen(true);
+                      setEditDataId(student?._id);
                     }}
                   >
                     Edit
                   </button>
                 </td>
-                <td className={{ fontSize: "10px" }}>
+                <td className="border px-4 py-2 text-sm">
                   <button
-                    className="btn glass text-red-700"
+                    className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
                     onClick={(e) => {
                       e.preventDefault();
                       handleDeleteStudent(student?._id);
@@ -94,17 +92,17 @@ const CheckStudents = () => {
 
           <tfoot>
             <tr>
-              <th>No</th>
-              <th>Img</th>
-              <th>Name</th>
-              <th>Father's name</th>
-              <th>Mother's name</th>
-              <th>DOB</th>
-              <th>Village</th>
-              <th>District</th>
-              <th>Class</th>
-              <th>Action</th>
-              <th>Action</th>
+              <th className="px-4 py-2">No</th>
+              <th className="px-4 py-2">Img</th>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Father's name</th>
+              <th className="px-4 py-2">Mother's name</th>
+              <th className="px-4 py-2">DOB</th>
+              <th className="px-4 py-2">Village</th>
+              <th className="px-4 py-2">District</th>
+              <th className="px-4 py-2">Class</th>
+              <th className="px-4 py-2">Edit</th>
+              <th className="px-4 py-2">Delete</th>
             </tr>
           </tfoot>
         </table>
