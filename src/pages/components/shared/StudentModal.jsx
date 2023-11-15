@@ -69,7 +69,7 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen }) => {
                 type="text"
                 id="studentClass"
                 name="studentClass"
-                className="mt-1 p-2 border border-gray-300 rounded-md w-full p-2"
+                className="mt-1 border border-gray-300 rounded-md w-full p-2"
               />
             </div>
 
