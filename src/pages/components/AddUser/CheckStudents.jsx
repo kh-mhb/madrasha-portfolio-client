@@ -1,99 +1,117 @@
-import { useEffect, useState } from "react"
-import useDeleteStudent from "../../../hooks/student/useDeleteStudent"
-import useGetAllStudents from "../../../hooks/student/useGetAllStudents"
-import Loader from "../shared/Loader"
+import { useEffect, useState } from "react";
+import useDeleteStudent from "../../../hooks/student/useDeleteStudent";
+import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
+import Loader from "../shared/Loader";
+import StudentModal from "../shared/StudentModal";
 
 const CheckStudents = () => {
-    let content
-    const [fetchStart , data , isLoading1 , error1] = useGetAllStudents()
-    const [deleteStudent , response , isLoading2 , error2] = useDeleteStudent()
-    
-    useEffect(() => {
-        if (response){
-            console.log(response)
-            fetchStart()
-        }
-    }, [response]);
-    
-    if(isLoading1 || isLoading2){
-        return content = <Loader></Loader>
+  let content;
+  const [fetchStart, data, isLoading1, error1] = useGetAllStudents();
+  const [deleteStudent, response, isLoading2, error2] = useDeleteStudent();
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (response) {
+      console.log(response);
+
+      fetchStart();
     }
+  }, [response]);
 
+  if (isLoading1 || isLoading2) {
+    return (content = <Loader></Loader>);
+  }
 
-    const handleDeleteStudent = async (id) =>{
-        const res = await deleteStudent(id)
-    } 
+  const handleDeleteStudent = async (id) => {
+    const res = await deleteStudent(id);
+  };
 
+  content = (
+    <div className="overflow-x-hidden 	">
+      <div className="">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Img</th>
+              <th>Name</th>
+              <th>Father's name</th>
+              <th>Mother's name</th>
+              <th>Class</th>
+              <th>Village</th>
+              <th>District</th>
+              <th>DOB</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+          </thead>
 
-    content = (
-        <div className="overflow-x-hidden 	">
-            <div className="">
-                <table className="table table">
-                    <thead>
-                        <tr>
-                            <th>No</th> 
-                            <th>Img</th> 
-                            <th>Name</th> 
-                            <th>Father's name</th> 
-                            <th>Mother's name</th> 
-                            <th>Class</th> 
-                            <th>Village</th> 
-                            <th>District</th>
-                            <th>DOB</th>
-                            <th>Action</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead> 
+          <tbody>
+            {data?.map((student, index) => (
+              <tr key={student?._id}>
+                <th>{index + 1}</th>
+                <th>
+                  <img src={student?.img_link} />
+                </th>
+                <th className={{ fontSize: "10px" }}>{student?.name}</th>
+                <td className={{ fontSize: "10px" }}>{student?.father_name}</td>
+                <td className={{ fontSize: "10px" }}>{student?.mother_name}</td>
+                <td className={{ fontSize: "10px" }}>{student?.stnd_class}</td>
+                <td className={{ fontSize: "10px" }}>{student?.village}</td>
+                <td className={{ fontSize: "10px" }}>{student?.district}</td>
+                <td className={{ fontSize: "10px" }}>
+                  {student?.date_of_brth}
+                </td>
+                <td className={{ fontSize: "10px" }}>
+                  <button
+                    className="btn btn-sm"
+                    onClick={() => {
+                      setIsEditModalOpen(!isEditModalOpen);
+                    }}
+                  >
+                    Edit
+                  </button>
+                </td>
+                <td className={{ fontSize: "10px" }}>
+                  <button
+                    className="btn glass text-red-700"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleDeleteStudent(student?._id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
 
-                    <tbody>
-                    
-                    {data?.map((student,index) => 
-                        <tr key={student?._id}>
-                            <th>{index+1}</th> 
-                            <th><img src={student?.img_link} /></th> 
-                            <th className={{fontSize:'10px'}}>{student?.name}</th> 
-                            <td className={{fontSize:'10px'}}>{student?.father_name}</td> 
-                            <td className={{fontSize:'10px'}}>{student?.mother_name}</td> 
-                            <td className={{fontSize:'10px'}}>{student?.stnd_class}</td> 
-                            <td className={{fontSize:'10px'}}>{student?.village}</td> 
-                            <td className={{fontSize:'10px'}}>{student?.district}</td> 
-                            <td className={{fontSize:'10px'}}>{student?.date_of_brth}</td>
-                            <td className={{fontSize:'10px'}}><button>Edit</button></td>
-                            <td className={{fontSize:'10px'}}><button 
-                                            onClick={(e)=>{
-                                                e.preventDefault()
-                                                handleDeleteStudent(student?._id)
-                                            }}>Delete</button></td>
-                        </tr>)
+          <tfoot>
+            <tr>
+              <th>No</th>
+              <th>Img</th>
+              <th>Name</th>
+              <th>Father's name</th>
+              <th>Mother's name</th>
+              <th>Class</th>
+              <th>Village</th>
+              <th>District</th>
+              <th>DOB</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <StudentModal
+        isEditModalOpen={isEditModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+      />
+    </div>
+  );
 
-                    }
-                    
-                    </tbody>
+  return content;
+};
 
-                    <tfoot>
-                        <tr>
-                            <th>No</th> 
-                            <th>Img</th> 
-                            <th>Name</th> 
-                            <th>Father's name</th> 
-                            <th>Mother's name</th> 
-                            <th>Class</th> 
-                            <th>Village</th> 
-                            <th>District</th>
-                            <th>DOB</th>
-                            <th>Action</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            
-        </div>
-    )
-    
-
-
-    return content
-}
-
-export default CheckStudents
+export default CheckStudents;
