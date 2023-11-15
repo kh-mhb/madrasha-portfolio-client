@@ -1,11 +1,11 @@
 import React from "react";
-import { spiral } from "ldrs";
-spiral.register();
+
+import { ThreeBody } from "@uiball/loaders";
 
 const Loader = () => {
   return (
     <div>
-      <l-spiral size="40" speed="0.9" color="black"></l-spiral>
+      <ThreeBody size={55} color="#231F20" />
     </div>
   );
 };
