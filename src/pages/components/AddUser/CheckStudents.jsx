@@ -5,34 +5,34 @@ import Loader from "../shared/Loader"
 
 const CheckStudents = () => {
     let content
-    const [IdStID,setIdStID] = useState('')
     const [fetchStart , data , isLoading1 , error1] = useGetAllStudents()
     const [deleteStudent , response , isLoading2 , error2] = useDeleteStudent()
     
     useEffect(() => {
-        if (response) {
-          fetchStart()
+        if (response){
+            console.log(response)
+            fetchStart()
         }
     }, [response]);
     
     if(isLoading1 || isLoading2){
-        return content = <Loader />
+        return content = <Loader></Loader>
     }
-    
 
-    const handleDeleteStudent = async () =>{
-        const res = await deleteStudent(IdStID)
-        console.log(res)
+
+    const handleDeleteStudent = async (id) =>{
+        const res = await deleteStudent(id)
     } 
 
-    
+
     content = (
         <div className="overflow-x-hidden 	">
             <div className="">
                 <table className="table table">
                     <thead>
                         <tr>
-                            <th>img</th> 
+                            <th>No</th> 
+                            <th>Img</th> 
                             <th>Name</th> 
                             <th>Father's name</th> 
                             <th>Mother's name</th> 
@@ -47,8 +47,9 @@ const CheckStudents = () => {
 
                     <tbody>
                     
-                    {data?.map(student => 
+                    {data?.map((student,index) => 
                         <tr key={student?._id}>
+                            <th>{index+1}</th> 
                             <th><img src={student?.img_link} /></th> 
                             <th className={{fontSize:'10px'}}>{student?.name}</th> 
                             <td className={{fontSize:'10px'}}>{student?.father_name}</td> 
@@ -58,15 +59,21 @@ const CheckStudents = () => {
                             <td className={{fontSize:'10px'}}>{student?.district}</td> 
                             <td className={{fontSize:'10px'}}>{student?.date_of_brth}</td>
                             <td className={{fontSize:'10px'}}><button>Edit</button></td>
-                            <td className={{fontSize:'10px'}}><button onClick={(e)=>{e.preventDefault();setIdStID(student?._id);handleDeleteStudent()}}>Delete</button></td>
+                            <td className={{fontSize:'10px'}}><button 
+                                            onClick={(e)=>{
+                                                e.preventDefault()
+                                                handleDeleteStudent(student?._id)
+                                            }}>Delete</button></td>
                         </tr>)
+
                     }
                     
                     </tbody>
 
                     <tfoot>
                         <tr>
-                            <th>img</th> 
+                            <th>No</th> 
+                            <th>Img</th> 
                             <th>Name</th> 
                             <th>Father's name</th> 
                             <th>Mother's name</th> 

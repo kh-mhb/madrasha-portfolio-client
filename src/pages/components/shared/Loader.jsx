@@ -1,11 +1,9 @@
 import React from "react";
 
-import { ThreeBody } from "@uiball/loaders";
-
 const Loader = () => {
   return (
-    <div>
-      <ThreeBody size={55} color="#231F20" />
+    <div className="flex justify-center items-center h-full w-full">
+      <span className="loading loading-bars loading-lg"></span>
     </div>
   );
 };
