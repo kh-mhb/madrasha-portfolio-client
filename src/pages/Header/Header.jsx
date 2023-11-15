@@ -1,7 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation()
+  const isAdminLayout = location.pathname.includes('/adminLayout')
+
+
+
   return (
     <div>
       <header className="text-gray-600 body-font">
@@ -39,7 +44,7 @@ const Header = () => {
               Sign Up
             </Link>
           </nav>
-          <Link
+          {!isAdminLayout && <Link
             to="adminLayout"
             className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
           >
@@ -55,7 +60,7 @@ const Header = () => {
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </Link>
+          </Link>}
         </div>
       </header>
     </div>

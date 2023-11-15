@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const Admin = () => {
+  
+
   return (
     <div>
       <Header></Header>
 
-      <div>
+      <div className="py-5">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn btn-primary drawer-button"
+              className="btn btn-primary drawer-button mt-7 ml-9"
             >
               Open Dashboard
             </label>
@@ -30,11 +32,11 @@ const Admin = () => {
               {/* Sidebar content here */}
               <li>
                 <Link to="/adminLayout/addstudent">Add Student</Link>
+                <Link to="/adminLayout/checkstudent">Check Student</Link>
                 <Link to="/adminLayout/addcommitte">Add Committe Member</Link>
-                <Link to="/adminLayout/addteacher">Add New Teacher</Link>
-              </li>
-              <li>
-                <a>Sidebar Item 2</a>
+                <Link to="/adminLayout/addcommitte">CheckMember</Link>
+                <Link to="/adminLayout/addteacher">Add Teacher</Link>
+                <Link to="/adminLayout/addteacher">Check Teachers</Link>
               </li>
             </ul>
           </div>

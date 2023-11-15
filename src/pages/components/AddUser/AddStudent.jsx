@@ -1,119 +1,133 @@
-import React from "react";
+import { useState } from "react";
+import useInsertStudent from "../../../hooks/student/useInsertStudent";
+
 
 const AddStudent = () => {
+
+  const [studentData,setStudentData] = useState([{
+    name:'',
+    father_name:'',
+    mother_name:'',
+    date_of_brth:'',
+    village:'',
+    district:'',
+    stnd_class:'',
+    img_link:'',
+  },])
+
+  const handleAddField = (e) => {
+    e.preventDefault()
+    setStudentData([...studentData, {
+      name:'',
+      father_name:'',
+      mother_name:'',
+      date_of_brth:'',
+      village:'',
+      district:'',
+      stnd_class:'',
+      img_link:'',
+    }]);
+  }
+
+  const handleFieldChange = (index, key, newValue) => {
+    const updatedFields = [...studentData]
+    updatedFields[index][key] = newValue
+    setStudentData(updatedFields);
+  }
+  const [insertStudent, insertStresponse, isLoading, error] = useInsertStudent()
+
+
+
+  const handleStudentDataSubmit = async(e) =>{
+    e.preventDefault()
+    
+    await insertStudent(studentData)
+
+    setStudentData([{
+      name:'',
+      father_name:'',
+      mother_name:'',
+      date_of_brth:'',
+      village:'',
+      district:'',
+      stnd_class:'',
+      img_link:'',
+    },])
+  }
+
+  // console.log(insertStresponse) //message
   return (
     <div>
       <h3 className="text-center font-semibold text-2xl">Add Student</h3>
-      <div className="w-full max-w-md mx-auto">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="name"
-              name="name"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="fatherName"
-            >
-              Father Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="fatherName"
-              name="fatherName"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="motherName"
-            >
-              Mother Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="motherName"
-              name="motherName"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="birthDate"
-            >
-              Birth Date
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="birthDate"
-              name="birthDate"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="village"
-            >
-              Village
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="village"
-              name="village"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="district"
-            >
-              District
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="district"
-              name="district"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="studentClass"
-            >
-              Class
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="studentClass"
-              name="studentClass"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="image"
-            >
-              Image
-            </label>
-            <input type="file" id="image" name="image" />
-            <button className="btn btn-primary">Submit</button>
-          </div>
+      <div className="w-full mx-auto">
+        <form className="bg-white shadow-mx rounded px-8 pt-6 pb-8 mb-4 d-flex flex-wrap">
+          
+        {studentData.map((field, index) => (
+        
+          <div key={index}>
+            <p className="my-3 text-orange-600">Student No:{index+1}</p>
+              <input
+                type="text"
+                placeholder="Name"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 ps-1 border-b-2 mr-3"
+                value={field.name}
+                onChange={(e) => handleFieldChange(index, 'name', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="father's name"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.father_name}
+                onChange={(e) => handleFieldChange(index, 'father_name', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="mother's name"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.mother_name}
+                onChange={(e) => handleFieldChange(index, 'mother_name', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="date of birth"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.date_of_brth}
+                onChange={(e) => handleFieldChange(index, 'date_of_brth', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="village"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.village}
+                onChange={(e) => handleFieldChange(index, 'village', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="district"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.district}
+                onChange={(e) => handleFieldChange(index, 'district', e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="class"
+                className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
+                value={field.stnd_class}
+                onChange={(e) => handleFieldChange(index, 'stnd_class', e.target.value)}
+              />
+              <input
+                type="file"
+                placeholder="img_link"
+                className="text-gray-700 text-sm font-bold mb-2 mr-3"
+                onChange={(e) => handleFieldChange(index, 'img_link', e.target.value)}
+              />
+            </div>
+        
+        ))}
+
+
+            <button onClick={handleAddField} className="btn btn-primary mx-3 my-4">Add Field</button>
+            <button onClick={handleStudentDataSubmit} className="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
@@ -121,3 +135,114 @@ const AddStudent = () => {
 };
 
 export default AddStudent;
+
+
+{/* <div key={index}>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="name"
+              >
+                Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="name"
+                name="name"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="fatherName"
+              >
+                Father Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="fatherName"
+                name="fatherName"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="motherName"
+              >
+                Mother Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="motherName"
+                name="motherName"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="birthDate"
+              >
+                Birth Date
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="birthDate"
+                name="birthDate"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="village"
+              >
+                Village
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="village"
+                name="village"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="district"
+              >
+                District
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="district"
+                name="district"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="studentClass"
+              >
+                Class
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="studentClass"
+                name="studentClass"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="image"
+              >
+                Image
+              </label>
+              <input type="file" id="image" name="image" />
+            </div>
+          </div> */}
