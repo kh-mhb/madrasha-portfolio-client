@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import useDeleteStudent from "../../../hooks/student/useDeleteStudent"
 import useGetAllStudents from "../../../hooks/student/useGetAllStudents"
+import Loader from "../shared/Loader"
 
 const CheckStudents = () => {
     let content
@@ -15,7 +16,7 @@ const CheckStudents = () => {
     }, [response]);
     
     if(isLoading1 || isLoading2){
-        return content = <p>Loading</p>
+        return content = <Loader />
     }
     
 
