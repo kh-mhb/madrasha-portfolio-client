@@ -105,6 +105,7 @@ const CheckStudents = () => {
         </table>
       </div>
       <StudentModal
+        className="absolute"
         isEditModalOpen={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
       />
