@@ -1,5 +1,6 @@
-// import {spiral} from 'ldrs' 
-// spiral.register()
+import React from "react";
+import { spiral } from "ldrs";
+spiral.register();
 
 const Loader = () => {
   return (
