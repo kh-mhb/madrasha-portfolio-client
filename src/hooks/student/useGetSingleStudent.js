@@ -8,7 +8,7 @@ const useGetSingleStudent = () => {
     const  [error,setError] = useState(null)
 
 
-        const fetchStart = async() =>{
+        const fetchStart = async(id) =>{
             try{
                 fetch(`http://localhost:7071/student/studentby${id}`,{
                     method: 'GET'

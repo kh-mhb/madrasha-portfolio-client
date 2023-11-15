@@ -9,6 +9,7 @@ const CheckStudents = () => {
   const [fetchStart, data, isLoading1, error1] = useGetAllStudents();
   const [deleteStudent, response, isLoading2, error2] = useDeleteStudent();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editDataId, setEditDataId] = useState('')
 
   useEffect(() => {
     if (response) {
@@ -18,9 +19,12 @@ const CheckStudents = () => {
     }
   }, [response]);
 
+  
   if (isLoading1 || isLoading2) {
     return (content = <Loader></Loader>);
   }
+
+
 
   const handleDeleteStudent = async (id) => {
     const res = await deleteStudent(id);
@@ -37,10 +41,10 @@ const CheckStudents = () => {
               <th>Name</th>
               <th>Father's name</th>
               <th>Mother's name</th>
-              <th>Class</th>
+              <th>DOB</th>
               <th>Village</th>
               <th>District</th>
-              <th>DOB</th>
+              <th>Class</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
@@ -66,7 +70,8 @@ const CheckStudents = () => {
                   <button
                     className="btn btn-sm"
                     onClick={() => {
-                      setIsEditModalOpen(!isEditModalOpen);
+                      setIsEditModalOpen(!isEditModalOpen)
+                      setEditDataId(student?._id)
                     }}
                   >
                     Edit
@@ -94,10 +99,10 @@ const CheckStudents = () => {
               <th>Name</th>
               <th>Father's name</th>
               <th>Mother's name</th>
-              <th>Class</th>
+              <th>DOB</th>
               <th>Village</th>
               <th>District</th>
-              <th>DOB</th>
+              <th>Class</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
@@ -108,6 +113,7 @@ const CheckStudents = () => {
         className="absolute"
         isEditModalOpen={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
+        editDataId={editDataId}
       />
     </div>
   );
