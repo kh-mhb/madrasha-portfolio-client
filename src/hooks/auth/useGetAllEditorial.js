@@ -2,18 +2,19 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 
-const useGetAllMember = () => {
-    const [members,setMembers]  = useState(null)
+const useGetAllEditorial = () => {
+    const [editorials,setEditorials]  = useState(null)
     const [isLoading,setIsLoading]  = useState(false)
     const [error,setError]  = useState(null)
 
-    const getAllMembers = async() =>{
+    const getAllEditorials = async() =>{
         setIsLoading(true)
         try{
             const response = await fetch('http://localhost:7071/committe/all')
             const res = await response.json()
 
-            setMembers(res.committe)
+            console.log(res)
+            setEditorials(res)
         }catch(err){
             setError(err)
         }finally{
@@ -22,11 +23,11 @@ const useGetAllMember = () => {
     }
 
     useEffect(()=>{
-        getAllMembers()
+        getAllEditorials()
     },[])
     
 
-    return [ getAllMembers , members , isLoading , error]
+    return [ getAllEditorials , editorials , isLoading , error]
 }
 
-export default useGetAllMember
+export default useGetAllEditorial

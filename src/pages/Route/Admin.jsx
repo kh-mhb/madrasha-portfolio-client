@@ -17,8 +17,7 @@ const Admin = () => {
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn btn-primary drawer-button mt-7 ml-9"
-            >
+              className="btn btn-primary drawer-button mt-7 ml-1">
               Open Dashboard
             </label>
           </div>
@@ -29,7 +28,6 @@ const Admin = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-              {/* Sidebar content here */}
               <li>
                 <Link to="/adminLayout/addstudent">Add Student</Link>
                 <Link to="/adminLayout/checkstudent">Check Student</Link>
