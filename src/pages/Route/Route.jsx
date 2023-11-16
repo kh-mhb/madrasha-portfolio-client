@@ -17,6 +17,7 @@ import CheckStudents from "../components/AddUser/CheckStudents";
 import CheckTeacher from "../components/AddUser/CheckTeacher";
 import EditTeacher from "../components/AddUser/EditTeacher";
 import CheckCommitte from "../components/AddUser/CheckCommitte";
+import EditCommitteMember from "../components/AddUser/EditCommitteMember";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: "checkcommitte",
         element: <CheckCommitte />,
+      },
+      {
+        path: "editcommitte/:id",
+        element: <EditCommitteMember />,
       },
       {
         path: "addteacher",

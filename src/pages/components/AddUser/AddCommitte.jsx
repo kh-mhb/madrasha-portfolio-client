@@ -26,12 +26,18 @@ const AddCommitte = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
+    e.preventDefault()
     await insertMember(webChecker)
+    setWebChecker({
+      name: "",
+      email: "",
+      role: "",
+      number: "",
+      occupation: "",
+    })
   }
 
-  console.log(insertResponse,error)
+  // console.log(insertResponse,error)
 
 
 

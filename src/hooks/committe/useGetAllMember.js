@@ -10,9 +10,9 @@ const useGetAllMember = () => {
     const getAllMembers = async() =>{
         setIsLoading(true)
         try{
-            const response = await fetch('')
+            const response = await fetch('http://localhost:7071/committe/all')
             const res = await response.json()
-            console.log(res)
+            // console.log(res)
 
             setMembers(res.committe)
         }catch(err){
