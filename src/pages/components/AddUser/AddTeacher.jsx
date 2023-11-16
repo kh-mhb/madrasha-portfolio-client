@@ -67,7 +67,7 @@ const AddTeacher = () => {
         <form className="bg-white shadow-mx rounded px-8 pt-6 pb-8 mb-4 d-flex flex-wrap">
           {teacherData.map((field, index) => (
             <div key={index}>
-              <p className="my-3 text-orange-600">Student No:{index + 1}</p>
+              <p className="my-3 text-orange-600">Teacher No:{index + 1}</p>
               <input
                 type="text"
                 placeholder="Name"
