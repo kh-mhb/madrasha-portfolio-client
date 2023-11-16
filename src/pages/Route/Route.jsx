@@ -18,6 +18,8 @@ import CheckTeacher from "../components/AddUser/CheckTeacher";
 import EditTeacher from "../components/AddUser/EditTeacher";
 import CheckCommitte from "../components/AddUser/CheckCommitte";
 import EditCommitteMember from "../components/AddUser/EditCommitteMember";
+import AddWebManagement from "../components/AddUser/AddWebManagement";
+import WebManagement from "../components/AddUser/WebManagement";
 
 export const router = createBrowserRouter([
   {
@@ -93,11 +95,23 @@ export const router = createBrowserRouter([
       {
         path: "checkteacher",
         element: <CheckTeacher/>,
-      },
+      },//
       {
         path: "editteacher/:id",
         element: <EditTeacher/>,
       },
+      {
+        path: "addeditorials",
+        element: <AddWebManagement />,
+      },
+      {
+        path: "checkeditorials",
+        element: <WebManagement />,
+      },
+      // {
+      //   path: "editteacher/:id",
+      //   element: <EditTeacher/>,
+      // },
     ],
   },
 ]);

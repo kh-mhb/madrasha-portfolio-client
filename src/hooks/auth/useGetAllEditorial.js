@@ -10,11 +10,10 @@ const useGetAllEditorial = () => {
     const getAllEditorials = async() =>{
         setIsLoading(true)
         try{
-            const response = await fetch('http://localhost:7071/committe/all')
+            const response = await fetch('http://localhost:7071/auth/all')
             const res = await response.json()
 
-            console.log(res)
-            setEditorials(res)
+            setEditorials(res.editorial)
         }catch(err){
             setError(err)
         }finally{

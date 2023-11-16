@@ -12,10 +12,10 @@ const CheckTeacher = () => {
     const [deleteTeacher , response , isLoading1 , error1] = useDeleteTeacher()
 
     useEffect(() => {
-        if(response?.deletedCount === 1) {    
-          fetchStart();
-        }
-      }, [response?.deletedCount]);
+      if(response?.deletedCount === 1) {    
+        fetchStart();
+      }
+    }, [response?.deletedCount]);
 
     const handleDeleteTeacher = (id) =>{
         deleteTeacher(id)

@@ -27,7 +27,7 @@ const AddTeacher = () => {
     const updatedFields = [...teacherData];
     updatedFields[index][key] = newValue;
     setTeacherData(updatedFields);
-  };
+  }
 
 
   const handleteacherDataSubmit = async (e) => {
