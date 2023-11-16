@@ -2,31 +2,22 @@ import { useState } from "react";
 import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
 
 const AddTeacher = () => {
-  const [teacherData, setteacherData] = useState([
+  const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher();
+  const [teacherData, setTeacherData] = useState([
     {
       name: "",
-      father_name: "",
-      mother_name: "",
-      date_of_brth: "",
-      village: "",
-      district: "",
-      stnd_class: "",
+      number: "",
       img_link: "",
     },
   ]);
 
   const handleAddField = (e) => {
     e.preventDefault();
-    setteacherData([
+    setTeacherData([
       ...teacherData,
       {
         name: "",
-        father_name: "",
-        mother_name: "",
-        date_of_brth: "",
-        village: "",
-        district: "",
-        stnd_class: "",
+        number: "",
         img_link: "",
       },
     ]);
@@ -35,31 +26,25 @@ const AddTeacher = () => {
   const handleFieldChange = (index, key, newValue) => {
     const updatedFields = [...teacherData];
     updatedFields[index][key] = newValue;
-    setteacherData(updatedFields);
-  };
-  const [insertTeacher, insertStresponse, isLoading, error] =
-    useInsertTeacher();
+    setTeacherData(updatedFields);
+  }
+
 
   const handleteacherDataSubmit = async (e) => {
     e.preventDefault();
 
     await insertTeacher(teacherData);
-
-    setteacherData([
+    // console.log(teacherData)
+    setTeacherData([
       {
         name: "",
-        father_name: "",
-        mother_name: "",
-        date_of_brth: "",
-        village: "",
-        district: "",
-        stnd_class: "",
+        number: "",
         img_link: "",
       },
     ]);
   };
 
-  // console.log(insertStresponse) //message
+  console.log(insertStresponse) //message
   return (
     <div>
       <h3 className="text-center font-semibold text-2xl">Add Teacher </h3>

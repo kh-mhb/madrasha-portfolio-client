@@ -32,7 +32,7 @@ const AddStudent = () => {
   const handleFieldChange = (index, key, newValue) => {
     const updatedFields = [...studentData]
     updatedFields[index][key] = newValue
-    setStudentData(updatedFields);
+    setStudentData(updatedFields)
   }
   const [insertStudent, insertStresponse, isLoading, error] = useInsertStudent()
 

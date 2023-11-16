@@ -10,18 +10,20 @@ const useDeleteTeacher = () => {
 
         setIsLoading(true)
         try{
-            const deleteRes = await fetch(`http://localhost:7071/student/delete/${id}`,{
+            const deleteRes = await fetch(`http://localhost:7071/teacher/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
+            console.log(deleteRes)
 
-            if(!deleteRes.ok){
-                throw new Error(`HTTP error! Status: ${response.status}`)
-            }
+            // if(!deleteRes.ok){
+            //     throw new Error(`HTTP error! Status: ${deleteRes.status}`)
+            // }
 
             const res = await deleteRes.json()
+            console.log(res)
             setResponse(res)
 
         }catch(err){

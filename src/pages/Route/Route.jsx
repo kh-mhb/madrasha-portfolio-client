@@ -14,6 +14,12 @@ import AddStudent from "../components/AddUser/AddStudent";
 import AddTeacher from "../components/AddUser/AddTeacher";
 import AddCommitte from "../components/AddUser/AddCommitte";
 import CheckStudents from "../components/AddUser/CheckStudents";
+import CheckTeacher from "../components/AddUser/CheckTeacher";
+import EditTeacher from "../components/AddUser/EditTeacher";
+import CheckCommitte from "../components/AddUser/CheckCommitte";
+import EditCommitteMember from "../components/AddUser/EditCommitteMember";
+import AddWebManagement from "../components/AddUser/AddWebManagement";
+import WebManagement from "../components/AddUser/WebManagement";
 
 export const router = createBrowserRouter([
   {
@@ -75,9 +81,37 @@ export const router = createBrowserRouter([
         element: <AddCommitte></AddCommitte>,
       },
       {
+        path: "checkcommitte",
+        element: <CheckCommitte />,
+      },
+      {
+        path: "editcommitte/:id",
+        element: <EditCommitteMember />,
+      },
+      {
         path: "addteacher",
         element: <AddTeacher></AddTeacher>,
       },
+      {
+        path: "checkteacher",
+        element: <CheckTeacher/>,
+      },//
+      {
+        path: "editteacher/:id",
+        element: <EditTeacher/>,
+      },
+      {
+        path: "addeditorials",
+        element: <AddWebManagement />,
+      },
+      {
+        path: "checkeditorials",
+        element: <WebManagement />,
+      },
+      // {
+      //   path: "editteacher/:id",
+      //   element: <EditTeacher/>,
+      // },
     ],
   },
 ]);
