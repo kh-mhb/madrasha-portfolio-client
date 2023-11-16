@@ -21,10 +21,12 @@ const WebManagement = () => {
     }
 
     const handleDelete = async (id) =>{
-        console.log(id)
+
         await deleteEditorialsMember(id)
     }
-    console.log(deleteResponse)
+    // console.log(deleteResponse)
+
+
     content = (
         <div className="overflow-x-auto">
             <table className="min-w-full table-auto">

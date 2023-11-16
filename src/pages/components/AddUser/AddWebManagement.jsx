@@ -41,7 +41,7 @@ const AddWebManagement = () => {
         setEditorial({name: "",number: "",email: "",role: "",password: ""})
     }
 
-    console.log(insertResponse,error)
+
 
     content = (
         <div className="w-full mx-auto mt-8">
