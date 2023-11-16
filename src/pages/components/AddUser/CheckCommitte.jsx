@@ -1,8 +1,12 @@
 import React from 'react'
+import useGetAllMember from '../../../hooks/committe/useGetAllMember'
 
 const CheckCommitte = () => {
-    let content 
+    let content
+    const [ getAllMembers , members , isLoading , error] = useGetAllMember()
 
+
+    console.log(members)
 
     content = (
         <div className="overflow-x-auto">
@@ -19,20 +23,19 @@ const CheckCommitte = () => {
           </thead>
   
           <tbody>
-            {data?.map((teacher, index) => (
-              <tr key={teacher?._id}>
+            {members?.map((member, index) => (
+              <tr key={member?._id}>
                 <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">
-                  <img src={teacher?.img_link}  className="max-w-full h-auto" />
-                </td>
-                <td className="border px-4 py-2 text-sm">{teacher?.name}</td>
-                <td className="border px-4 py-2 text-sm">{teacher?.number}</td>
+                <td className="border px-4 py-2 text-sm">{member?.name}</td>
+                <td className="border px-4 py-2 text-sm">{member?.email}</td>
+                <td className="border px-4 py-2 text-sm">{member?.position}</td>
+                <td className="border px-4 py-2 text-sm">{member?.number}</td>
                 <td className="border px-4 py-2 text-sm">
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavigate(teacher?._id);
+                      handleNavigate(member?._id);
                     }}
                   >
                     Edit
@@ -43,7 +46,7 @@ const CheckCommitte = () => {
                     className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
                     onClick={(e) => {
                       e.preventDefault();
-                      handleDeleteTeacher(teacher?._id);
+                      handleDeleteTeacher(member?._id);
                     }}
                   >
                     Delete

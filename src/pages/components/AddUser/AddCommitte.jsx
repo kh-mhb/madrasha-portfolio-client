@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import useInsertCommitteMember from "../../../hooks/committe/useInsertCommitteMember";
+import Loader from "../shared/Loader";
 
 const AddCommitte = () => {
     const [webChecker, setWebChecker] = useState({
@@ -7,29 +9,35 @@ const AddCommitte = () => {
       email: "",
       role: "",
       number: "",
-      password: "",
-    });
+      occupation: "",
+    })
+    const [ insertMember , insertResponse , isLoading , error ] = useInsertCommitteMember()
 
-    
+  if(isLoading){
+    return <Loader />
+  }
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setWebChecker((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add your form submission logic here
-    console.log("Form submitted:", webChecker);
-  };
+    await insertMember(webChecker)
+  }
+
+  console.log(insertResponse,error)
 
 
 
   return (
     <div className="w-full mx-auto mt-8">
-      <p className="my-1 text-green-700">Add member to the controll panel!</p>
+      <p className="my-1 text-green-700">Add member to the committe!</p>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
@@ -69,8 +77,8 @@ const AddCommitte = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           >
             <option value="" disabled>Select Position</option>
-            <option value="developer">Editor</option>
-            <option value="designer">Designer</option>
+            <option value="editor">Editor</option>
+            <option value="admin">Admin</option>
             <option value="manager">Manager</option>
             {/* Add more options as needed */}
           </select>
@@ -80,7 +88,7 @@ const AddCommitte = () => {
             Number
           </label>
           <input
-            type="text"
+            type="number"
             id="number"
             name="number"
             value={webChecker.number}
@@ -90,13 +98,13 @@ const AddCommitte = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-            Password
+          Occupation
           </label>
           <input
-            type="password"
-            id="password"
-            name="password"
-            value={webChecker.password}
+            type="text"
+            id="occupation"
+            name="occupation"
+            value={webChecker.occupation}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
