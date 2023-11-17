@@ -1,7 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
+import Loader from "../shared/Loader";
 
 const Register = () => {
+  const [ checkWebAdmin , isAdminFound , isLoading , error] = useCheckAdmin()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+
+  useEffect(()=>{
+    if(isLoading){
+      return <Loader />
+    }
+
+    if(location?.pathname.includes('/register') || !isLoading){
+      checkWebAdmin()
+    }
+
+    if(isAdminFound === true && location?.pathname.includes('/register')){
+      navigate('/')
+    }
+
+  },[ isAdminFound , isLoading , location])
+
+  console.log( isAdminFound , isLoading , error , location.pathname )
+
   return (
     <div>
       <section className="px-4 pb-24 mx-auto max-w-7xl">

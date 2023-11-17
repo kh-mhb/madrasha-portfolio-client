@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useUserdata from "../../hooks/auth/useUserdata";
+import Loader from "../components/shared/Loader";
 
 const Header = () => {
   const location = useLocation()
@@ -12,11 +13,12 @@ const Header = () => {
     forceCheckLocalStorage()
   },[location.pathname])
 
-
+  if(loading){
+    return <Loader />
+  }
 
   const handleLogOut = (e) => {
     e.preventDefault()
-    
     localStorage.removeItem('access_token')
     setU_email('')  
     setU_role('')
