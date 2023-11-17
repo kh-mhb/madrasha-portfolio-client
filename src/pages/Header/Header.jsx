@@ -2,15 +2,20 @@ import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useUserdata from "../../hooks/auth/useUserdata";
 import Loader from "../components/shared/Loader";
+import useCheckAdmin from "../../hooks/auth/useCheckAdmin";
 
 const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const isAdminLayout = location.pathname.includes('/adminLayout')
   const { forceCheckLocalStorage , loading , u_email , u_role , setU_email , setU_role} = useUserdata()
+  const [ checkWebAdmin , isAdminFound , isLoading] = useCheckAdmin()
 
   useEffect(()=>{
     forceCheckLocalStorage()
+    if(!isLoading || !loading || u_email || u_role){
+      
+    }
   },[location.pathname])
 
   if(loading){
@@ -58,14 +63,12 @@ const Header = () => {
               Donate
             </Link>
             {!u_email ? <Link to="/login">Login</Link>:<button onClick={(e) => handleLogOut(e)}>Logout</button>}
-            <Link className="ps-4" to="/register">
-              Sign Up
-            </Link>
+            {!isAdminFound && <Link className="ps-4" to="/register">Sign Up</Link>}
           </nav>
           {!isAdminLayout && <Link
             to="adminLayout"
             className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-          >
+            >
             Admin
             <svg
               fill="none"
