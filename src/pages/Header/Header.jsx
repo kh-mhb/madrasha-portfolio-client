@@ -11,12 +11,12 @@ const Header = () => {
   const { forceCheckLocalStorage , loading , u_email , u_role , setU_email , setU_role} = useUserdata()
   const [ checkWebAdmin , isAdminFound , isLoading] = useCheckAdmin()
 
-  // useEffect(()=>{
-  //   if(!isLoading || !loading || u_email || u_role){
-  //     forceCheckLocalStorage()
-  //     checkWebAdmin()
-  //   }
-  // },[location.pathname])
+  useEffect(()=>{
+    if(!isLoading || !loading || u_email || u_role){
+      forceCheckLocalStorage()
+      checkWebAdmin()
+    }
+  },[location.pathname])
 
   if(loading){
     return <Loader />
@@ -63,8 +63,7 @@ const Header = () => {
               Donate
             </Link>
             {!u_email ? <Link to="/login">Login</Link>:<button onClick={(e) => handleLogOut(e)}>Logout</button>}
-            <Link className="ps-4" to="/register">Sign Up</Link>
-            {/* {!isAdminFound && <Link className="ps-4" to="/register">Sign Up</Link>} */}
+            {!isAdminFound && <Link className="ps-4" to="/register">Sign Up</Link>}
           </nav>
           {!isAdminLayout && <Link
             to="adminLayout"

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
-import Loader from "../shared/Loader";
-import { useState } from "react";
-import useRegisterEditorialsAdmin from "../../../hooks/auth/useRegisterEditorialsAdmin";
+import React, { useEffect } from "react"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import useCheckAdmin from "../../../hooks/auth/useCheckAdmin"
+import Loader from "../shared/Loader"
+import { useState } from "react"
+import useRegisterEditorialsAdmin from "../../../hooks/auth/useRegisterEditorialsAdmin"
+
 
 const Register = () => {
   const [ checkWebAdmin , isAdminFound , isLoading , error] = useCheckAdmin()
@@ -48,7 +49,7 @@ const Register = () => {
       password: '',
     })
   }
-  console.log(insertRegResponse)
+
 
   if(insertRegResponse?.response){
     const access_token = insertRegResponse?.access_token
