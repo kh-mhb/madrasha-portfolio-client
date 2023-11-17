@@ -8,8 +8,12 @@ import img1 from "../../../assets/banner/img1.jpeg";
 import img2 from "../../../assets/banner/img2.jpeg";
 import img3 from "../../../assets/banner/img3.jpeg";
 import img4 from "../../../assets/banner/img4.jpeg";
+import useUserdata from "../../../hooks/auth/useUserdata";
 
 const Banner = () => {
+  const [ edit , role ] = useUserdata()
+  console.log(edit,role)
+  
   return (
     <div>
       <Carousel autoPlay="true" interval={1000}>
