@@ -33,7 +33,7 @@ const useInsertStudent = () => {
 //   useEffect(() => {
 //   }, [insertStresponse, isLoading, error]);
 
-  return [insertStudent, insertStresponse , isLoading , error];
+  return [insertStudent, insertStresponse , isLoading , error]
 }
 
 export default useInsertStudent;

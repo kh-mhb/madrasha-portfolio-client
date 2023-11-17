@@ -2,15 +2,18 @@ import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
 import Loader from "../shared/Loader";
+import { useState } from "react";
+import useRegisterEditorialsAdmin from "../../../hooks/auth/useRegisterEditorialsAdmin";
 
 const Register = () => {
   const [ checkWebAdmin , isAdminFound , isLoading , error] = useCheckAdmin()
   const location = useLocation()
   const navigate = useNavigate()
-
+  const [regInfo, setReginInfo] = useState({ name: '' , email: '' , password: '' , role : 'admin' , number: 0})
+  const [insertAdmin, insertRegResponse , isLoadingReg , errorReg] = useRegisterEditorialsAdmin()
 
   useEffect(()=>{
-    if(isLoading){
+    if(isLoading || isLoadingReg){
       return <Loader />
     }
 
@@ -24,7 +27,33 @@ const Register = () => {
 
   },[ isAdminFound , isLoading , location])
 
-  console.log( isAdminFound , isLoading , error , location.pathname )
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setReginInfo((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+
+  const handleRegSubmit = async (e) => {
+    e.preventDefault();
+    console.log(regInfo)
+    await insertAdmin(regInfo)
+    setReginInfo({
+      name: '',
+      email: '',
+      number: 0,
+      password: '',
+    })
+  }
+  console.log(insertRegResponse)
+
+  if(insertRegResponse?.response){
+    const access_token = insertRegResponse?.access_token
+    localStorage.setItem('access_token',access_token)
+  }
 
   return (
     <div>
@@ -32,67 +61,83 @@ const Register = () => {
         <header className="flex items-center justify-center py-5 mb-5 "></header>
         <div className="w-full py-6 mx-auto md:w-3/5 lg:w-2/5">
           <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl">
-            Create your Free Account
+            Create your admin account
           </h1>
-          <p className="mb-2 text-sm font-normal text-center text-gray-700 md:text-base">
-            Already have an account?
-            <Link to="/login" className="text-purple-700 hover:text-purple-900">
-              Sign in
-            </Link>
-          </p>
-          <form className="mt-8 space-y-4">
-            <label className="block">
-              <span className="block mb-1 text-xs font-medium text-gray-700">
+          
+          <form className="mt-8 space-y-4"  onSubmit={handleRegSubmit}>
+            
+          <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                 Name
-              </span>
+              </label>
+              
               <input
-                className="form-input"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
-                placeholder="Your full name"
+                placeholder="Name"
+                name="name"
+                value={regInfo.name}
+                onChange={handleChange}
                 required
               />
-            </label>
-            <label className="block">
-              <span className="block mb-1 text-xs font-medium text-gray-700">
-                Your Email
-              </span>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                Email
+              </label>
+              
               <input
-                className="form-input"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="email"
-                placeholder="Ex. james@bond.com"
-                inputmode="email"
+                placeholder="Email"
+                name="email"
+                value={regInfo.email}
+                onChange={handleChange}
                 required
               />
-            </label>
-            <label className="block">
-              <span className="block mb-1 text-xs font-medium text-gray-700">
-                Create a password
-              </span>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                Number
+              </label>
+              
               <input
-                className="form-input"
-                type="password"
-                placeholder="••••••••"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="number"
+                placeholder="Number"
+                name="number"
+                value={regInfo.number}
+                onChange={handleChange}
                 required
               />
-            </label>
-            <input
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                Number
+              </label>
+              
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={regInfo.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <input 
               type="submit"
-              className="w-full btn btn-primary btn-lg"
-              value="Sign Up"
+              className="btn btn-md bg-gray-700 text-white"
             />
+
           </form>
 
-          <p className="my-5 text-xs font-medium text-center text-gray-700">
-            By clicking "Sign Up" you agree to our
-            <a href="#" className="text-purple-700 hover:text-purple-900">
-              Terms of Service
-            </a>
-            and
-            <a href="#" className="text-purple-700 hover:text-purple-900">
-              Privacy Policy
-            </a>
-            .
-          </p>
+          
         </div>
       </section>
     </div>

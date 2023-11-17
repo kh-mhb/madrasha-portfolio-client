@@ -17,11 +17,11 @@ const Login = () => {
   }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setLoginInfo((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
+    }))
   }
 
   
@@ -36,7 +36,7 @@ const Login = () => {
       email: '',
       password: '',
     })
-  };
+  }
 
   if(loginResponse?.access_token){
     navigate(location.state?.from || '/');
