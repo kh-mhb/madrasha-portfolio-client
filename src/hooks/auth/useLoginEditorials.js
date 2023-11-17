@@ -20,7 +20,7 @@ const useLoginEditorials = () => {
             })
 
             const res = await loginRes.json()
-            
+            console.log(res)
             setLoginResponse(res)
 
         }catch(err){

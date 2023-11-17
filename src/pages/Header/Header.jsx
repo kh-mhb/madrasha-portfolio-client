@@ -1,10 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useUserdata from "../../hooks/auth/useUserdata";
 
 const Header = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const isAdminLayout = location.pathname.includes('/adminLayout')
+  const { forceCheckLocalStorage , loading , u_email , u_role , setU_email , setU_role} = useUserdata()
 
+  useEffect(()=>{
+    forceCheckLocalStorage()
+  },[location.pathname])
+
+
+
+  const handleLogOut = (e) => {
+    e.preventDefault()
+    
+    localStorage.removeItem('access_token')
+    setU_email('')  
+    setU_role('')
+  }
   
 
   return (
@@ -39,7 +55,7 @@ const Header = () => {
             <Link to="/donate" className="mr-5 hover:text-gray-900">
               Donate
             </Link>
-            <Link to="/login">Login</Link>
+            {!u_email ? <Link to="/login">Login</Link>:<button onClick={(e) => handleLogOut(e)}>Logout</button>}
             <Link className="ps-4" to="/register">
               Sign Up
             </Link>

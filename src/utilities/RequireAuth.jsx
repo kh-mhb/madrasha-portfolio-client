@@ -5,18 +5,22 @@ import Loader from "../pages/components/shared/Loader"
 
 
 const RequireAuth = ({ children }) => {
-    const {loading ,u_email , u_role} = useUserdata()
+    const {loading ,u_email , u_role , forceCheckLocalStorage} = useUserdata()
     const pathname = useLocation()
 
-    console.log(u_email,u_role,"inside require auth")
+    useEffect(() => {
+      if (!loading && u_email !== null && u_role !== null) {
+        forceCheckLocalStorage();
+      }
+    }, [loading, u_email, u_role, forceCheckLocalStorage])
+    
     return loading ? (
         <Loader /> 
       ) : u_email && u_role ? (
         children
       ) : (
         <Navigate to="/login" state={{ path: pathname }} replace />
-      );
-    //   return children
+      )
 }
 
 export default RequireAuth

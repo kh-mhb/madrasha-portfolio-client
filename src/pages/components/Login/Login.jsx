@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import useLoginEditorials from '../../../hooks/auth/useLoginEditorials';
 import Loader from '../shared/Loader';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const [ loginEditor , loginResponse , error , isLoading ] = useLoginEditorials()
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -19,7 +22,12 @@ const Login = () => {
       ...prevData,
       [name]: value,
     }));
-  };
+  }
+
+  
+  if(loginResponse?.access_token){
+    localStorage.setItem('access_token',loginResponse.access_token)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +39,7 @@ const Login = () => {
   };
 
   if(loginResponse?.access_token){
-    localStorage.setItem('access_token',loginResponse.access_token)
+    navigate(location.state?.from || '/');
   }
 
   return (
@@ -39,6 +47,7 @@ const Login = () => {
       <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl">
             Login your account
       </h1>
+      {localStorage.getItem('access_token') && <p className='text-red-900'>You are already logged in!</p>}
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -74,6 +83,7 @@ const Login = () => {
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            disabled={localStorage.getItem('access_token')}
           >
             Login
           </button>
