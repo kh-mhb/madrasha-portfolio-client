@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Home/Home/Home";
 import Gallery from "../components/Gallery/Gallery";
@@ -20,6 +20,7 @@ import CheckCommitte from "../components/AddUser/CheckCommitte";
 import EditCommitteMember from "../components/AddUser/EditCommitteMember";
 import AddWebManagement from "../components/AddUser/AddWebManagement";
 import WebManagement from "../components/AddUser/WebManagement";
+import RequireAuth from "../../utilities/RequireAuth";
 
 
 export const router = createBrowserRouter([
@@ -67,7 +68,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "adminLayout",
-    element: <Admin></Admin>,
+    element: <RequireAuth>
+                <Admin>
+                  <Outlet />
+                </Admin>
+              </RequireAuth>,
     children: [
       {
         path: "addstudent",
