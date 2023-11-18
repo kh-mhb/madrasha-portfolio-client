@@ -45,7 +45,7 @@ const Header = () => {
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
           <span className="ml-3 text-xl">
-            <img className="h-[70px]" src={title} />
+            <img className="h-[80px] sm:h-[100px]" src={title} />
           </span>
         </Link>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
