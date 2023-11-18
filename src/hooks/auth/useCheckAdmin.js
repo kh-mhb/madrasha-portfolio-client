@@ -14,7 +14,6 @@ const useCheckAdmin = () => {
             const response = await fetch('http://localhost:7071/auth/admin')
             const res = await response.json()
 
-            console.log(res)
             if(res.present === true){
                 setIsAdminFound(true)
                 setAdmin_e(res.admin_e)

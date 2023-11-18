@@ -4,14 +4,24 @@ import useCreateEditorials from '../../../hooks/auth/useCreateEditorials';
 import Loader from '../shared/Loader';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useUserdata from '../../../hooks/auth/useUserdata';
 
 const AddWebManagement = () => {
     let content
     const navigate = useNavigate()
+    const { u_role } = useUserdata()
     let [emptyFieldError,setEmptyFieldError] = useState('')
     const [ insertEditorials , insertResponse , isLoading , error ] = useCreateEditorials()
     const [editorial , setEditorial] = useState({name: "",number: "",email: "",role: "",password: ""});
+
+        if(u_role === 'editor'){
+            navigate('/adminLayout/checkeditorials')
+        }else if(u_role === 'inactive'){
+            navigate('/adminLayout/checkeditorials')
+        }
+
     
+    console.log(u_role)
     useEffect(() => {
         if(insertResponse && insertResponse?.acknowledged) {
             toast.success(`Member added!`, {
@@ -82,7 +92,7 @@ const AddWebManagement = () => {
         <div className="bg-slate-100 p-2">
             <div className="flex justify-between items-center mt-2 mb-2">
                 <p className="my-1 text-blue-800 font-bold">Add member to the editorials body!</p>
-                <button onClick={()=>navigate('/adminLayout/checkeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Check committe</button>
+                <button onClick={()=>navigate('/adminLayout/checkeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Check editorials</button>
             </div>
             <p className="my-1 text-green-700">{emptyFieldError}</p>
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
@@ -156,6 +166,7 @@ const AddWebManagement = () => {
                 </div>
                 <button
                     type="submit"
+                    disabled={u_role === 'editor' || u_role == 'inactive'}
                     className="btn btn-sm bg-blue-600 text-white px-4 rounded-md hover:bg-green-600 focus:outline-none"
                 >
                     Submit

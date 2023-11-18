@@ -11,7 +11,7 @@ const WebManagement = () => {
     let content
     const navigate = useNavigate()
     const { u_email, u_role } = useUserdata()
-    const [ checkWebAdmin , isAdminFound ] = useCheckAdmin()
+    const [ checkWebAdmin , isAdminFound , admin_e ] = useCheckAdmin()
     const [ getAllEditorials , editorials , isLoading , error] = useGetAllEditorial()
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
     
@@ -72,6 +72,7 @@ const WebManagement = () => {
         navigate(`/adminLayout/editmanagement/${id?id:'-'}/${email?email:'-'}`)
     }
 
+
     content = (
         <div className="overflow-x-auto">
             <div className="flex justify-between items-center mt-2">
@@ -102,6 +103,7 @@ const WebManagement = () => {
                         <td className="border px-4 py-2 text-sm">
                             <button
                                 className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
+                                // disabled={editorial?.email !== u_email}
                                 onClick={(e) => {
                                 e.preventDefault();
                                 handleNavigate(editorial?._id,editorial?.email);
