@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import useUpdateStudent from "../../../hooks/student/useUpdateStudent";
 import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
+import toast from "react-hot-toast";
+import Loader from "./Loader";
 
-const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
+const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetchStart }) => {
   const [editStudent , response , isLoading , error] = useUpdateStudent()
-  const [fetchStart] = useGetAllStudents()
-
-  
   const [studentData,setStudentData] = useState({
     name:'',
     father_name:'',
@@ -19,6 +18,53 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
     img_link:'',
   })
 
+  useEffect(() => {
+    if (response && response?.acknowledged) {
+      toast.success('Edit successfull', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'green',
+          color: '#fff',
+        },
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#blue',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+      fetchStart()
+    }else if(response && !response?.acknowledged){
+      toast.error('Failed to edit', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'red',
+          color: '#fff',
+        },
+        className: '',
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: 'red',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+    }
+  }, [response])
+
+  if(isLoading){
+    return <Loader />
+  }
   
   const handleFieldChange = (fieldName, value) => {
     setStudentData(prevData => ({
@@ -49,25 +95,27 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
     });
 
     setIsEditModalOpen(!isEditModalOpen);
-    window.location.reload();
 };
 
-  // console.log(response?.acknowledged)
+  console.log(response)
 
 
 
   return (
-    <div className="mx-auto w-full">
       <div
         className={`modal-box ${
           !isEditModalOpen
             ? "hidden"
-            : "w-full absolute -top-10 right-3/5 left-1/4"
-        }     `}
-      >
-        <h3 className="font-bold text-lg">Edit Student{editDataId}</h3>
+            : "w-1/2 mx-auto fixed top-7 max-w-screen-sm"
+        }`}>
+        <div className="flex justify-between items-center mb-1">
+          <h3 className="font-bold text-lg ">Student id: {editDataId}</h3>
+          <button className="btn btn-sm bg-red-700 text-white" onClick={() => setIsEditModalOpen(!isEditModalOpen)}>
+            X
+          </button>
+        </div>
         <div>
-          <form className="bg-slate-100">
+          <form className="bg-slate-100 p-2">
             <div className="mb-4">
               <label
                 htmlFor="name"
@@ -124,10 +172,10 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
                 Class
               </label>
               <input
-                type="text"
+                type="number"
                 id="studentClass"
                 name="studentClass"
-                onChange={(e) => handleFieldChange('date_of_brth', e.target.value)}
+                onChange={(e) => handleFieldChange('stnd_class', e.target.value)}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full p-2"
               />
             </div>
@@ -175,8 +223,23 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
                 type="date"
                 id="dob"
                 name="dob"
-                onChange={(e) => handleFieldChange('stnd_class', e.target.value)}
+                onChange={(e) => handleFieldChange('date_of_brth', e.target.value)}
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="dob"
+                className="block text-sm font-medium text-gray-700 p-2"
+              >
+                Image
+              </label>
+              <input
+                type="file"
+                placeholder="img_link"
+                className="block text-sm font-medium text-gray-700 p-2 ml-1"
+                onChange={(e) => handleFieldChange('img_link', e.target.value)}
               />
             </div>
 
@@ -191,11 +254,7 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId }) => {
             </div>
           </form>
         </div>
-        <button onClick={() => setIsEditModalOpen(!isEditModalOpen)}>
-          Close
-        </button>
       </div>
-    </div>
   );
 };
 

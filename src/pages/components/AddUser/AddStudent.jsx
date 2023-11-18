@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useInsertStudent from "../../../hooks/student/useInsertStudent";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const AddStudent = () => {
   const navigate = useNavigate()
+  const [insertStudent, insertStresponse, isLoading, error] = useInsertStudent()
+  const [addedstdnt,setAddedstdnt] = useState(0)
   const [studentData,setStudentData] = useState([{
     name:'',
     father_name:'',
@@ -16,8 +19,54 @@ const AddStudent = () => {
     img_link:'',
   },])
 
+  useEffect(() => {
+      if (insertStresponse && insertStresponse?.acknowledged) {
+          toast.success(`Total ${addedstdnt+1} student/students added!`, {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'green',
+            color: '#fff',
+          },
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        })
+    }else if(insertStresponse && !insertStresponse?.acknowledged){
+      toast.error('Failed', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'red',
+          color: '#fff',
+        },
+        className: '',
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+    }
+  }, [insertStresponse])
+
+
+
   const handleAddField = (e) => {
     e.preventDefault()
+    setAddedstdnt(addedstdnt+1)
     setStudentData([...studentData, {
       name:'',
       father_name:'',
@@ -35,7 +84,6 @@ const AddStudent = () => {
     updatedFields[index][key] = newValue
     setStudentData(updatedFields)
   }
-  const [insertStudent, insertStresponse, isLoading, error] = useInsertStudent()
 
 
 
@@ -56,7 +104,8 @@ const AddStudent = () => {
     },])
   }
 
-  // console.log(insertStresponse) //message
+
+
   return (
     <div>
       <h3 className="text-center font-semibold text-2xl">Add Student</h3>
@@ -89,7 +138,7 @@ const AddStudent = () => {
                 onChange={(e) => handleFieldChange(index, 'mother_name', e.target.value)}
               />
               <input
-                type="text"
+                type="date"
                 placeholder="date of birth"
                 className="text-gray-700 text-sm font-bold mb-2 py-2 border-b-2 mr-3"
                 value={field.date_of_brth}
@@ -136,6 +185,6 @@ const AddStudent = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AddStudent;

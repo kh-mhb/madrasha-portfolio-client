@@ -4,6 +4,7 @@ import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
 import Loader from "../shared/Loader";
 import StudentModal from "../shared/StudentModal";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const CheckStudents = () => {
   let content
@@ -14,27 +15,69 @@ const CheckStudents = () => {
   const [editDataId, setEditDataId] = useState('')
 
   useEffect(() => {
-    if (response) {
-      console.log(response);
-
-      fetchStart();
+    if (response && response?.deletedCount === 1) {
+      toast.success('Students data deleted', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'green',
+          color: '#fff',
+        },
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+      fetchStart()
+    }else if(response && !response?.deletedCount){
+      toast.error('Failed', {
+        duration: 4000,
+        position: 'top-center',
+        style: {
+          background: 'red',
+          color: '#fff',
+        },
+        className: '',
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
     }
-  }, [response]);
+  }, [response])
+
 
   
   if (isLoading1 || isLoading2) {
     return (content = <Loader></Loader>);
   }
 
+  console.log(response)
 
 
   const handleDeleteStudent = async (id) => {
     const res = await deleteStudent(id);
-  };
+  }
+
 
   content = (
     <div className="overflow-x-auto overflow-y-auto">
-                <h2 className='text-blue-900 font-bold font-2'>Check all your students</h2>
+      <h2 className='text-blue-900 font-bold font-2'>Check all your students</h2>
+        <div class="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
+        </div>
       <div className="relative">
         <table className="min-w-full table-auto">
           <thead>
@@ -115,10 +158,8 @@ const CheckStudents = () => {
         isEditModalOpen={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         editDataId={editDataId}
+        fetchStart={fetchStart}
       />
-        <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
-        </div>
     </div>
   );
 

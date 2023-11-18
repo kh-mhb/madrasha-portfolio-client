@@ -3,7 +3,7 @@ import useUserdata from "../../hooks/auth/useUserdata";
 
 const Footer = () => {
   const { loading, u_email, u_role, forceCheckLocalStorage } = useUserdata()
-  console.log(u_email)
+
 
   return (
     <div>
@@ -43,7 +43,7 @@ const Footer = () => {
             }
             {u_email &&
               <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-                  Role: <span className='text-blue-700'>{u_email}</span>
+                  Role: <span className='text-blue-700'>{u_role}</span>
               </p>
             }
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

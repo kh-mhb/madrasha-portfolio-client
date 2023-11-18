@@ -17,8 +17,8 @@ const Admin = () => {
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn btn-primary drawer-button mt-7 ml-1">
-              Open Dashboard
+              className="btn bg-blue-600 text-white fixed bottom-12 btn-sm drawer-button mt-7 ml-1">
+              Dashboard
             </label>
           </div>
           <div className="drawer-side">
