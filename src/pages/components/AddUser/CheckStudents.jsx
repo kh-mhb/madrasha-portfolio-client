@@ -3,9 +3,11 @@ import useDeleteStudent from "../../../hooks/student/useDeleteStudent";
 import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
 import Loader from "../shared/Loader";
 import StudentModal from "../shared/StudentModal";
+import { useNavigate } from "react-router-dom";
 
 const CheckStudents = () => {
-  let content;
+  let content
+  const navigate = useNavigate()
   const [fetchStart, data, isLoading1, error1] = useGetAllStudents();
   const [deleteStudent, response, isLoading2, error2] = useDeleteStudent();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -32,6 +34,7 @@ const CheckStudents = () => {
 
   content = (
     <div className="overflow-x-auto overflow-y-auto">
+                <h2 className='text-blue-900 font-bold font-2'>Check all your students</h2>
       <div className="relative">
         <table className="min-w-full table-auto">
           <thead>
@@ -113,6 +116,9 @@ const CheckStudents = () => {
         setIsEditModalOpen={setIsEditModalOpen}
         editDataId={editDataId}
       />
+        <div class="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
+        </div>
     </div>
   );
 

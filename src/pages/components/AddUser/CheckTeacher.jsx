@@ -30,6 +30,7 @@ const CheckTeacher = () => {
     // console.log(data)
     content = (
         <div className="overflow-x-auto">
+          <p className="my-1 text-blue-700 font-bold">Check teacher's panel!</p>
         <table className="min-w-full table-auto">
           <thead>
             <tr>
@@ -88,6 +89,9 @@ const CheckTeacher = () => {
             </tr>
           </tfoot>
         </table>
+        <div class="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/addteacher')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add teacher</button>
+        </div>
       </div>
     )
   

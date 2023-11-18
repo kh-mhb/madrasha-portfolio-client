@@ -1,6 +1,10 @@
-import React from "react";
+import useUserdata from "../../hooks/auth/useUserdata";
+
 
 const Footer = () => {
+  const { loading, u_email, u_role, forceCheckLocalStorage } = useUserdata()
+  console.log(u_email)
+
   return (
     <div>
       <footer className="text-gray-600 body-font">
@@ -20,17 +24,28 @@ const Footer = () => {
             </svg>
             <span className="ml-3 text-xl">Title</span>
           </a>
-          <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-            © 2020 Tailblocks —
-            <a
-              href="https://twitter.com/knyttneve"
-              className="text-gray-600 ml-1"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              @knyttneve
-            </a>
-          </p>
+            <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+              © 2020 Tailblocks —
+              <a
+                href="https://twitter.com/knyttneve"
+                className="text-gray-600 ml-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                @knyttneve
+              </a>
+            </p>
+
+            {u_email &&
+              <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                  Logged in as: <span className='text-blue-700'>{u_email}</span>
+              </p>
+            }
+            {u_email &&
+              <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                  Role: <span className='text-blue-700'>{u_email}</span>
+              </p>
+            }
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a className="text-gray-500">
               <svg

@@ -28,7 +28,7 @@ const EditCommitteMember = () => {
 
     content = (
         <div>
-
+            <p className="my-1 text-blue-700 font-bold">Edit committe member</p>
                 <div className="p-3">
                     <form className="bg-slate-100 my-7">
                         
@@ -98,8 +98,10 @@ const EditCommitteMember = () => {
                             />
                         </div>
                         <button onClick={(e)=>{e.preventDefault();handleSubmit()}} className="btn mx-3 my-2 bg-gray-500 text-white">Update</button>
-                        <button className="btn bg-gray-300 btn-sm my-3 ml-2" onClick={()=>navigate('/adminLayout/checkcommitte')}>back</button>
                     </form>
+                </div>
+                <div class="flex justify-end mt-2">
+                    <button onClick={()=>navigate('/adminLayout/checkcommitte')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check committe</button>
                 </div>
         </div>
     )

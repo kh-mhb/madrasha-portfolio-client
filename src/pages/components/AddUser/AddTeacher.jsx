@@ -1,7 +1,9 @@
 import { useState } from "react";
 import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
+import { useNavigate } from "react-router-dom";
 
 const AddTeacher = () => {
+  const navigate = useNavigate()
   const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher();
   const [teacherData, setTeacherData] = useState([
     {
@@ -94,6 +96,9 @@ const AddTeacher = () => {
           </button>
         </form>
       </div>
+      <div class="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/checkteacher')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check teacher</button>
+        </div>
     </div>
   );
 };

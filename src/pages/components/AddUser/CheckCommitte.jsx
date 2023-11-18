@@ -31,6 +31,7 @@ const CheckCommitte = () => {
 
     content = (
         <div className="overflow-x-auto">
+          <h2 className='text-blue-900 font-bold font-2'>Check all your committe member</h2>
         <table className="min-w-full table-auto">
           <thead>
             <tr>
@@ -90,6 +91,9 @@ const CheckCommitte = () => {
             </tr>
           </tfoot>
         </table>
+        <div class="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/addcommitte')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add Member</button>
+        </div>
       </div>
     )
   
