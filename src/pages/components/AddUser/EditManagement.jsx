@@ -63,6 +63,7 @@ const EditManagement = () => {
     }, [resMessage])
 
     console.log(isAdminFound,u_email, u_role)
+
     
     const handleFieldChange = (fieldName, value) => {
         setMemberData(prevData => ({

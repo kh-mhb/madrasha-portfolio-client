@@ -3,13 +3,21 @@ import useGetAllEditorial from "../../../hooks/auth/useGetAllEditorial";
 import useDeleteEditorials from "../../../hooks/auth/useDeleteEditorials";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useUserdata from "../../../hooks/auth/useUserdata";
+import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
 
 
 const WebManagement = () => {
     let content
     const navigate = useNavigate()
+    const { u_email, u_role } = useUserdata()
+    const [ checkWebAdmin , isAdminFound ] = useCheckAdmin()
     const [ getAllEditorials , editorials , isLoading , error] = useGetAllEditorial()
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
+    
+    // useEffect(() => {},[
+    //     checkWebAdmin()
+    // ],[])
 
     useEffect(() => {
         if(deleteResponse && deleteResponse?.deletedCount) {
@@ -87,9 +95,6 @@ const WebManagement = () => {
                     {editorials?.map((editorial, index) => (
                     <tr key={editorial?._id}>
                         <td className="border px-4 py-2">{index + 1}</td>
-                        {/* <td className="border px-4 py-2">
-                        <img src={editorial?.img_link}  className="max-w-full h-auto" />
-                        </td> */}
                         <td className="border px-4 py-2 text-sm">{editorial?.email}</td>
                         <td className="border px-4 py-2 text-sm">{editorial?.name}</td>
                         <td className="border px-4 py-2 text-sm">{editorial?.number}</td>
@@ -107,7 +112,8 @@ const WebManagement = () => {
                         </td>
                         <td className="border px-4 py-2 text-sm">
                             <button
-                                className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
+                                className={`${u_role !== 'admin'? 'bg-red-100': 'bg-red-500'} text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600`}
+                                disabled={u_role !== 'admin'}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleDelete(editorial?._id);
