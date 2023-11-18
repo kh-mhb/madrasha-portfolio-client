@@ -1,4 +1,5 @@
 import React from "react";
+import vdo from "../../../assets/video.mp4";
 
 const Introduction = () => {
   return (
@@ -20,8 +21,11 @@ const Introduction = () => {
               allow you to quickly find any data you’re looking for.
             </p>
           </div>
-          <div className="w-full h-full py-48 bg-gray-200">
-            <h3 className="text-center">VIdeo will be added here</h3>
+          <div className="w-full h-full ">
+            <video controls className="w-full h-full border ">
+              <source src={vdo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
