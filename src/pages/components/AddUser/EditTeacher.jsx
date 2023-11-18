@@ -12,6 +12,7 @@ const EditTeacher = () => {
     const [teacherData, setTeacherData] = useState({name: "",number: "",img_link: ""})
     const [editTeacher , response , isLoading , error] = useUpdateTeacher()
 
+    
     useEffect(() => {
         if (response && response?.acknowledged) {
             toast.success(`Teacher deleted!`, {
