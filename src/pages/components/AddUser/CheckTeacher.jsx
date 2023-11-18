@@ -3,6 +3,7 @@ import useGetAllTeacher from '../../../hooks/teacher/UseGetAllTeacher'
 import useDeleteTeacher from '../../../hooks/teacher/useDeleteTeacher'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 
 const CheckTeacher = () => {
@@ -11,26 +12,67 @@ const CheckTeacher = () => {
     const [ fetchStart , data , isLoading , error ] = useGetAllTeacher()
     const [deleteTeacher , response , isLoading1 , error1] = useDeleteTeacher()
 
-    useEffect(() => {
-      if(response?.deletedCount === 1) {    
-        fetchStart();
-      }
-    }, [response?.deletedCount]);
 
-    const handleDeleteTeacher = (id) =>{
-        deleteTeacher(id)
-        window.location.reload()
+    useEffect(() => {
+      if (response && response?.deletedCount) {
+          toast.success(`Teacher deleted!`, {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'green',
+            color: '#fff',
+          },
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+      })
+      fetchStart()
+    }else if(response && !response?.deletedCount){
+      toast.error('Failed', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'red',
+          color: '#fff',
+        },
+        className: '',
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+    }
+  }, [response])
+
+    const handleDeleteTeacher = async(id) =>{
+        await deleteTeacher(id)
     }
 
 
-    const handleNavigate = (id) =>{
-        navigate(`/adminLayout/editteacher/${id}`)
+    const handleNavigate = (id,name) =>{
+        navigate(`/adminLayout/editteacher/${id}/${name}`)
     }
 
     // console.log(data)
     content = (
         <div className="overflow-x-auto">
           <p className="my-1 text-blue-700 font-bold">Check teacher's panel!</p>
+          <div class="flex justify-end mt-2">
+            <button onClick={()=>navigate('/adminLayout/addteacher')}  className=" btn btn-sm bg-blue-600 text-white px-4 rounded">Add teacher</button>
+          </div>
         <table className="min-w-full table-auto">
           <thead>
             <tr>
@@ -57,7 +99,7 @@ const CheckTeacher = () => {
                     className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavigate(teacher?._id);
+                      handleNavigate(teacher?._id,teacher?.name);
                     }}
                   >
                     Edit
@@ -89,9 +131,6 @@ const CheckTeacher = () => {
             </tr>
           </tfoot>
         </table>
-        <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/addteacher')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add teacher</button>
-        </div>
       </div>
     )
   

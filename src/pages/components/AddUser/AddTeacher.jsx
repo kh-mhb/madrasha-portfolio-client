@@ -1,17 +1,60 @@
 import { useState } from "react";
 import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const AddTeacher = () => {
   const navigate = useNavigate()
-  const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher();
-  const [teacherData, setTeacherData] = useState([
-    {
-      name: "",
-      number: "",
-      img_link: "",
-    },
-  ]);
+  const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher()
+  const [teacherData, setTeacherData] = useState([{name: "",number: "",img_link: ""}])
+
+
+  useEffect(() => {
+    if (insertStresponse && insertStresponse?.acknowledged) {
+        toast.success(`Teacher deleted!`, {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'green',
+          color: '#fff',
+        },
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+    })
+  }else if(insertStresponse && !insertStresponse?.acknowledged){
+    toast.error('Failed', {
+        duration: 4000,
+        position: 'top-right',
+        style: {
+          background: 'red',
+          color: '#fff',
+        },
+        className: '',
+        icon: '👏',
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+    }
+  }, [insertStresponse])
+
+
+
 
   const handleAddField = (e) => {
     e.preventDefault();
@@ -22,8 +65,8 @@ const AddTeacher = () => {
         number: "",
         img_link: "",
       },
-    ]);
-  };
+    ])
+  }
 
   const handleFieldChange = (index, key, newValue) => {
     const updatedFields = [...teacherData];
@@ -33,20 +76,18 @@ const AddTeacher = () => {
 
 
   const handleteacherDataSubmit = async (e) => {
-    e.preventDefault();
-
-    await insertTeacher(teacherData);
-    // console.log(teacherData)
+    e.preventDefault()
+    await insertTeacher(teacherData)
     setTeacherData([
       {
         name: "",
         number: "",
         img_link: "",
-      },
+      }
     ]);
   };
 
-  console.log(insertStresponse) //message
+
   return (
     <div>
       <h3 className="text-center font-semibold text-2xl">Add Teacher </h3>
@@ -65,7 +106,7 @@ const AddTeacher = () => {
                 }
               />
               <input
-                type="text"
+                type="number"
                 placeholder="Number"
                 className="text-gray-700 text-sm font-bold mb-2 py-2 ps-1 border-b-2 mr-3"
                 value={field.number}

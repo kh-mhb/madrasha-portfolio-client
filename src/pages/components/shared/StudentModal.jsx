@@ -80,9 +80,6 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetch
 
     await editStudent(studentData, editDataId);
 
-
-
-    // Now, you can update the state
     setStudentData({
         name: '',
         father_name: '',
@@ -95,9 +92,7 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetch
     });
 
     setIsEditModalOpen(!isEditModalOpen);
-};
-
-  console.log(response)
+}
 
 
 

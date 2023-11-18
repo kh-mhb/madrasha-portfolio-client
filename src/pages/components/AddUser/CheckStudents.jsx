@@ -64,9 +64,6 @@ const CheckStudents = () => {
     return (content = <Loader></Loader>);
   }
 
-  console.log(response)
-
-
   const handleDeleteStudent = async (id) => {
     const res = await deleteStudent(id);
   }
