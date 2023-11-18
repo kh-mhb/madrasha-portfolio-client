@@ -21,6 +21,7 @@ import EditCommitteMember from "../components/AddUser/EditCommitteMember";
 import AddWebManagement from "../components/AddUser/AddWebManagement";
 import WebManagement from "../components/AddUser/WebManagement";
 import RequireAuth from "../../utilities/RequireAuth";
+import EditManagement from "../components/AddUser/EditManagement";
 
 
 export const router = createBrowserRouter([
@@ -114,10 +115,10 @@ export const router = createBrowserRouter([
         path: "checkeditorials",
         element: <WebManagement />,
       },
-      // {
-      //   path: "editteacher/:id",
-      //   element: <EditTeacher/>,
-      // },
+      {
+        path: "editmanagement/:id/:p_email",
+        element: <EditManagement />,
+      },
     ],
   },
 ]);

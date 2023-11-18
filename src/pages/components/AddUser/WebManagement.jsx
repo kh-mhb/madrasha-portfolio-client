@@ -58,8 +58,11 @@ const WebManagement = () => {
 
 
     const handleDelete = async (id) =>{
-
         await deleteEditorialsMember(id)
+    }
+
+    const handleNavigate = (id,email) =>{
+        navigate(`/adminLayout/editmanagement/${id}/${email}`)
     }
 
     content = (
@@ -97,11 +100,11 @@ const WebManagement = () => {
                                 className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
                                 onClick={(e) => {
                                 e.preventDefault();
-                                handleNavigate(editorial?._id);
-                                }}
-                            >
+                                handleNavigate(editorial?._id,editorial?.email);
+                            }}>
                                 Edit
-                            </button>
+                            </button> 
+                            {/* handle admin role  */}
                         </td>
                         <td className="border px-4 py-2 text-sm">
                             <button
