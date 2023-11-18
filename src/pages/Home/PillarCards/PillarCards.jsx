@@ -1,4 +1,7 @@
 import React from "react";
+import AOS from "aos";
+AOS.init();
+import "aos/dist/aos.css";
 import img1 from "../../../assets/pillar/img1.jpeg";
 import img2 from "../../../assets/pillar/img2.jpeg";
 import img3 from "../../../assets/pillar/img3.jpeg";
@@ -9,7 +12,11 @@ import img6 from "../../../assets/pillar/img6.jpeg";
 const PillarCards = () => {
   return (
     <div>
-      <div>
+      <div
+        data-aos="fade-right"
+        data-aos-offset="500"
+        data-aos-easing="ease-in-sine"
+      >
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-10 mx-auto">
             <div className="flex flex-col text-center w-full mb-20">
@@ -43,9 +50,8 @@ const PillarCards = () => {
                   </div>
                 </div>
               </div>
-              {/* Repeat the above structure for other items */}
               <div className="lg:w-1/3 sm:w-1/2 p-4">
-                <div className="flex relative">
+                <div className="flex relative ">
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
