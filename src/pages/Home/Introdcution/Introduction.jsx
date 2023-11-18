@@ -4,7 +4,7 @@ const Introduction = () => {
   return (
     <div>
       <div className="text-center mt-10">
-        <h1 className="sm:text-3xl text-3xl  border-y-4 w-1/3 mx-auto py-3 font-medium title-font mb-4 text-gray-900">
+        <h1 className="sm:text-3xl text-3xl  border-y-4 lg:w-1/3 sm:w-1/3 mx-auto py-3 font-medium title-font mb-4 text-gray-900">
           Introduction Video
         </h1>
       </div>
