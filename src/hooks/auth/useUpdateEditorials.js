@@ -6,10 +6,10 @@ const useUpdateEditorials = () => {
     const [error,setError]  = useState(null)
     const [resMessage,setResMessage]  = useState(null)
 
-    const updateEditorials = async(data,id) =>{
+    const updateEditorials = async(id,data) =>{
         setIsLoading(true)
         try{
-            const response = await fetch(`http://localhost:7071/committe/update/${id}`,{
+            const response = await fetch(`http://localhost:7071/auth/update/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,9 +18,8 @@ const useUpdateEditorials = () => {
             })
     
             const res = await response.json()
-    
+    console.log(res)
             setResMessage(res)
-
         }catch(err){
             setError(err)
         }finally{
