@@ -10,11 +10,11 @@ import Banner1 from "../Banner/Banner1";
 const Home = () => {
   return (
     <div>
+      {/* <Banner></Banner> */}
       <Banner1></Banner1>
       <AboutUs></AboutUs>
       <Motivation></Motivation>
       <Introduction></Introduction>
-
       <PillarCards></PillarCards>
     </div>
   );
