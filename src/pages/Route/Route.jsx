@@ -91,7 +91,7 @@ export const router = createBrowserRouter([
         element: <CheckCommitte />,
       },
       {
-        path: "editcommitte/:id",
+        path: "editcommitte/:id/:u_email",
         element: <EditCommitteMember />,
       },
       {

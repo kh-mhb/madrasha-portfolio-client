@@ -20,7 +20,7 @@ const useRegisterEditorialsAdmin = () => {
     
             const data = await response.json();
 
-            setInsertRegResponse(data);
+            setInsertRegResponse(data)
         } catch (err) {
             setError(err);
         } finally {

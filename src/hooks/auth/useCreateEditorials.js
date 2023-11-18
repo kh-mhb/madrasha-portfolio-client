@@ -17,7 +17,8 @@ const useCreateEditorials = () => {
                 body: JSON.stringify(insert_doc)
             })
             const res = await response.json()
-            setInsertResponse(res)
+
+            setInsertResponse(res.response)
         }catch(err){
             setError(err)
         }finally{

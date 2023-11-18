@@ -1,15 +1,59 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import useUpdateMember from "../../../hooks/committe/useUpdateMember"
+import toast from "react-hot-toast"
 
 
 const EditCommitteMember = () => {
-    const { id } = useParams()
-    const navigate = useNavigate()
     let content
+    const { id , u_email } = useParams()
+    const navigate = useNavigate()
     const [webChecker, setWebChecker] = useState({name: "",email: "",number: "",occupation: ""})
     const [ updateMember , isLoading , error , resMessage ] = useUpdateMember()
     
+    useEffect(() => {
+        if(resMessage && resMessage?.acknowledged) {
+            toast.success(`Edit successfull!`, {
+            duration: 4000,
+            position: 'top-right',
+            style: {
+              background: 'green',
+              color: '#fff',
+            },
+            icon: '👏',
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+        })
+      }else if(resMessage && !resMessage?.acknowledged){
+        toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
+      }
+    }, [resMessage])
+
     const handleInputChange = ( name, value ) => {
         setWebChecker((prevData) => ({
           ...prevData,
@@ -17,20 +61,22 @@ const EditCommitteMember = () => {
         }))
     }
 
-
-
     const handleSubmit = async () => {
         await updateMember(webChecker,id)
         setWebChecker({name: "",email: "",number: "",occupation: ""})
     }
     
-    
+    console.log(resMessage)
 
     content = (
-        <div>
-            <p className="my-1 text-blue-700 font-bold">Edit committe member</p>
+        <div className="bg-slate-100 p-3">
+            <div className="flex justify-between items-center">
+                <p className="my-1 ml-2 text-blue-700 font-bold">Edit committe member: {u_email}</p>
+                <button className="btn btn-sm bg-blue-700 text-white" onClick={()=>navigate('/adminLayout/checkcommitte')}>Check comitte</button>
+            </div>
+
                 <div className="p-3">
-                    <form className="bg-slate-100 my-7">
+                    <form className="">
                         
                         <div className="mb-4 mx-2 mx-2">
                             <label
@@ -97,11 +143,8 @@ const EditCommitteMember = () => {
                                 className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                             />
                         </div>
-                        <button onClick={(e)=>{e.preventDefault();handleSubmit()}} className="btn mx-3 my-2 bg-gray-500 text-white">Update</button>
+                        <button onClick={(e)=>{e.preventDefault();handleSubmit()}} className="btn btn-sm bg-blue-600 text-white ml-2 mb-2 rounded">Update</button>
                     </form>
-                </div>
-                <div class="flex justify-end mt-2">
-                    <button onClick={()=>navigate('/adminLayout/checkcommitte')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check committe</button>
                 </div>
         </div>
     )

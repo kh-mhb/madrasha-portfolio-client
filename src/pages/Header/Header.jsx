@@ -31,9 +31,8 @@ const Header = () => {
   
 
   return (
-    <div>
-      <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <header className="text-gray-600 body-font fixed top-0 sticky">
+        <div className="container mx-auto flex flex-wrap pt-5 flex-col md:flex-row items-center">
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +83,6 @@ const Header = () => {
           </Link>}
         </div>
       </header>
-    </div>
   );
 };
 

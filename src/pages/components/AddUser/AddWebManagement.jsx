@@ -2,25 +2,61 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import useCreateEditorials from '../../../hooks/auth/useCreateEditorials';
 import Loader from '../shared/Loader';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const AddWebManagement = () => {
     let content
+    const navigate = useNavigate()
     let [emptyFieldError,setEmptyFieldError] = useState('')
     const [ insertEditorials , insertResponse , isLoading , error ] = useCreateEditorials()
-    const [editorial , setEditorial] = useState({
-        name: "",
-        number: "",
-        email: "",
-        role: "",
-        password: ""
-    });
+    const [editorial , setEditorial] = useState({name: "",number: "",email: "",role: "",password: ""});
+    
+    useEffect(() => {
+        if(insertResponse && insertResponse?.acknowledged) {
+            toast.success(`Member added!`, {
+            duration: 4000,
+            position: 'top-right',
+            style: {
+              background: 'green',
+              color: '#fff',
+            },
+            icon: '👏',
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+        })
+      }else if(insertResponse && !insertResponse?.acknowledged){
+        toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
+      }
+    }, [insertResponse])
 
 
-    if( isLoading){
-        content = <Loader />
-    }
-
-
+    
     const handleFieldChange = (e) => {
         const { name , value } = e.target
         setEditorial((prevData) => ({
@@ -37,15 +73,17 @@ const AddWebManagement = () => {
         }else{
             await insertEditorials(editorial)
         }
-        
         setEditorial({name: "",number: "",email: "",role: "",password: ""})
     }
 
 
 
     content = (
-        <div className="w-full mx-auto mt-8">
-            <p className="my-1 text-green-700">Add member to the editorials body!</p>
+        <div className="bg-slate-100 p-2">
+            <div className="flex justify-between items-center mt-2 mb-2">
+                <p className="my-1 text-blue-800 font-bold">Add member to the editorials body!</p>
+                <button onClick={()=>navigate('/adminLayout/checkeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Check committe</button>
+            </div>
             <p className="my-1 text-green-700">{emptyFieldError}</p>
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
                 <div className="mb-4">
@@ -87,9 +125,7 @@ const AddWebManagement = () => {
                     >
                         <option value="" disabled>Select Position</option>
                         <option value="editor">Editor</option>
-                        <option value="admin">Admin</option>
                         <option value="manager">Manager</option>
-                    {/* Add more options as needed */}
                     </select>
                 </div>
                 <div className="mb-4">
@@ -120,7 +156,7 @@ const AddWebManagement = () => {
                 </div>
                 <button
                     type="submit"
-                    className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+                    className="btn btn-sm bg-blue-600 text-white px-4 rounded-md hover:bg-green-600 focus:outline-none"
                 >
                     Submit
                 </button>

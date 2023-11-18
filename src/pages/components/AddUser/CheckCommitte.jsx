@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import useDeleteCommitteMember from '../../../hooks/committe/useDeleteCommitteMember'
 import Loader from '../shared/Loader'
 import { useEffect } from 'react'
+import toast from 'react-hot-toast'
 
 const CheckCommitte = () => {
     let content
@@ -11,9 +12,50 @@ const CheckCommitte = () => {
     const [ getAllMembers , members , isLoading , error] = useGetAllMember()
     const [ deleteMember , deleteResponse , error1 ,isLoading1 ] = useDeleteCommitteMember()
 
-    useEffect(()=>{
+
+    useEffect(() => {
+        if(deleteResponse && deleteResponse?.deletedCount) {
+            toast.success(`Teacher deleted!`, {
+            duration: 4000,
+            position: 'top-right',
+            style: {
+              background: 'green',
+              color: '#fff',
+            },
+            icon: '👏',
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+        })
         getAllMembers()
-    },[deleteResponse])
+      }else if(deleteResponse && !deleteResponse?.deletedCount){
+        toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
+      }
+    }, [deleteResponse])
 
 
     if(isLoading || isLoading1){
@@ -23,15 +65,16 @@ const CheckCommitte = () => {
     const handleDeleteMember = async(id) =>{
         await deleteMember(id)
     }
-    
 
 
-
-    // console.log(deleteResponse , error1 ,isLoading1)
 
     content = (
         <div className="overflow-x-auto">
-          <h2 className='text-blue-900 font-bold font-2'>Check all your committe member</h2>
+        <div className="flex justify-between items-center mt-2">
+          <h2 className='text-blue-900 font-bold font-2'>Check all committe members</h2>
+          <button onClick={()=>navigate('/adminLayout/addcommitte')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
+        </div>
+
         <table className="min-w-full table-auto">
           <thead>
             <tr>
@@ -57,8 +100,8 @@ const CheckCommitte = () => {
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
                     onClick={(e) => {
-                      e.preventDefault()
-                      navigate(`/adminLayout/editcommitte/${member?._id}`)
+                      e.preventDefault();
+                      navigate(`/adminLayout/editcommitte/${member?._id}/${member?.email? member?.email : '-'}`)
                     }}
                   >
                     Edit
@@ -91,12 +134,10 @@ const CheckCommitte = () => {
             </tr>
           </tfoot>
         </table>
-        <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/addcommitte')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add Member</button>
-        </div>
       </div>
     )
   
+
     return content
 }
 

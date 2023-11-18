@@ -63,7 +63,7 @@ const CheckTeacher = () => {
 
 
     const handleNavigate = (id,name) =>{
-        navigate(`/adminLayout/editteacher/${id}/${name}`)
+        navigate(`/adminLayout/editteacher/${id}/${name?name:'-'}`)
     }
 
     // console.log(data)

@@ -138,7 +138,7 @@ const AddTeacher = () => {
         </form>
       </div>
         <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/checkteacher')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check teacher</button>
+          <button onClick={()=>navigate('/adminLayout/checkteacher')}  class="bg-blue-600 text-white px-4 rounded">Check teacher</button>
         </div>
     </div>
   );

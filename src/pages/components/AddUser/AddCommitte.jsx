@@ -3,20 +3,58 @@ import { useState } from "react";
 import useInsertCommitteMember from "../../../hooks/committe/useInsertCommitteMember";
 import Loader from "../shared/Loader";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
+
 
 const AddCommitte = () => {
     const navigate = useNavigate()
-    const [webChecker, setWebChecker] = useState({
-      name: "",
-      email: "",
-      number: "",
-      occupation: "",
-    })
+    const [webChecker, setWebChecker] = useState({name: "",email: "",number: "",occupation: ""})
     const [ insertMember , insertResponse , isLoading , error ] = useInsertCommitteMember()
 
-  if(isLoading){
-    return <Loader />
-  }
+
+    useEffect(() => {
+      if (insertResponse && insertResponse?.acknowledged) {
+          toast.success(`Member added!`, {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'green',
+            color: '#fff',
+          },
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+      })
+    }else if(insertResponse && !insertResponse?.acknowledged){
+      toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
+      }
+    }, [insertResponse])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,14 +75,14 @@ const AddCommitte = () => {
     })
   }
 
-  // console.log(insertResponse,error)
-
-
-
   return (
-    <div className="w-full mx-auto mt-8">
-      <p className="my-1 text-blue-700 font-bold">Add member to the committe!</p>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
+    <div className="w-full mx-auto mt-8 bg-slate-100 p-2">
+      
+      <div class="flex justify-between items-center mt-2">
+        <p className="my-1 text-blue-700 font-bold">Add member to the committe!</p>
+        <button onClick={()=>navigate('/adminLayout/checkcommitte')}  class="btn btn-sm bg-blue-600 text-white px-4 rounded">Check all</button>
+        </div>
+      <form onSubmit={handleSubmit} className="p-6 rounded shadow-md">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
             Name
@@ -100,14 +138,11 @@ const AddCommitte = () => {
         </div>
         <button
           type="submit"
-          className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+          className=" btn btn-sm bg-blue-600 text-white px-4 rounded hover:bg-green-600 focus:outline-none"
         >
           Submit
         </button>
       </form>
-        <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/checkcommitte')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check All</button>
-        </div>
     </div>
   );
 };

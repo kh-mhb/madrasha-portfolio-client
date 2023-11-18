@@ -2,34 +2,72 @@ import { useEffect } from "react";
 import useGetAllEditorial from "../../../hooks/auth/useGetAllEditorial";
 import Loader from "../shared/Loader";
 import useDeleteEditorials from "../../../hooks/auth/useDeleteEditorials";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const WebManagement = () => {
+    let content
+    const navigate = useNavigate()
     const [ getAllEditorials , editorials , isLoading , error] = useGetAllEditorial()
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
-    let content
 
     useEffect(() => {
-        if(deleteResponse) {    
-            getAllEditorials();
-        }
-    }, [deleteResponse]);
+        if(deleteResponse && deleteResponse?.deletedCount) {
+            toast.success(`Member deleted!`, {
+            duration: 4000,
+            position: 'top-right',
+            style: {
+              background: 'green',
+              color: '#fff',
+            },
+            icon: '👏',
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+        })
+        getAllEditorials()
+      }else if(deleteResponse && !deleteResponse?.deletedCount){
+        toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
+      }
+    }, [deleteResponse])
 
-
-    if(isLoading || isLoading1){
-        content = <Loader />
-    }
 
     const handleDelete = async (id) =>{
 
         await deleteEditorialsMember(id)
     }
-    // console.log(deleteResponse)
-
 
     content = (
         <div className="overflow-x-auto">
-            <p className="my-1 text-blue-700 font-bold">Check editorial's panel!</p>
+            <div className="flex justify-between items-center mt-2">
+                <h2 className='text-blue-900 font-bold font-2'>Check editorial's panel!</h2>
+                <button onClick={()=>navigate('/adminLayout/addeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
+            </div>
             <table className="min-w-full table-auto">
                 <thead>
                     <tr>

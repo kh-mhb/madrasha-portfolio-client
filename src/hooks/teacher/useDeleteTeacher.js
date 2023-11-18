@@ -23,9 +23,8 @@ const useDeleteTeacher = () => {
             // }
 
             const res = await deleteRes.json()
-            console.log(res)
-            setResponse(res)
 
+            setResponse(res)
         }catch(err){
             setError(err)
         }finally{
