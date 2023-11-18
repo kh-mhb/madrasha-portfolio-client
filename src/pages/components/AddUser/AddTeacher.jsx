@@ -87,16 +87,16 @@ const AddTeacher = () => {
 
           <button
             onClick={handleAddField}
-            className="btn btn-primary mx-3 my-4"
+            className="btn btn-sm mx-3 my-4 bg-blue-300 text-white"
           >
             Add Field
           </button>
-          <button onClick={handleteacherDataSubmit} className="btn btn-primary">
+          <button onClick={handleteacherDataSubmit} className="btn btn-sm bg-blue-700 text-white">
             Submit
           </button>
         </form>
       </div>
-      <div class="flex justify-end mt-2">
+        <div class="flex justify-end mt-2">
           <button onClick={()=>navigate('/adminLayout/checkteacher')}  class="bg-blue-600 text-white py-2 px-4 rounded">Check teacher</button>
         </div>
     </div>

@@ -29,6 +29,7 @@ const WebManagement = () => {
 
     content = (
         <div className="overflow-x-auto">
+            <p className="my-1 text-blue-700 font-bold">Check editorial's panel!</p>
             <table className="min-w-full table-auto">
                 <thead>
                     <tr>

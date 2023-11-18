@@ -14,10 +14,6 @@ const Register = () => {
   const [insertAdmin, insertRegResponse , isLoadingReg , errorReg] = useRegisterEditorialsAdmin()
 
   useEffect(()=>{
-    if(isLoading || isLoadingReg){
-      return <Loader />
-    }
-
     if(location?.pathname.includes('/register') || !isLoading){
       checkWebAdmin()
     }
@@ -29,6 +25,8 @@ const Register = () => {
   },[ isAdminFound , isLoading , location])
 
   
+
+  console.log(isAdminFound , isLoadingReg)
   const handleChange = (e) => {
     const { name, value } = e.target
     setReginInfo((prevData) => ({
