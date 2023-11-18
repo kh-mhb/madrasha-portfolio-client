@@ -64,7 +64,7 @@ const EditManagement = () => {
 
     console.log(isAdminFound,u_email, u_role)
 
-    
+
     const handleFieldChange = (fieldName, value) => {
         setMemberData(prevData => ({
           ...prevData,
@@ -130,6 +130,8 @@ const EditManagement = () => {
                     <input
                         type="email"
                         name="email"
+                        disabled
+                        value={u_email}
                         onChange={(e) => handleFieldChange('email', e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                     />
@@ -145,6 +147,7 @@ const EditManagement = () => {
                     <input
                         type="password"
                         name="password"
+                        disabled={u_email !== p_email}
                         onChange={(e) => handleFieldChange('password', e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                     />
@@ -159,6 +162,7 @@ const EditManagement = () => {
                         Role
                     </label>
                     <select
+                        disabled={u_role !== 'admin'}
                         name="role"
                         onChange={(e) => handleFieldChange('role', e.target.value)}
                     >
@@ -171,7 +175,8 @@ const EditManagement = () => {
 
                 <button onClick={(e)=>{e.preventDefault();handleUpdateTeacher()}} className="btn btn-sm mb-1 ml-2 bg-blue-800 text-white">Update</button>
             </form>
-
+            <p className="font-bold text-red-700 text-sm">Only admin can change the role</p>
+            <p className="font-bold text-red-700 text-sm">Only user can change his password</p>
         </div>
     )
     return content

@@ -7,6 +7,7 @@ import Introduction from "../Introdcution/Introduction";
 import Motivation from "../Motivation";
 import Banner1 from "../Banner/Banner1";
 
+
 const Home = () => {
   return (
     <div>
