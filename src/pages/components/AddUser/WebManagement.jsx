@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import useGetAllEditorial from "../../../hooks/auth/useGetAllEditorial";
-import Loader from "../shared/Loader";
 import useDeleteEditorials from "../../../hooks/auth/useDeleteEditorials";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -62,13 +61,13 @@ const WebManagement = () => {
     }
 
     const handleNavigate = (id,email) =>{
-        navigate(`/adminLayout/editmanagement/${id}/${email}`)
+        navigate(`/adminLayout/editmanagement/${id?id:'-'}/${email?email:'-'}`)
     }
 
     content = (
         <div className="overflow-x-auto">
             <div className="flex justify-between items-center mt-2">
-                <h2 className='text-blue-900 font-bold font-2'>Check editorial's panel!</h2>
+                <h2 className='text-blue-900 font-bold font-2'>Check editorial panel!</h2>
                 <button onClick={()=>navigate('/adminLayout/addeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
             </div>
             <table className="min-w-full table-auto">
