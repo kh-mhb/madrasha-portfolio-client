@@ -9,8 +9,8 @@ const Introduction = () => {
           Introduction Video
         </h1>
       </div>
-      <section className="px-4 py-10 mx-auto max-w-7xl">
-        <div className="grid items-center grid-cols-1 mb-24 md:grid-cols-2 gap-y-10 md:gap-y-32 gap-x-10 md:gap-x-24">
+      <section className="px-4 mt-14 mx-auto max-w-7xl">
+        <div className="grid items-center grid-cols-1 mb-24 md:grid-cols-2  md:gap-y-32 gap-x-10 md:gap-x-24">
           <div>
             <h2 className="mb-4 text-2xl font-extrabold tracking-tight text-center text-black md:leading-tight sm:text-left md:text-4xl">
               Clear overview for efficient tracking

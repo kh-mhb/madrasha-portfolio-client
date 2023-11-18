@@ -1,4 +1,10 @@
 import React from "react";
+import img1 from "../../../assets/pillar/img1.jpeg";
+import img2 from "../../../assets/pillar/img2.jpeg";
+import img3 from "../../../assets/pillar/img3.jpeg";
+import img4 from "../../../assets/pillar/img4.jpeg";
+import img5 from "../../../assets/pillar/img5.jpeg";
+import img6 from "../../../assets/pillar/img6.jpeg";
 
 const PillarCards = () => {
   return (
@@ -13,7 +19,7 @@ const PillarCards = () => {
               <p className="lg:w-2/3 font-thin mx-auto leading-relaxed  text-lg">
                 {/* haven't heard of them man bun deep jianbing selfies heirloom. */}
                 The majority of our work can be divided up into what we call our
-                7 pillar.Each one a seperate field that supports of or lifts up
+                6 pillar.Each one a seperate field that supports of or lifts up
                 our organization as a whole.
               </p>
             </div>
@@ -23,15 +29,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img1}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      OUR ORPHANAGE
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
@@ -45,15 +49,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img2}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      OUR SCHOOL
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
@@ -66,15 +68,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img3}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      MEDICAL SUPPORT
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
@@ -87,15 +87,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img4}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      VOCATIONAL TRAINING
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
@@ -108,15 +106,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img5}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      WIDOW SUPPORT
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
@@ -129,15 +125,13 @@ const PillarCards = () => {
                   <img
                     alt="gallery"
                     className="absolute inset-0 w-full h-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
+                    src={img6}
                   />
                   <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">
-                      THE SUBTITLE
+                      OUR FARM
                     </h2>
-                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                      Shooting Stars
-                    </h1>
+
                     <p className="leading-relaxed">
                       Photo booth fam kinfolk cold-pressed sriracha leggings
                       jianbing microdosing tousled waistcoat.
