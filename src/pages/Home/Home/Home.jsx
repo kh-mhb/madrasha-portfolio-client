@@ -7,6 +7,7 @@ import AboutUs from "../AboutUs/AboutUs";
 import Introduction from "../Introdcution/Introduction";
 import Motivation from "../Motivation";
 import Banner1 from "../Banner/Banner1";
+import Footer from "../../Footer/Footer";
 
 const Home = () => {
   const isLargeDevice = useMediaQuery({ minWidth: 1024 });
