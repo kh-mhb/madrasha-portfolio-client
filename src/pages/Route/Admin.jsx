@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import useUserdata from "../../hooks/auth/useUserdata";
 
 const Admin = () => {
-  const {u_email, u_role, forceCheckLocalStorage} = useUserdata()
-  const navigate = useNavigate()
-  const location = useLocation()
 
-  // useEffect(()=>{
-  //   if(!u_email && !u_role){
-  //     forceCheckLocalStorage()
-  //     navigate('/login')
-  //   }
-  // },[u_email,u_role])
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <Header></Header>
 
       <div className="py-5">
@@ -27,7 +16,7 @@ const Admin = () => {
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn bg-blue-600 text-white lg:fixed top-10 right-20 btn-sm drawer-button ml-1"
+              className="btn bg-blue-600 text-white lg:fixed top-10 right-28 btn-sm drawer-button mr-4"
             >
               Dashboard
             </label>
