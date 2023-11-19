@@ -26,7 +26,7 @@ const Contact = () => {
   return (
     <div>
       <section className="text-gray-600 body-font relative">
-        <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+        <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
           <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
             <iframe
               width="100%"
@@ -37,7 +37,7 @@ const Contact = () => {
               marginheight="0"
               marginwidth="0"
               scrolling="no"
-              src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+              src="https://www.observerbd.com/2023/07/26/ob_1690305603.jpg"
               //   style={"filter: grayscale(1) contrast(1.2) opacity(0.4);"}
             ></iframe>
             <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
@@ -55,7 +55,7 @@ const Contact = () => {
                   EMAIL
                 </h2>
                 <a className="text-indigo-500 leading-relaxed">
-                  example@email.com
+                  lutfiaatimkhana@gmail.com
                 </a>
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                   PHONE
@@ -125,3 +125,6 @@ const Contact = () => {
 };
 
 export default Contact;
+{
+  /* <a href="http://www.maplandia.com/bangladesh/chittagong-div/maulvibazar-zl/moulvi-bazar/" title="google satellite map of Moulvi Bazar">Moulvi Bazar google map</a> */
+}

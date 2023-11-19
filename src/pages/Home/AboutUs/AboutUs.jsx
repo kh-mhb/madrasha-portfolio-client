@@ -10,7 +10,7 @@ const AboutUs = () => {
         </h1>
       </div>
       <div className="grid lg:grid-cols-3 justify-center items-center  gap-x-6">
-        <div className="flex lg:flex-col lg:py-2 gap-2">
+        <div className="flex  lg:flex-col lg:py-2 gap-2">
           <Link to="/committe" className="btn btn-outline">
             Committe
           </Link>
@@ -21,8 +21,8 @@ const AboutUs = () => {
             Student
           </Link>
         </div>
-        <div className="col-span-2 ...">
-          <h3 className="leading-8 break-all font-normal ">
+        <div className="col-span-2 ..1.">
+          <h3 className="leading-8 break-all font-normal px-2 sm:px-5 ">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Reprehenderit dolorum, tenetur vitae saepe ipsa dolores enim ab iste
             maiores quae possimus et atque dolorem consequuntur accusamus
