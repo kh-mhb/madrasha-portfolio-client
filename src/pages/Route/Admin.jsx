@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import useUserdata from "../../hooks/auth/useUserdata";
 
 const Admin = () => {
-  
+  const {u_email, u_role, forceCheckLocalStorage} = useUserdata()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // useEffect(()=>{
+  //   if(!u_email && !u_role){
+  //     forceCheckLocalStorage()
+  //     navigate('/login')
+  //   }
+  // },[u_email,u_role])
 
   return (
     <div>
@@ -29,6 +39,7 @@ const Admin = () => {
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               <li>
+                <Link>Profile</Link>
                 <Link to="/adminLayout/checkstudent">Check Student</Link>
                 <Link to="/adminLayout/checkcommitte">Check committe</Link>
                 <Link to="/adminLayout/checkteacher">Check Teachers</Link>
@@ -39,15 +50,9 @@ const Admin = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };
 
-export default Admin;
-
-
-                {/* <Link to="/adminLayout/addstudent">Add Student</Link> */}
-                {/* <Link to="/adminLayout/addcommitte">Add Committe</Link> */}
-                {/* <Link to="/adminLayout/addteacher">Add Teacher</Link> */}
-                {/* <Link to="/adminLayout/addeditorials">Add Editorials</Link> */}
+export default Admin

@@ -18,7 +18,7 @@ const useUpdateEditorials = () => {
             })
     
             const res = await response.json()
-    console.log(res)
+
             setResMessage(res)
         }catch(err){
             setError(err)

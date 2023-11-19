@@ -3,16 +3,23 @@ import { useNavigate, useParams } from "react-router"
 import useUpdateTeacher from "../../../hooks/teacher/useUpdateTeacher"
 import { useEffect } from "react"
 import toast from "react-hot-toast"
+import useUserdata from "../../../hooks/auth/useUserdata"
 
 
 const EditTeacher = () => {
     let content
     const navigate = useNavigate()
     const { id , t_name } = useParams()
+    const { u_role } = useUserdata()
     const [teacherData, setTeacherData] = useState({name: "",number: "",img_link: ""})
     const [editTeacher , response , isLoading , error] = useUpdateTeacher()
 
-    
+    useEffect(()=>{
+        if(u_role === 'inactive'){
+            navigate('/adminLayout')
+        }
+    },[u_role])
+
     useEffect(() => {
         if (response && response?.acknowledged) {
             toast.success(`Teacher deleted!`, {

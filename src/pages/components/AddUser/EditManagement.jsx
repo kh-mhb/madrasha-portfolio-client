@@ -17,6 +17,11 @@ const EditManagement = () => {
     const [ updateEditorials , isLoading , error , resMessage ] = useUpdateEditorials()
     const [memberData , setMemberData] = useState({name: "",number: "",email: "",password: "", role: ""})
 
+    useEffect(()=>{
+        if(u_role === 'inactive'){
+            navigate('/adminLayout')
+        }
+    },[u_role , u_email])
 
     useEffect(() => {
         if (resMessage && resMessage?.acknowledged) {
@@ -62,7 +67,12 @@ const EditManagement = () => {
         }
     }, [resMessage])
 
-    console.log(isAdminFound,u_email, u_role)
+
+
+    // if(u_role === 'inactive'){
+    //     navigate('')
+    // }
+
 
 
     const handleFieldChange = (fieldName, value) => {
@@ -73,7 +83,7 @@ const EditManagement = () => {
     };
     
     const handleUpdateTeacher = async() =>{
-        console.log(memberData)
+
         await updateEditorials(id,memberData) 
     }
     
@@ -81,7 +91,7 @@ const EditManagement = () => {
     content = (
         <div className="p-3 bg-slate-100 my-7">
             <div className="flex justify-between items-center">
-                <p className="text-blue-700 font-bold">Hello : {p_email}</p>
+                <p className="text-blue-700 font-bold">Hello - {p_email}</p>
                 <button className="btn btn-sm bg-blue-700 text-white" onClick={()=>navigate('/adminLayout/checkeditorials')}>Back</button>
             </div>
             
@@ -97,6 +107,7 @@ const EditManagement = () => {
                     <input
                         type="text"
                         name="name"
+                        disabled={u_email !== p_email}
                         onChange={(e) => handleFieldChange('name', e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                     />
@@ -113,6 +124,7 @@ const EditManagement = () => {
                     <input
                         type="number"
                         name="number"
+                        disabled={u_email !== p_email}
                         onChange={(e) => handleFieldChange('number', e.target.value)}
                         className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                     />
@@ -167,7 +179,6 @@ const EditManagement = () => {
                         onChange={(e) => handleFieldChange('role', e.target.value)}
                     >
                         <option disabled value="">select a role</option>
-                        <option value="manager">manager</option>
                         <option value="editor">editor</option>
                         <option value="inactive">inactive</option>
                     </select>
@@ -175,8 +186,8 @@ const EditManagement = () => {
 
                 <button onClick={(e)=>{e.preventDefault();handleUpdateTeacher()}} className="btn btn-sm mb-1 ml-2 bg-blue-800 text-white">Update</button>
             </form>
-            <p className="font-bold text-red-700 text-sm">Only admin can change the role</p>
-            <p className="font-bold text-red-700 text-sm">Only user can change his password</p>
+            <p className="font-bold text-red-700 text-sm">Only admin can change the role.</p>
+            {u_email !== p_email && <p className="font-bold text-red-700 text-sm">Only user can change his password , name and number.</p>}
         </div>
     )
     return content

@@ -21,7 +21,7 @@ const AddWebManagement = () => {
         }
 
     
-    console.log(u_role)
+
     useEffect(() => {
         if(insertResponse && insertResponse?.acknowledged) {
             toast.success(`Member added!`, {
@@ -135,7 +135,7 @@ const AddWebManagement = () => {
                     >
                         <option value="" disabled>Select Position</option>
                         <option value="editor">Editor</option>
-                        <option value="manager">Manager</option>
+                        <option value="inactive">Enactive</option>
                     </select>
                 </div>
                 <div className="mb-4">

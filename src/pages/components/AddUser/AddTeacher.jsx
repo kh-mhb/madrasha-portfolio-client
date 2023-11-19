@@ -3,12 +3,21 @@ import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import useUserdata from "../../../hooks/auth/useUserdata";
+
 
 const AddTeacher = () => {
   const navigate = useNavigate()
+  const { u_role } = useUserdata()
   const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher()
   const [teacherData, setTeacherData] = useState([{name: "",number: "",img_link: ""}])
 
+
+  useEffect(()=>{
+    if(u_role === 'inactive'){
+        navigate('/adminLayout')
+    }
+  },[u_role])
 
   useEffect(() => {
     if (insertStresponse && insertStresponse?.acknowledged) {

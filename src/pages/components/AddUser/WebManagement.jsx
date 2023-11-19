@@ -15,6 +15,8 @@ const WebManagement = () => {
     const [ getAllEditorials , editorials , isLoading , error] = useGetAllEditorial()
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
     
+
+
     // useEffect(() => {},[
     //     checkWebAdmin()
     // ],[])
@@ -94,7 +96,7 @@ const WebManagement = () => {
     
                 <tbody>
                     {editorials?.map((editorial, index) => (
-                    <tr key={editorial?._id}>
+                    <tr className={u_email == editorial?.email?'bg-green-600 text-white':''} key={editorial?._id}>
                         <td className="border px-4 py-2">{index + 1}</td>
                         <td className="border px-4 py-2 text-sm">{editorial?.email}</td>
                         <td className="border px-4 py-2 text-sm">{editorial?.name}</td>
@@ -140,6 +142,8 @@ const WebManagement = () => {
                     </tr>
                 </tfoot>
             </table>
+            {u_role === 'inactive' && <p className="font-bold text-red-700 text-sm">You can't edit or add member</p>}
+            {u_role === 'inactive' && <p className="font-bold text-red-700 text-sm">Wait for admin confirmation</p>}
         </div>
     )
     return content

@@ -13,7 +13,8 @@ const RequireAuth = ({ children }) => {
         forceCheckLocalStorage();
       }
     }, [loading, u_email, u_role, forceCheckLocalStorage])
-    console.log(u_email,u_role)
+
+    // console.log(u_email,u_role)
     return loading ? (
         <Loader /> 
       ) : u_email && u_role ? (

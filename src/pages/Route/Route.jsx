@@ -22,6 +22,7 @@ import AddWebManagement from "../components/AddUser/AddWebManagement";
 import WebManagement from "../components/AddUser/WebManagement";
 import RequireAuth from "../../utilities/RequireAuth";
 import EditManagement from "../components/AddUser/EditManagement";
+import Profile from "../components/AddUser/Profile";
 
 
 export const router = createBrowserRouter([
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
                 </Admin>
               </RequireAuth>,
     children: [
+      {
+        path: "",
+        element: <Profile />,
+      },
       {
         path: "addstudent",
         element: <AddStudent></AddStudent>,
