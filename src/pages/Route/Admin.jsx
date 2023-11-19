@@ -23,11 +23,12 @@ const Admin = () => {
       <div className="py-5">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
+          <div className="drawer-content text-center">
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn bg-blue-600 text-white fixed bottom-16 btn-sm drawer-button ml-1">
+              className="btn bg-blue-600 text-white lg:fixed top-10 right-20 btn-sm drawer-button ml-1"
+            >
               Dashboard
             </label>
           </div>

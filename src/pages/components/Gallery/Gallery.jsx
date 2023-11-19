@@ -1,67 +1,49 @@
 import React from "react";
+import img1 from "../../../assets/pillar/img1.jpeg";
+import img2 from "../../../assets/pillar/img2.jpeg";
+import img3 from "../../../assets/pillar/img3.jpeg";
+import img4 from "../../../assets/pillar/img4.jpeg";
+
+import LightGallery from "lightgallery/react";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
+
+class ErrorBoundary extends React.Component {
+  componentDidCatch() {}
+
+  render() {
+    return this.props.children;
+  }
+}
 
 const Gallery = () => {
+  const onInit = () => {};
+
   return (
-    <div>
-      <div className="text-center mt-5 ">
-        <h1 className="sm:text-3xl text-3xl  border-y-4 w-1/3 mx-auto py-3 font-medium title-font mb-4 text-gray-900">
-          About Us
-        </h1>
+    <ErrorBoundary>
+      <div className="container mx-auto mt-6">
+        <LightGallery
+          onInit={onInit}
+          speed={500}
+          plugins={[lgThumbnail, lgZoom]}
+        >
+          <a mb-3 href={img1} data-lg-size="1600-1067">
+            <img alt="img1" src={img1} className="w-full h-full" />
+          </a>
+          <a href={img2} data-lg-size="1600-1067">
+            <img alt="img2" src={img2} className="w-full h-auto" />
+          </a>
+          <a href={img3} data-lg-size="1600-1067">
+            <img alt="img3" src={img3} className="w-full h-auto" />
+          </a>
+          <a href={img4} data-lg-size="1600-1067" />
+          <img alt="img4" src={img2} className="w-full h-auto" />
+        </LightGallery>
       </div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 mx-auto flex flex-wrap">
-          <div className="flex w-full mb-20 flex-wrap"></div>
-          <div className="flex flex-wrap md:-m-2 -m-1">
-            <div className="flex flex-wrap w-1/2">
-              <div className="md:p-2 p-1 w-1/2">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block"
-                  src="https://dummyimage.com/500x300"
-                />
-              </div>
-              <div className="md:p-2 p-1 w-1/2">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block"
-                  src="https://dummyimage.com/501x301"
-                />
-              </div>
-              <div className="md:p-2 p-1 w-full">
-                <img
-                  alt="gallery"
-                  className="w-full h-full object-cover object-center block"
-                  src="https://dummyimage.com/600x360"
-                />
-              </div>
-            </div>
-            <div className="flex flex-wrap w-1/2">
-              <div className="md:p-2 p-1 w-full">
-                <img
-                  alt="gallery"
-                  className="w-full h-full object-cover object-center block"
-                  src="https://dummyimage.com/601x361"
-                />
-              </div>
-              <div className="md:p-2 p-1 w-1/2">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block"
-                  src="https://dummyimage.com/502x302"
-                />
-              </div>
-              <div className="md:p-2 p-1 w-1/2">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block"
-                  src="https://dummyimage.com/503x303"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </ErrorBoundary>
   );
 };
 
