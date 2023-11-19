@@ -4,6 +4,7 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./pages/Route/Route.jsx";
 import { Toaster } from "react-hot-toast";
+import Header from "./pages/Header/Header.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

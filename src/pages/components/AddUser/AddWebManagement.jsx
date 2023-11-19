@@ -89,13 +89,13 @@ const AddWebManagement = () => {
 
 
     content = (
-        <div className="bg-slate-100 p-2">
+        <div className=" p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
             <div className="flex justify-between items-center mt-2 mb-2">
                 <p className="my-1 text-blue-800 font-bold">Add member to the editorials body!</p>
                 <button onClick={()=>navigate('/adminLayout/checkeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Check editorials</button>
             </div>
             <p className="my-1 text-green-700">{emptyFieldError}</p>
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
+            <form onSubmit={handleSubmit} className="bg-slate-200 p-6 rounded shadow-md">
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                     Name

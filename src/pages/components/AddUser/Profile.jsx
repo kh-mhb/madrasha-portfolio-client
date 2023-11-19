@@ -8,7 +8,7 @@ const Profile = () => {
   const { u_email, u_role } = useUserdata()
 
   content = (
-    <div className="card w-1/2 mx-auto bg-base-100 shadow-xl">
+    <div className="card w-11/12 lg:w-1/2  my-8  mx-auto bg-base-300 shadow-xl">
       <div className="card-body">
           <h2 className="card-title">Email- <span className="text-bold text-green-600">{u_email}</span></h2>
           <h2 className="card-title">Role- <span className="text-bold text-green-600">{u_role}</span></h2>

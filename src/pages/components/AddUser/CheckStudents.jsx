@@ -73,7 +73,7 @@ const CheckStudents = () => {
     <div className="overflow-x-auto overflow-y-auto">
       <h2 className='text-blue-900 font-bold font-2'>Check all your students</h2>
         <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
+          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
         </div>
       <div className="relative">
         <table className="min-w-full table-auto">

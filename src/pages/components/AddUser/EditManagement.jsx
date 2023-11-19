@@ -89,13 +89,13 @@ const EditManagement = () => {
     
 
     content = (
-        <div className="p-3 bg-slate-100 my-7">
+        <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
             <div className="flex justify-between items-center">
                 <p className="text-blue-700 font-bold">Hello - {p_email}</p>
                 <button className="btn btn-sm bg-blue-700 text-white" onClick={()=>navigate('/adminLayout/checkeditorials')}>Back</button>
             </div>
             
-            <form className="mt-3">
+            <form className="mt-3 bg-slate-200">
                 
                 <div className="mb-4 mx-2 mx-2">
                     <label
@@ -166,7 +166,7 @@ const EditManagement = () => {
                 </div>
 
                  
-                <div className="mb-4 mx-2">
+                {u_role !== 'admin' && <div className="mb-4 mx-2">
                     <label
                         htmlFor="name"
                         className="block text-sm font-medium text-gray-700 p-2"
@@ -182,7 +182,7 @@ const EditManagement = () => {
                         <option value="editor">editor</option>
                         <option value="inactive">inactive</option>
                     </select>
-                </div>
+                </div>}
 
                 <button onClick={(e)=>{e.preventDefault();handleUpdateTeacher()}} className="btn btn-sm mb-1 ml-2 bg-blue-800 text-white">Update</button>
             </form>

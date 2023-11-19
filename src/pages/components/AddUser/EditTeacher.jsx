@@ -79,12 +79,12 @@ const EditTeacher = () => {
 
 
     content = (
-        <div className="p-3 bg-slate-100 my-7">
+        <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
             <div className="flex justify-between items-center">
                 <p className="text-blue-700 font-bold">Edit page for mr/mrs: {t_name}</p>
                 <button className="btn btn-sm bg-blue-700 text-white" onClick={()=>navigate('/adminLayout/checkteacher')}>Check teacher</button>
             </div>
-            <form className="mt-3">
+            <form className="mt-3 bg-slate-200">
                 
                 <div className="mb-4 mx-2 mx-2">
                     <label

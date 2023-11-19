@@ -76,13 +76,13 @@ const AddCommitte = () => {
   }
 
   return (
-    <div className="w-full mx-auto mt-8 bg-slate-100 p-2">
+    <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
       
       <div class="flex justify-between items-center mt-2">
         <p className="my-1 text-blue-700 font-bold">Add member to the committe!</p>
         <button onClick={()=>navigate('/adminLayout/checkcommitte')}  class="btn btn-sm bg-blue-600 text-white px-4 rounded">Check all</button>
         </div>
-      <form onSubmit={handleSubmit} className="p-6 rounded shadow-md">
+      <form onSubmit={handleSubmit} className=" bg-slate-100 p-6 rounded shadow-md">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
             Name

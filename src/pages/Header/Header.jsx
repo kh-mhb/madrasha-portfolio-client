@@ -38,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <header className="text-gray-600 body-font">
+    <header className="text-gray-600 body-font fixed top-0 sticky">
       <div className="container mx-auto flex flex-wrap mt-2 flex-col md:flex-row items-center">
         <Link
           to="/"

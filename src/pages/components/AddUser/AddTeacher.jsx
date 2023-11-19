@@ -98,17 +98,17 @@ const AddTeacher = () => {
 
 
   return (
-    <div>
+    <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-3/4  mx-auto">
       <h3 className="text-center font-semibold text-2xl">Add Teacher </h3>
       <div className="w-full mx-auto">
-        <form className="bg-white shadow-mx rounded px-8 pt-6 pb-8 mb-4 d-flex flex-wrap">
+        <form className="mt-3 bg-slate-100 d-flex  flex-wrap">
           {teacherData.map((field, index) => (
             <div key={index}>
               <p className="my-3 text-orange-600">Teacher No:{index + 1}</p>
               <input
                 type="text"
                 placeholder="Name"
-                className="text-gray-700 text-sm font-bold mb-2 py-2 ps-1 border-b-2 mr-3"
+                className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2 lg:mx-3 lg:pl-2  border-b-2"
                 value={field.name}
                 onChange={(e) =>
                   handleFieldChange(index, "name", e.target.value)
@@ -117,7 +117,7 @@ const AddTeacher = () => {
               <input
                 type="number"
                 placeholder="Number"
-                className="text-gray-700 text-sm font-bold mb-2 py-2 ps-1 border-b-2 mr-3"
+                className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2 lg:mx-3 lg:pl-2 border-b-2 mt-2"
                 value={field.number}
                 onChange={(e) =>
                   handleFieldChange(index, "number", e.target.value)
@@ -127,7 +127,7 @@ const AddTeacher = () => {
               <input
                 type="file"
                 placeholder="img_link"
-                className="text-gray-700 text-sm font-bold mb-2 mr-3"
+                className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2  lg:mx-3 lg:pl-2 border-b-2 mt-2"
                 onChange={(e) =>
                   handleFieldChange(index, "img_link", e.target.value)
                 }

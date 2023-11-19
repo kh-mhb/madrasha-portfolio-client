@@ -69,16 +69,16 @@ const EditCommitteMember = () => {
     console.log(resMessage)
 
     content = (
-        <div className="bg-slate-100 p-3">
+        <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
             <div className="flex justify-between items-center">
                 <p className="my-1 ml-2 text-blue-700 font-bold">Edit committe member: {u_email}</p>
                 <button className="btn btn-sm bg-blue-700 text-white" onClick={()=>navigate('/adminLayout/checkcommitte')}>Check comitte</button>
             </div>
 
-                <div className="p-3">
-                    <form className="">
+                <div className="p-1">
+                    <form className=" bg-slate-100 px-2">
                         
-                        <div className="mb-4 mx-2 mx-2">
+                        <div className="mb-4  mx-1">
                             <label
                                 htmlFor="name"
                                 className="block text-sm font-medium text-gray-700 p-2"
