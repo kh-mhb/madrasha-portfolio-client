@@ -9,14 +9,14 @@ const Admin = () => {
     <div className="">
       <Header></Header>
 
-      <div className="pt-5 max-w-6xl mx-auto">
+      <div className="pt-5  mx-auto relative">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content text-center">
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn bg-blue-600 text-white lg:fixed top-10 right-28 btn-sm drawer-button mr-4"
+              className="btn bg-blue-600 text-white fixed top-10 right-28 btn-sm drawer-button"
             >
               Dashboard
             </label>

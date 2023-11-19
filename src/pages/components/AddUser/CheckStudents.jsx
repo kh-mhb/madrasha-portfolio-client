@@ -70,13 +70,13 @@ const CheckStudents = () => {
 
 
   content = (
-    <div className="overflow-x-auto overflow-y-auto">
-      <h2 className='text-blue-900 font-bold font-2'>Check all your students</h2>
-        <div class="flex justify-end mt-2">
+    <div className="mt-9 px-2 w-11/12 mx-auto absolute  lg:w-full lg:relative lg:mx-auto">
+        <div class="flex justify-between mt-2">
+      <h2 className='text-blue-900 font-bold font-2'>Check all students</h2>
           <button onClick={()=>navigate('/adminLayout/addstudent')}  class="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
         </div>
-      <div className="relative">
-        <table className="min-w-full table-auto">
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full border border-gray-300">
           <thead>
             <tr>
               <th className="px-4 py-2">No</th>
@@ -151,7 +151,6 @@ const CheckStudents = () => {
         </table>
       </div>
       <StudentModal
-        className="absolute"
         isEditModalOpen={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
         editDataId={editDataId}

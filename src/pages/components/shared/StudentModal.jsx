@@ -101,9 +101,9 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetch
         className={`modal-box ${
           !isEditModalOpen
             ? "hidden"
-            : "w-1/2 mx-auto fixed top-7 max-w-screen-sm"
+            : "lg:w-1/2 w-full mx-auto absolute bg-gray-300 -top-10"
         }`}>
-        <div className="flex justify-between items-center mb-1">
+        <div className="flex justify-between items-center">
           <h3 className="font-bold text-lg ">Student id: {editDataId}</h3>
           <button className="btn btn-sm bg-red-700 text-white" onClick={() => setIsEditModalOpen(!isEditModalOpen)}>
             X

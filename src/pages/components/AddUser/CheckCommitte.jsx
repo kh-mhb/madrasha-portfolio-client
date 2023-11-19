@@ -69,71 +69,72 @@ const CheckCommitte = () => {
 
 
     content = (
-        <div className="overflow-x-auto">
-        <div className="flex justify-between items-center mt-2">
-          <h2 className='text-blue-900 font-bold font-2'>Check all committe members</h2>
-          <button onClick={()=>navigate('/adminLayout/addcommitte')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
-        </div>
-
-        <table className="min-w-full table-auto">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">No</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Occupation</th>
-              <th className="px-4 py-2">Number</th>
-              <th className="px-4 py-2">Edit</th>
-              <th className="px-4 py-2">Delete</th>
-            </tr>
-          </thead>
-  
-          <tbody>
-            {members?.map((member, index) => (
-              <tr key={member?._id}>
-                <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2 text-sm">{member?.name}</td>
-                <td className="border px-4 py-2 text-sm">{member?.email}</td>
-                <td className="border px-4 py-2 text-sm">{member?.occupation}</td>
-                <td className="border px-4 py-2 text-sm">{member?.number}</td>
-                <td className="border px-4 py-2 text-sm">
-                  <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate(`/adminLayout/editcommitte/${member?._id}/${member?.email? member?.email : '-'}`)
-                    }}
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td className="border px-4 py-2 text-sm">
-                  <button
-                    className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleDeleteMember(member?._id)
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-  
-          <tfoot>
-            <tr>
-              <th className="px-4 py-2">No</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Occupation</th>
-              <th className="px-4 py-2">Number</th>
-              <th className="px-4 py-2">Edit</th>
-              <th className="px-4 py-2">Delete</th>
-            </tr>
-          </tfoot>
-        </table>
+        <div className="mt-9 px-2 w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
+          <div className="flex justify-between items-center mt-2 mb-2">
+            <h2 className='text-blue-900 font-bold font-2'>Check all committe members</h2>
+            <button onClick={()=>navigate('/adminLayout/addcommitte')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
+          </div>
+          <div className='overflow-x-auto'>
+              <table className="table-auto w-full border border-gray-300">
+                <thead>
+                  <tr>
+                    <th className="px-4 py-2">No</th>
+                    <th className="px-4 py-2">Name</th>
+                    <th className="px-4 py-2">Email</th>
+                    <th className="px-4 py-2">Occupation</th>
+                    <th className="px-4 py-2">Number</th>
+                    <th className="px-4 py-2">Edit</th>
+                    <th className="px-4 py-2">Delete</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  {members?.map((member, index) => (
+                    <tr key={member?._id}>
+                      <td className="border px-4 py-2">{index + 1}</td>
+                      <td className="border px-4 py-2 text-sm">{member?.name}</td>
+                      <td className="border px-4 py-2 text-sm">{member?.email}</td>
+                      <td className="border px-4 py-2 text-sm">{member?.occupation}</td>
+                      <td className="border px-4 py-2 text-sm">{member?.number}</td>
+                      <td className="border px-4 py-2 text-sm">
+                        <button
+                          className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate(`/adminLayout/editcommitte/${member?._id}/${member?.email? member?.email : '-'}`)
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                      <td className="border px-4 py-2 text-sm">
+                        <button
+                          className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            handleDeleteMember(member?._id)
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+        
+                <tfoot>
+                  <tr>
+                    <th className="px-4 py-2">No</th>
+                    <th className="px-4 py-2">Name</th>
+                    <th className="px-4 py-2">Email</th>
+                    <th className="px-4 py-2">Occupation</th>
+                    <th className="px-4 py-2">Number</th>
+                    <th className="px-4 py-2">Edit</th>
+                    <th className="px-4 py-2">Delete</th>
+                  </tr>
+                </tfoot>
+              </table>
+          </div>
       </div>
     )
   

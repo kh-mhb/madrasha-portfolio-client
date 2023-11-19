@@ -76,72 +76,72 @@ const WebManagement = () => {
 
 
     content = (
-        <div className="mx-1 my-4">
-            <div className="flex justify-between items-center mt-2">
+        <div className="mt-9 px-2 w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
+            <div className="flex justify-between items-center mt-2 mb-2">
                 <h2 className='text-blue-900 font-bold font-2'>Check editorial panel!</h2>
                 <button onClick={()=>navigate('/adminLayout/addeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Add editorials</button>
             </div>
-            <div className="overflow-x">
-                <table className="table-auto overflow-scroll w-full border border-gray-300">
-                    <thead>
-                        <tr>
-                            <th className="px-4 py-2">No</th>
-                            <th className="px-4 py-2">Email</th>
-                            <th className="px-4 py-2">Name</th>
-                            <th className="px-4 py-2">Number</th>
-                            <th className="px-4 py-2">Role</th>
-                            <th className="px-4 py-2">Edit</th>
-                            <th className="px-4 py-2">Delete</th>
-                        </tr>
-                    </thead>
-        
-                    <tbody>
-                        {editorials?.map((editorial, index) => (
-                        <tr className={u_email == editorial?.email?'bg-green-600 text-white':''} key={editorial?._id}>
-                            <td className="border px-4 py-2">{index + 1}</td>
-                            <td className="border px-4 py-2 text-sm">{editorial?.email}</td>
-                            <td className="border px-4 py-2 text-sm">{editorial?.name}</td>
-                            <td className="border px-4 py-2 text-sm">{editorial?.number}</td>
-                            <td className="border px-4 py-2 text-sm">{editorial?.role}</td>
-                            <td className="border px-4 py-2 text-sm">
-                                <button
-                                    className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
-                                    // disabled={editorial?.email !== u_email}
-                                    onClick={(e) => {
-                                    e.preventDefault();
-                                    handleNavigate(editorial?._id,editorial?.email);
-                                }}>
-                                    Edit
-                                </button> 
-                                {/* handle admin role  */}
-                            </td>
-                            <td className="border px-4 py-2 text-sm">
-                                <button
-                                    className={`${u_role !== 'admin'? 'bg-red-100': 'bg-red-500'} text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600`}
-                                    disabled={u_role !== 'admin'}
-                                    onClick={(e) => {
+            <div className="overflow-x-auto">
+                <table className="table-auto w-full border border-gray-300">
+                        <thead>
+                            <tr>
+                                <th className="px-4 py-2">No</th>
+                                <th className="px-4 py-2">Email</th>
+                                <th className="px-4 py-2">Name</th>
+                                <th className="px-4 py-2">Number</th>
+                                <th className="px-4 py-2">Role</th>
+                                <th className="px-4 py-2">Edit</th>
+                                <th className="px-4 py-2">Delete</th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+                            {editorials?.map((editorial, index) => (
+                            <tr className={u_email == editorial?.email?'bg-green-600 text-white':''} key={editorial?._id}>
+                                <td className="border px-4 py-2">{index + 1}</td>
+                                <td className="border px-4 py-2 text-sm">{editorial?.email}</td>
+                                <td className="border px-4 py-2 text-sm">{editorial?.name}</td>
+                                <td className="border px-4 py-2 text-sm">{editorial?.number}</td>
+                                <td className="border px-4 py-2 text-sm">{editorial?.role}</td>
+                                <td className="border px-4 py-2 text-sm">
+                                    <button
+                                        className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
+                                        // disabled={editorial?.email !== u_email}
+                                        onClick={(e) => {
                                         e.preventDefault();
-                                        handleDelete(editorial?._id);
-                                    }}
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                        ))}
-                    </tbody>
-        
-                    <tfoot>
-                        <tr>
-                            <th className="px-4 py-2">No</th>
-                            <th className="px-4 py-2">Email</th>
-                            <th className="px-4 py-2">Name</th>
-                            <th className="px-4 py-2">Number</th>
-                            <th className="px-4 py-2">Role</th>
-                            <th className="px-4 py-2">Edit</th>
-                            <th className="px-4 py-2">Delete</th>
-                        </tr>
-                    </tfoot>
+                                        handleNavigate(editorial?._id,editorial?.email);
+                                    }}>
+                                        Edit
+                                    </button> 
+                                    {/* handle admin role  */}
+                                </td>
+                                <td className="border px-4 py-2 text-sm">
+                                    <button
+                                        className={`${u_role !== 'admin'? 'bg-red-100': 'bg-red-500'} text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600`}
+                                        disabled={u_role !== 'admin'}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleDelete(editorial?._id);
+                                        }}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+            
+                        <tfoot>
+                            <tr>
+                                <th className="px-4 py-2">No</th>
+                                <th className="px-4 py-2">Email</th>
+                                <th className="px-4 py-2">Name</th>
+                                <th className="px-4 py-2">Number</th>
+                                <th className="px-4 py-2">Role</th>
+                                <th className="px-4 py-2">Edit</th>
+                                <th className="px-4 py-2">Delete</th>
+                            </tr>
+                        </tfoot>
                 </table>
             </div>
             {u_role === 'inactive' && <p className="font-bold text-red-700 text-sm">You can't edit or add member</p>}
