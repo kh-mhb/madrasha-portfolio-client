@@ -6,10 +6,10 @@ const Admin = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="">
       <Header></Header>
 
-      <div className="py-5">
+      <div className="pt-5 max-w-6xl mx-auto">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content text-center">
