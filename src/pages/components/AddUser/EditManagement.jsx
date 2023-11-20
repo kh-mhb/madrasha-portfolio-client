@@ -23,6 +23,7 @@ const EditManagement = () => {
         }
     },[u_role , u_email])
 
+
     useEffect(() => {
         if (resMessage && resMessage?.acknowledged) {
             toast.success(`Member updated!`, {
@@ -66,13 +67,6 @@ const EditManagement = () => {
           });
         }
     }, [resMessage])
-
-
-
-    // if(u_role === 'inactive'){
-    //     navigate('')
-    // }
-
 
 
     const handleFieldChange = (fieldName, value) => {
@@ -166,7 +160,7 @@ const EditManagement = () => {
                 </div>
 
                  
-                {u_role !== 'admin' && <div className="mb-4 mx-2">
+                {u_role === 'admin' && <div className="mb-4 mx-2">
                     <label
                         htmlFor="name"
                         className="block text-sm font-medium text-gray-700 p-2"
@@ -174,11 +168,10 @@ const EditManagement = () => {
                         Role
                     </label>
                     <select
-                        disabled={u_role !== 'admin'}
                         name="role"
                         onChange={(e) => handleFieldChange('role', e.target.value)}
                     >
-                        <option disabled value="">select a role</option>
+                        <option value="">select a role</option>
                         <option value="editor">editor</option>
                         <option value="inactive">inactive</option>
                     </select>

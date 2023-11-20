@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const AboutUs = () => {
   return (
     <div className="px-10">
-      <div className="text-center py-5">
+      {/* <div className="text-center py-5">
         <h1 className="sm:text-3xl text-3xl  border-y-4 lg:w-1/3 mx-auto py-3 font-medium title-font mb-4 text-gray-900">
           Introduction
         </h1>
-      </div>
+      </div> */}
       <div className="grid lg:grid-cols-3 justify-center items-center  gap-x-6">
         <div className="flex lg:flex-col lg:py-2 gap-2">
           <Link to="/committe" className="btn btn-outline">
