@@ -1,7 +1,7 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Home/Home/Home";
-import Gallery from "../components/Gallery/Gallery";
+import {Gallery} from "../components/Gallery/Gallery";
 import Contact from "../components/Contact/Contact";
 import Donation from "../components/Donation/Donation";
 import Login from "../components/Login/Login";

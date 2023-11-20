@@ -21,9 +21,10 @@ const Committe = () => {
             Our committe
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table. Franzen you probably
-            haven't heard of them.
+            In the pursuit of knowledge, the soul awakens, and in the 
+            service of others, the heart finds peace. May the commitment 
+            of our committee members be a beacon of light, guiding us 
+            towards the path of wisdom, compassion, and unity.
           </p>
         </div>
           <div className="flex justify-end mb-2">
