@@ -43,13 +43,13 @@ const Login = () => {
   }
 
   return (
-    <div className="w-1/2 mt-7 mx-auto ">
-      <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl">
+    <div className="lg:w-9/12 px-8 py-6 bg-gray-200 mt-8 mx-auto ">
+      <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl py-4">
             Login your account
       </h1>
-      {localStorage.getItem('access_token') && <p className='text-red-900'>You are already logged in!</p>}
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-        <div className="mb-4">
+      {localStorage.getItem('access_token') && <p className='text-red-700'>You are already logged in!</p>}
+      <form className="bg-gray-100 shadow-md rounded px-8 py-8 mb-4" onSubmit={handleSubmit}>
+        <div className="mb-4 pb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email
           </label>

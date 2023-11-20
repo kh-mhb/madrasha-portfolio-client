@@ -16,20 +16,25 @@ const Committe = () => {
 
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-            Our committe
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            In the pursuit of knowledge, the soul awakens, and in the 
-            service of others, the heart finds peace. May the commitment 
-            of our committee members be a beacon of light, guiding us 
-            towards the path of wisdom, compassion, and unity.
-          </p>
-        </div>
-          <div className="flex justify-end mb-2">
-            <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-600 text-white">HOME</button>
+        
+
+      <div className="hero h-1/3 mb-7 bg-base-300">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold">Our committe</h1>
+            <p className="py-6">
+              In the pursuit of knowledge, the soul awakens, and in the 
+              service of others, the heart finds peace. May the commitment 
+              of our committee members be a beacon of light, guiding us 
+              towards the path of wisdom, compassion, and unity.</p>
+            <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
+            <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
+            <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
           </div>
+        </div>
+      </div>
+        
+
 
           <div className="flex flex-wrap -m-2">
             {members?.map(member => 

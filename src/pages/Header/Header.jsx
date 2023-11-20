@@ -37,17 +37,17 @@ const Header = () => {
     setU_role("")
     forceCheckLocalStorage()
     checkWebAdmin()
-  };
+  }
 
   return (
-    <header className="text-gray-600 body-font ">
-      <div className="container mx-auto flex flex-wrap mt-2 flex-col md:flex-row items-center">
+    <header className="text-white-900 body-font absolute top-0 rounded sticky bg-gray-300 z-50 py-1 px-1 mb-2">
+      <div className="container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
         <Link
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
           <span className="ml-3 text-xl">
-            <img className="h-[60px] sm:h-[60px]" src={title} />
+            <img className="h-[40px] sm:h-[40px] rounded-full"  src={title} />
           </span>
         </Link>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
@@ -57,7 +57,7 @@ const Header = () => {
           <Link to="/contact" className="mr-5 hover:text-gray-900">
             Contact
           </Link>
-          <Link to="/donate" className="mr-5 hover:text-gray-900">
+          <Link to="/donate" className="mr-5 text-whit hover:text-gray-900">
             Donate
           </Link>
           {!u_email ? (

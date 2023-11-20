@@ -12,7 +12,31 @@ const Student = () => {
 
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
+        
+
+        
+      <div className="hero h-1/3 mb-7 bg-base-300">
+          <div className="hero-content text-center">
+            <div className="max-w-md">
+              <h1 className="text-5xl font-bold">Our Students</h1>
+              <p className="py-6">
+                In seeking knowledge, you are lighting the path to wisdom. 
+                Embrace the journey, for learning is a sacred pursuit that 
+                leads to enlightenment and a deeper connection with Allah.</p>
+              <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHER</button>
+              <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
+              <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        {/* <div className="flex flex-col text-center w-full mb-20">
           <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">
             Our Students
           </h1>
@@ -22,9 +46,8 @@ const Student = () => {
             leads to enlightenment and a deeper connection with Allah.
           </p>
         </div>
-        <div className="flex justify-end mb-2">
-          <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-600 text-white">HOME</button>
-        </div>
+         */}
+
         <div className="flex flex-wrap -m-4">
           
 

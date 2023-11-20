@@ -1,4 +1,3 @@
-import React from "react";
 import img1 from "../../../assets/banner/img1.jpeg";
 import img2 from "../../../assets/banner/img2.jpeg";
 import img3 from "../../../assets/banner/img3.jpeg";
@@ -6,8 +5,8 @@ import img4 from "../../../assets/banner/img4.jpeg";
 
 const Banner1 = () => {
   return (
-    <div>
-      <div className="carousel w-full h-[600px] mt-3">
+
+      <div className="carousel w-full h-[600px] mt-0">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
@@ -97,7 +96,7 @@ const Banner1 = () => {
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

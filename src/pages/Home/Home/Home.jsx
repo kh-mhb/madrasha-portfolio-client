@@ -14,7 +14,8 @@ const Home = () => {
 
   return (
     <div>
-      {isLargeDevice ? <Banner1 /> : <Banner />}
+      {/* {isLargeDevice ? <Banner1 /> : <Banner />} */}
+      <Banner1 /> 
       <AboutUs></AboutUs>
       <Motivation></Motivation>
       <Introduction></Introduction>
