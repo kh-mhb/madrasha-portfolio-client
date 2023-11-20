@@ -10,7 +10,7 @@ const useDeleteCommitteMember = () => {
 
         setIsLoading(true)
         try{
-            const deleteRes = await fetch(`http://localhost:7071/committe/delete/${id}`,{
+            const deleteRes = await fetch(`https://server-null.vercel.app/committe/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

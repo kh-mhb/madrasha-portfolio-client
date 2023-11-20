@@ -11,7 +11,7 @@ const useLoginEditorials = () => {
 
         setIsLoading(true)
         try{
-            const loginRes = await fetch(`http://localhost:7071/auth/login`,{
+            const loginRes = await fetch(`https://server-null.vercel.app/auth/login`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

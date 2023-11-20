@@ -10,7 +10,7 @@ const useGetSingleStudent = () => {
 
         const fetchStart = async(id) =>{
             try{
-                fetch(`http://localhost:7071/student/studentby${id}`,{
+                fetch(`https://server-null.vercel.app/student/studentby${id}`,{
                     method: 'GET'
                 })
                 .then(res => res.json())

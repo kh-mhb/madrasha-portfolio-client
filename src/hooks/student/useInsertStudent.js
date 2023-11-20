@@ -9,7 +9,7 @@ const useInsertStudent = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:7071/student/insert', {
+      const response = await fetch('https://server-null.vercel.app/student/insert', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

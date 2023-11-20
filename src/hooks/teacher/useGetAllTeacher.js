@@ -10,7 +10,7 @@ const useGetAllTeacher = () => {
 
         const fetchStart = async() =>{
             try{
-                fetch('http://localhost:7071/teacher/all',{
+                fetch('https://server-null.vercel.app/teacher/all',{
                     method: 'GET'
                 })
                 .then(res => res.json())

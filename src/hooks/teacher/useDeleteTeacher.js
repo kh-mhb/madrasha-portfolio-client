@@ -10,7 +10,7 @@ const useDeleteTeacher = () => {
 
         setIsLoading(true)
         try{
-            const deleteRes = await fetch(`http://localhost:7071/teacher/delete/${id}`,{
+            const deleteRes = await fetch(`https://server-null.vercel.app/teacher/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

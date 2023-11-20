@@ -11,7 +11,7 @@ const useUpdateStudent = () => {
 
         setIsLoading(true)
         try{
-            const updateRes = await fetch(`http://localhost:7071/student/edit/${id}`,{
+            const updateRes = await fetch(`https://server-null.vercel.app/student/edit/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

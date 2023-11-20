@@ -9,7 +9,7 @@ const useUpdateEditorials = () => {
     const updateEditorials = async(id,data) =>{
         setIsLoading(true)
         try{
-            const response = await fetch(`http://localhost:7071/auth/update/${id}`,{
+            const response = await fetch(`https://server-null.vercel.app/auth/update/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

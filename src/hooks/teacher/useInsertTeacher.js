@@ -9,7 +9,7 @@ const useInsertTeacher = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:7071/teacher/insert', {
+      const response = await fetch('https://server-null.vercel.app/teacher/insert', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const useInsertCommitteMember = () => {
     const insertMember = async(insert_doc) =>{
         try{
             setIsLoading(true)
-            const response = await fetch('http://localhost:7071/committe/insert',{
+            const response = await fetch('https://server-null.vercel.app/committe/insert',{
                 method: 'PUT',
                 headers:{
                     'Content-Type': 'application/json',

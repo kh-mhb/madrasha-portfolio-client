@@ -9,7 +9,7 @@ const useCreateEditorials = () => {
     const insertEditorials = async(insert_doc) =>{
         try{
             setIsLoading(true)
-            const response = await fetch('http://localhost:7071/auth/create',{
+            const response = await fetch('https://server-null.vercel.app/auth/create',{
                 method: 'PUT',
                 headers:{
                     'Content-Type': 'application/json',

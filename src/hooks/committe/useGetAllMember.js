@@ -10,7 +10,7 @@ const useGetAllMember = () => {
     const getAllMembers = async() =>{
         setIsLoading(true)
         try{
-            const response = await fetch('http://localhost:7071/committe/all')
+            const response = await fetch('https://server-null.vercel.app/committe/all')
             const res = await response.json()
 
             setMembers(res.committe)

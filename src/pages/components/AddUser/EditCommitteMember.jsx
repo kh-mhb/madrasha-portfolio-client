@@ -65,8 +65,8 @@ const EditCommitteMember = () => {
         await updateMember(webChecker,id)
         setWebChecker({name: "",email: "",number: "",occupation: ""})
     }
-    
-    console.log(resMessage)
+
+
 
     content = (
         <div className="p-3 bg-slate-300 my-7 w-11/12 lg:w-1/2  mx-auto">
