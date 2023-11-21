@@ -7,12 +7,14 @@ const useInsertCommitteMember = () => {
     const [error, setError] = useState(null)
     
     const insertMember = async(insert_doc) =>{
+        const token = localStorage.getItem('access_token')
+        setIsLoading(true)
         try{
-            setIsLoading(true)
             const response = await fetch('https://server-null.vercel.app/committe/insert',{
                 method: 'PUT',
-                headers:{
+                headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(insert_doc)
             })

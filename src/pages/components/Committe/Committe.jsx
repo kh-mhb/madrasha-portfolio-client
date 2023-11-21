@@ -15,7 +15,7 @@ const Committe = () => {
   content = isLoading ? <Loader /> : (
 
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-1 rounded py-24 mx-auto">
         
 
       <div className="hero h-1/3 mb-7 bg-base-300">

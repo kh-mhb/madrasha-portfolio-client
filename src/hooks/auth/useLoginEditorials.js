@@ -8,7 +8,6 @@ const useLoginEditorials = () => {
 
 
     const loginEditor = async(data) =>{
-
         setIsLoading(true)
         try{
             const loginRes = await fetch(`https://server-null.vercel.app/auth/login`,{

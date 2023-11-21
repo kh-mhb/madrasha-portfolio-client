@@ -8,6 +8,7 @@ import Introduction from "../Introdcution/Introduction";
 import Motivation from "../Motivation";
 import Banner1 from "../Banner/Banner1";
 import Footer from "../../Footer/Footer";
+// import Banner2 from "../Banner/Banner2";
 
 const Home = () => {
   const isLargeDevice = useMediaQuery({ minWidth: 1024 });
@@ -16,6 +17,7 @@ const Home = () => {
     <div>
       {/* {isLargeDevice ? <Banner1 /> : <Banner />} */}
       <Banner1 /> 
+      {/* <Banner2 />  */}
       <AboutUs></AboutUs>
       <Motivation></Motivation>
       <Introduction></Introduction>

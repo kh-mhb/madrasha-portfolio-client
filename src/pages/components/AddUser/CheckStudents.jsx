@@ -14,6 +14,7 @@ const CheckStudents = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editDataId, setEditDataId] = useState('')
 
+
   useEffect(() => {
     if (response && response?.deletedCount === 1) {
       toast.success('Students data deleted', {
@@ -71,9 +72,9 @@ const CheckStudents = () => {
 
   content = (
     <div className="mt-9 px-2 w-11/12 mx-auto absolute  lg:w-full lg:relative lg:mx-auto">
-        <div class="flex justify-between mt-2">
+        <div className="flex justify-between mt-2">
       <h2 className='text-blue-900 font-bold font-2'>Check all students</h2>
-          <button onClick={()=>navigate('/adminLayout/addstudent')}  class="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
+          <button onClick={()=>navigate('/adminLayout/addstudent')}  className="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
         </div>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300">

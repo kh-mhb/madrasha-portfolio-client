@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import useGetAllTeacher from '../../../hooks/teacher/UseGetAllTeacher'
+import useGetAllTeacher from '../../../hooks/teacher/useGetAllTeacher'
 import useDeleteTeacher from '../../../hooks/teacher/useDeleteTeacher'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
@@ -69,7 +69,7 @@ const CheckTeacher = () => {
     // console.log(data)
     content = (
         <div className="mt-9 px-2 w-11/12 mx-auto absolute  lg:w-full lg:relative lg:mx-auto">
-          <div class="flex justify-between mt-2 mb-2">
+          <div className="flex justify-between mt-2 mb-2">
             <p className="my-1 text-blue-700 font-bold">Check teacher's panel!</p>
             <button onClick={()=>navigate('/adminLayout/addteacher')}  className=" btn btn-sm bg-blue-600 text-white px-4 rounded">Add teacher</button>
           </div>

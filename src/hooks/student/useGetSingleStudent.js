@@ -15,7 +15,6 @@ const useGetSingleStudent = () => {
                 })
                 .then(res => res.json())
                 .then(student => {
-                    // console.log(student.students)
                     setData(student.students)
                 })
             }catch(err){

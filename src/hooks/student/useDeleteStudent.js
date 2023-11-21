@@ -7,6 +7,7 @@ const useDeleteStudent = () => {
 
 
     const deleteStudent = async(id) =>{
+        const token = localStorage.getItem('access_token')
 
         setIsLoading(true)
         try{
@@ -14,6 +15,7 @@ const useDeleteStudent = () => {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
             })
 

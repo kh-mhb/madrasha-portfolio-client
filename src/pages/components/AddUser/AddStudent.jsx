@@ -19,6 +19,9 @@ const AddStudent = () => {
     img_link:'',
   },])
 
+
+  console.log(insertStresponse)
+
   useEffect(() => {
       if (insertStresponse && insertStresponse?.acknowledged) {
           toast.success(`Total ${addedstdnt+1} student/students added!`, {
@@ -39,7 +42,7 @@ const AddStudent = () => {
             'aria-live': 'polite',
           },
         })
-    }else if(insertStresponse && !insertStresponse?.acknowledged){
+    }else if(insertStresponse && (!insertStresponse?.acknowledged || insertStresponse?.message==='Unauthorized')){
       toast.error('Failed', {
         duration: 4000,
         position: 'top-right',
@@ -178,7 +181,7 @@ const AddStudent = () => {
             <button onClick={handleAddField} className="btn btn-sm mx-3 my-4 bg-blue-300 text-white">Add field</button>
             <button onClick={handleStudentDataSubmit} className="btn btn-sm bg-blue-700 text-white">Submit</button>
         </form>
-        <div class="flex justify-end mt-2">
+        <div className="flex justify-end mt-2">
           <button onClick={()=>navigate('/adminLayout/checkstudent')}  className="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Check All</button>
         </div>
       </div>

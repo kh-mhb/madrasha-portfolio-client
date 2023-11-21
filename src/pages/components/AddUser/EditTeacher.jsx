@@ -22,7 +22,7 @@ const EditTeacher = () => {
 
     useEffect(() => {
         if (response && response?.acknowledged) {
-            toast.success(`Teacher deleted!`, {
+            toast.success(`Edited successfull!`, {
             duration: 4000,
             position: 'top-right',
             style: {
@@ -74,6 +74,7 @@ const EditTeacher = () => {
     
     const handleUpdateTeacher = async() =>{
         await editTeacher(teacherData,id)
+        setTeacherData({name: "",number: "",img_link: ""})
     }
     
 

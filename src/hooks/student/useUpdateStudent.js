@@ -8,13 +8,14 @@ const useUpdateStudent = () => {
 
 
     const editStudent = async(data,id) =>{
-
+        const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
             const updateRes = await fetch(`https://server-null.vercel.app/student/edit/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(data)
             })

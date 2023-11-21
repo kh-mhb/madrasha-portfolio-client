@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useUserdata from "../../../hooks/auth/useUserdata";
 import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
+import Loader from "../shared/Loader";
 
 
 const WebManagement = () => {
@@ -16,10 +17,11 @@ const WebManagement = () => {
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
     
 
-
-    // useEffect(() => {},[
-    //     checkWebAdmin()
-    // ],[])
+    useEffect(() => {
+        if(isLoading){
+            content = <Loader/>
+        }
+    },[])
 
     useEffect(() => {
         if(deleteResponse && deleteResponse?.deletedCount) {

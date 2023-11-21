@@ -14,7 +14,6 @@ const useGetAllStudents = () => {
                 })
                 .then(res => res.json())
                 .then(student => {
-                    // console.log(student.students)
                     setData(student.students)
                 })
             }catch(err){
@@ -27,7 +26,6 @@ const useGetAllStudents = () => {
         useEffect(() => {
             fetchStart();
         }, []);
-
 
     return [ fetchStart , data , isLoading , error ]
 }

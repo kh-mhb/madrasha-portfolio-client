@@ -15,7 +15,7 @@ const CheckCommitte = () => {
 
     useEffect(() => {
         if(deleteResponse && deleteResponse?.deletedCount) {
-            toast.success(`Teacher deleted!`, {
+            toast.success(`Member deleted!`, {
             duration: 4000,
             position: 'top-right',
             style: {

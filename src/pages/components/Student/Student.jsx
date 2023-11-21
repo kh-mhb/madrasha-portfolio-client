@@ -11,7 +11,7 @@ const Student = () => {
   content = isLoading1 ? <Loader />  : (
 
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-1 py-24 mx-auto">
         
 
         
@@ -23,7 +23,7 @@ const Student = () => {
                 In seeking knowledge, you are lighting the path to wisdom. 
                 Embrace the journey, for learning is a sacred pursuit that 
                 leads to enlightenment and a deeper connection with Allah.</p>
-              <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHER</button>
+              <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
               <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
               <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button>
             </div>
@@ -32,31 +32,15 @@ const Student = () => {
 
 
 
-
-
-
-
-        {/* <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">
-            Our Students
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            In seeking knowledge, you are lighting the path to wisdom. 
-            Embrace the journey, for learning is a sacred pursuit that 
-            leads to enlightenment and a deeper connection with Allah.
-          </p>
-        </div>
-         */}
-
         <div className="flex flex-wrap -m-4">
           
 
           {data?.map(student =>
-            <div key={student?._id} className="p-4 w-full mx-auto lg:w-1/2">
+            <div key={student?._id} className="p-2 w-full mx-auto lg:w-1/2">
               <div className="h-full flex  bg-gray-100 p-2 rounded sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                 <img
                   alt="image"
-                  className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center bg-gray-500 sm:mb-0 mb-4"
+                  className="flex-shrink-0 rounded-lg w-full lg:w-48 h-48 object-cover object-center bg-gray-500 sm:mb-0 mb-4"
                   src={student?.img_link}
                 />
                 <div className="flex-grow sm:pl-8">

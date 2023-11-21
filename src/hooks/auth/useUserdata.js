@@ -8,7 +8,6 @@ const useUserdata = () => {
 
     const checkLocalStorage = () => {
         const token = localStorage.getItem('access_token')
-
         try {
             const decoded = jwtDecode(token);
             const { email, role } = decoded.data;
@@ -16,7 +15,6 @@ const useUserdata = () => {
             setU_email(email)
             setU_role(role)
         } catch (error) {
-            // console.error('Error decoding JWT token:', error);
             setU_email('')
             setU_role('')
         } finally {

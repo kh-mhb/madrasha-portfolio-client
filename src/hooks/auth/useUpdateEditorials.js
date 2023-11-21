@@ -7,12 +7,14 @@ const useUpdateEditorials = () => {
     const [resMessage,setResMessage]  = useState(null)
 
     const updateEditorials = async(id,data) =>{
+        const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
             const response = await fetch(`https://server-null.vercel.app/auth/update/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(data)
             })

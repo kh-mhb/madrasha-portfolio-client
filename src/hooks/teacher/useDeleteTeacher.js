@@ -5,25 +5,19 @@ const useDeleteTeacher = () => {
     const [isLoading,setIsLoading] = useState(false)
     const [response,setResponse] = useState(null)
 
-
     const deleteTeacher = async(id) =>{
-
+        const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
             const deleteRes = await fetch(`https://server-null.vercel.app/teacher/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
             })
-            console.log(deleteRes)
-
-            // if(!deleteRes.ok){
-            //     throw new Error(`HTTP error! Status: ${deleteRes.status}`)
-            // }
 
             const res = await deleteRes.json()
-
             setResponse(res)
         }catch(err){
             setError(err)

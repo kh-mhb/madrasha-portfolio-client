@@ -11,7 +11,11 @@ const useCheckAdmin = () => {
     const checkWebAdmin = async() =>{
         setIsLoading(true)
         try{
-            const response = await fetch('https://server-null.vercel.app/auth/admin')
+            const response = await fetch('https://server-null.vercel.app/auth/admin',{
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
             const res = await response.json()
 
             if(res.present === true){

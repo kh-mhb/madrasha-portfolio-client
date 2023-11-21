@@ -14,11 +14,11 @@ const AddWebManagement = () => {
     const [ insertEditorials , insertResponse , isLoading , error ] = useCreateEditorials()
     const [editorial , setEditorial] = useState({name: "",number: "",email: "",role: "",password: ""});
 
-        if(u_role === 'editor'){
-            navigate('/adminLayout/checkeditorials')
-        }else if(u_role === 'inactive'){
-            navigate('/adminLayout/checkeditorials')
-        }
+    if(u_role === 'editor'){
+        navigate('/adminLayout/checkeditorials')
+    }else if(u_role === 'inactive'){
+        navigate('/adminLayout/checkeditorials')
+    }
 
     
 

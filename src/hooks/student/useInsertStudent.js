@@ -6,32 +6,32 @@ const useInsertStudent = () => {
   const [error, setError] = useState(null);
 
   const insertStudent = async (insert_doc) => {
-    setIsLoading(true);
-
+    const token = localStorage.getItem('access_token')
+    setIsLoading(true)
     try {
       const response = await fetch('https://server-null.vercel.app/student/insert', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type' : 'application/json',
+          'authorization': `Bearer ${token}`
         },
         body: JSON.stringify(insert_doc),
       })
 
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
+        setInsertStresponse(`HTTP error! Status: ${response.status}`)
       }
 
-      const data = await response.json();
-      setInsertStresponse(data);
+      console.log(response)
+      const data = await response.json()
+
+      setInsertStresponse(data)
     } catch (err) {
       setError(err);
     } finally {
       setIsLoading(false);
     }
   }
-
-//   useEffect(() => {
-//   }, [insertStresponse, isLoading, error]);
 
   return [insertStudent, insertStresponse , isLoading , error]
 }

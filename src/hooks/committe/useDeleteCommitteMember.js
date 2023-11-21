@@ -7,20 +7,19 @@ const useDeleteCommitteMember = () => {
 
 
     const deleteMember = async(id) =>{
-
+        const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
             const deleteRes = await fetch(`https://server-null.vercel.app/committe/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
             })
-
-            const res = await deleteRes.json()
             
+            const res = await deleteRes.json()
             setDeleteResponse(res)
-
         }catch(err){
             setError(err)
         }finally{

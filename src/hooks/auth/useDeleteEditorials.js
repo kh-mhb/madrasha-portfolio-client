@@ -8,18 +8,19 @@ const useDeleteEditorials = () => {
 
 
     const deleteEditorialsMember = async(id) =>{
-
+        const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
             const deleteRes = await fetch(`https://server-null.vercel.app/auth/delete/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
                 },
             })
 
             const res = await deleteRes.json()
-            
+
             setDeleteResponse(res)
 
         }catch(err){
@@ -28,7 +29,6 @@ const useDeleteEditorials = () => {
             setIsLoading(false)
         }
     }
-  
     return [ deleteEditorialsMember , deleteResponse , error , isLoading ]
 }
 

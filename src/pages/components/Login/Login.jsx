@@ -42,6 +42,7 @@ const Login = () => {
     navigate(location.state?.from || '/');
   }
 
+  
   return (
     <div className="lg:w-9/12 px-8 py-6 bg-gray-200 mt-8 mx-auto ">
       <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl py-4">

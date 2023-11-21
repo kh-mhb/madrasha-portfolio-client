@@ -8,10 +8,9 @@ const useRegisterEditorialsAdmin = () => {
   
     const insertAdmin = async (insert_doc) => {
       setIsLoading(true);
-  
         try {
-            const response = await fetch('https://server-null.vercel.app/auth/create',{
-                method: 'PUT',
+            const response = await fetch('https://server-null.vercel.app/auth/signup',{
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },

@@ -21,7 +21,7 @@ const AddTeacher = () => {
 
   useEffect(() => {
     if (insertStresponse && insertStresponse?.acknowledged) {
-        toast.success(`Teacher deleted!`, {
+        toast.success(`Added successfully!`, {
         duration: 4000,
         position: 'top-right',
         style: {
@@ -146,8 +146,8 @@ const AddTeacher = () => {
           </button>
         </form>
       </div>
-        <div class="flex justify-end mt-2">
-          <button onClick={()=>navigate('/adminLayout/checkteacher')}  class="bg-blue-600 text-white px-4 rounded">Check teacher</button>
+        <div className="flex justify-end mt-2">
+          <button onClick={()=>navigate('/adminLayout/checkteacher')}  className="bg-blue-600 text-white px-4 rounded">Check teacher</button>
         </div>
     </div>
   );
