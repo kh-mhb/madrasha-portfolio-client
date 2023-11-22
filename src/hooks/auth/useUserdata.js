@@ -8,6 +8,7 @@ const useUserdata = () => {
 
     const checkLocalStorage = () => {
         const token = localStorage.getItem('access_token')
+
         try {
             const decoded = jwtDecode(token);
             const { email, role } = decoded.data;

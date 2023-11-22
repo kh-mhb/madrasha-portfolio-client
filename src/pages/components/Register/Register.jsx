@@ -7,9 +7,10 @@ import useRegisterEditorialsAdmin from "../../../hooks/auth/useRegisterEditorial
 
 
 const Register = () => {
-  const [ checkWebAdmin , isAdminFound , isLoading , error] = useCheckAdmin()
+  let content
   const location = useLocation()
   const navigate = useNavigate()
+  const [ checkWebAdmin , isAdminFound , isLoading , error] = useCheckAdmin()
   const [regInfo, setReginInfo] = useState({ name: '' , email: '' , password: '' , role : 'admin' , number: 0})
   const [insertAdmin, insertRegResponse , isLoadingReg , errorReg] = useRegisterEditorialsAdmin()
 
@@ -24,9 +25,6 @@ const Register = () => {
 
   },[ isAdminFound , isLoading , location])
 
-  
-
-  console.log(isAdminFound , isLoadingReg)
   const handleChange = (e) => {
     const { name, value } = e.target
     setReginInfo((prevData) => ({
@@ -54,7 +52,7 @@ const Register = () => {
     localStorage.setItem('access_token',access_token)
   }
 
-  return (
+  content = isLoading ? <Loader /> : (
     <div>
       <section className="px-4 pb-24 mx-auto max-w-7xl">
         <header className="flex items-center justify-center py-5 mb-5 "></header>
@@ -136,11 +134,12 @@ const Register = () => {
 
           </form>
 
-          
         </div>
       </section>
     </div>
-  );
+  )
+
+  return content
 };
 
 export default Register;
