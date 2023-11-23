@@ -71,86 +71,88 @@ const CheckStudents = () => {
 
 
   content = (
-    <div className="mt-9 px-2 w-11/12 mx-auto absolute  lg:w-full lg:relative lg:mx-auto">
-        <div className="flex justify-between mt-2">
-      <h2 className='text-blue-900 font-bold font-2'>Check all students</h2>
+    <div className="mt-9  w-full mx-auto absolute lg:relative">
+        <div className="flex justify-between mt-6">
+          <h2 className='text-blue-900 font-bold font-2'>Check all students</h2>
           <button onClick={()=>navigate('/adminLayout/addstudent')}  className="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add student</button>
         </div>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border border-gray-300">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">No</th>
-              <th className="px-4 py-2">Img</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Father's name</th>
-              <th className="px-4 py-2">Mother's name</th>
-              <th className="px-4 py-2">DOB</th>
-              <th className="px-4 py-2">Village</th>
-              <th className="px-4 py-2">District</th>
-              <th className="px-4 py-2">Class</th>
-              <th className="px-4 py-2">Edit</th>
-              <th className="px-4 py-2">Delete</th>
-            </tr>
-          </thead>
+        <div className="overflow-x-auto">
+          <div className="table-container mt-8" style={{ maxHeight: "600px", overflowY: "auto" }}>
+            <table className="table-auto w-full border border-gray-300">
+              <thead>
+                <tr>
+                  <th className="px-4 py-2">No</th>
+                  <th className="px-4 py-2">Img</th>
+                  <th className="px-4 py-2">Name</th>
+                  <th className="px-4 py-2">Father's name</th>
+                  <th className="px-4 py-2">Mother's name</th>
+                  <th className="px-4 py-2">DOB</th>
+                  <th className="px-4 py-2">Village</th>
+                  <th className="px-4 py-2">District</th>
+                  <th className="px-4 py-2">Class</th>
+                  <th className="px-4 py-2">Edit</th>
+                  <th className="px-4 py-2">Delete</th>
+                </tr>
+              </thead>
 
-          <tbody>
-            {data?.map((student, index) => (
-              <tr key={student?._id}>
-                <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">
-                  <img src={student?.img_link} className="max-w-full h-auto" />
-                </td>
-                <td className="border px-4 py-2 text-sm">{student?.name}</td>
-                <td className="border px-4 py-2 text-sm">{student?.father_name}</td>
-                <td className="border px-4 py-2 text-sm">{student?.mother_name}</td>
-                <td className="border px-4 py-2 text-sm">{student?.date_of_brth}</td>
-                <td className="border px-4 py-2 text-sm">{student?.village}</td>
-                <td className="border px-4 py-2 text-sm">{student?.district}</td>
-                <td className="border px-4 py-2 text-sm">{student?.stnd_class}</td>
-                <td className="border px-4 py-2 text-sm">
-                  <button
-                    className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
-                    onClick={() => {
-                      setIsEditModalOpen(true);
-                      setEditDataId(student?._id);
-                    }}
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td className="border px-4 py-2 text-sm">
-                  <button
-                    className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleDeleteStudent(student?._id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+              <tbody>
+                {data?.map((student, index) => (
+                  <tr key={student?._id}>
+                    <td className="border px-4 py-2">{index + 1}</td>
+                    <td className="border px-4 py-2">
+                      <img src={student?.img_link} className="max-w-full h-auto" />
+                    </td>
+                    <td className="border px-4 py-2 text-sm">{student?.name}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.father_name}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.mother_name}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.date_of_brth}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.village}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.district}</td>
+                    <td className="border px-4 py-2 text-sm">{student?.stnd_class}</td>
+                    <td className="border px-4 py-2 text-sm">
+                      <button
+                        className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
+                        onClick={() => {
+                          setIsEditModalOpen(true);
+                          setEditDataId(student?._id);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </td>
+                    <td className="border px-4 py-2 text-sm">
+                      <button
+                        className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleDeleteStudent(student?._id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
 
-          <tfoot>
-            <tr>
-              <th className="px-4 py-2">No</th>
-              <th className="px-4 py-2">Img</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Father's name</th>
-              <th className="px-4 py-2">Mother's name</th>
-              <th className="px-4 py-2">DOB</th>
-              <th className="px-4 py-2">Village</th>
-              <th className="px-4 py-2">District</th>
-              <th className="px-4 py-2">Class</th>
-              <th className="px-4 py-2">Edit</th>
-              <th className="px-4 py-2">Delete</th>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+              <tfoot>
+                <tr>
+                  <th className="px-4 py-2">No</th>
+                  <th className="px-4 py-2">Img</th>
+                  <th className="px-4 py-2">Name</th>
+                  <th className="px-4 py-2">Father's name</th>
+                  <th className="px-4 py-2">Mother's name</th>
+                  <th className="px-4 py-2">DOB</th>
+                  <th className="px-4 py-2">Village</th>
+                  <th className="px-4 py-2">District</th>
+                  <th className="px-4 py-2">Class</th>
+                  <th className="px-4 py-2">Edit</th>
+                  <th className="px-4 py-2">Delete</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
       <StudentModal
         isEditModalOpen={isEditModalOpen}
         setIsEditModalOpen={setIsEditModalOpen}
@@ -158,7 +160,7 @@ const CheckStudents = () => {
         fetchStart={fetchStart}
       />
     </div>
-  );
+  )
 
   return content;
 };

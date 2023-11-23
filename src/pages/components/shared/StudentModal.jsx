@@ -95,23 +95,25 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetch
 }
 
 
-
   return (
       <div
-        className={`modal-box ${
+        className={`${
           !isEditModalOpen
             ? "hidden"
-            : "lg:w-1/2 w-full mx-auto absolute bg-gray-300 -top-10"
-        }`}>
-        <div className="flex justify-between items-center">
+            : "w-full mx-auto absolute mx-2 px-8 py-8 bg-gray-300 top-4"
+        }`}
+        style={{ maxHeight: '80vh', overflowY: 'auto' }}
+        >
+        <div className="flex justify-between mb-2 items-center">
           <h3 className="font-bold text-lg ">Student id: {editDataId}</h3>
           <button className="btn btn-sm bg-red-700 text-white" onClick={() => setIsEditModalOpen(!isEditModalOpen)}>
             X
           </button>
         </div>
+
         <div>
-          <form className="bg-slate-100 p-2">
-            <div className="mb-4">
+          <form className="bg-slate-100 w-full lg:w-1/2 mx-auto px-8 py-2">
+            <div className="mb-1">
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700 p-2"
