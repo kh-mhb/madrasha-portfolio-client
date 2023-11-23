@@ -42,8 +42,8 @@ const AddWebManagement = () => {
               'aria-live': 'polite',
             },
         })
-      }else if(insertResponse && !insertResponse?.acknowledged){
-        toast.error('Failed', {
+      }else if(insertResponse && !insertResponse?.message){
+        toast.error(`${insertResponse}`, {
           duration: 4000,
           position: 'top-right',
           style: {
@@ -135,7 +135,7 @@ const AddWebManagement = () => {
                     >
                         <option value="" disabled>Select Position</option>
                         <option value="editor">Editor</option>
-                        <option value="inactive">Enactive</option>
+                        <option value="inactive">Inactive</option>
                     </select>
                 </div>
                 <div className="mb-4">

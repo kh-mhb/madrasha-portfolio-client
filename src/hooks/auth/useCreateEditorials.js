@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-
 const useCreateEditorials = () => {
     const [insertResponse, setInsertResponse] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -11,15 +10,23 @@ const useCreateEditorials = () => {
         setIsLoading(true)
         try{
             const response = await fetch('https://server-null.vercel.app/auth/create',{
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(insert_doc)
             })
-            const res = await response.json()
-
-            setInsertResponse(res.response)
+            if (!response.ok) {
+                if (response.status === 404) {
+                  const res = await response.json()
+                  setInsertResponse(res?.message)
+                }
+            }else{
+                const res = await response.json()
+                console.log(res, 'from 200')
+                setInsertResponse(res?.response)
+            }
         }catch(err){
             setError(err)
         }finally{

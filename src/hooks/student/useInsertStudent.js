@@ -21,10 +21,7 @@ const useInsertStudent = () => {
       if (!response.ok) {
         setInsertStresponse(`HTTP error! Status: ${response.status}`)
       }
-
-      console.log(response)
       const data = await response.json()
-
       setInsertStresponse(data)
     } catch (err) {
       setError(err);

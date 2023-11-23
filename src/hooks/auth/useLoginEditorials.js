@@ -1,11 +1,9 @@
 import { useState } from "react"
 
-
 const useLoginEditorials = () => {
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
     const [loginResponse,setLoginResponse] = useState(null)
-
 
     const loginEditor = async(data) =>{
         setIsLoading(true)
@@ -19,7 +17,6 @@ const useLoginEditorials = () => {
             })
 
             const res = await loginRes.json()
-            console.log(res)
             setLoginResponse(res)
         }catch(err){
             setError(err)

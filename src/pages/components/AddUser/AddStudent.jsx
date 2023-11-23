@@ -20,7 +20,7 @@ const AddStudent = () => {
   },])
 
 
-  console.log(insertStresponse)
+
 
   useEffect(() => {
       if (insertStresponse && insertStresponse?.acknowledged) {
@@ -92,9 +92,7 @@ const AddStudent = () => {
 
   const handleStudentDataSubmit = async(e) =>{
     e.preventDefault()
-    
     await insertStudent(studentData)
-
     setStudentData([{
       name:'',
       father_name:'',
@@ -171,7 +169,7 @@ const AddStudent = () => {
                 type="file"
                 placeholder="img_link"
                 className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2 lg:mx-3 lg:pl-2 border-b-2 mt-2"
-                onChange={(e) => handleFieldChange(index, 'img_link', e.target.value)}
+                onChange={(e) => handleFieldChange(index, 'img_link', e.target.files[0])}
               />
             </div>
         
