@@ -32,7 +32,7 @@ const Student = () => {
 
 
 
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap ">
           
 
           {data?.map(student =>

@@ -36,7 +36,7 @@ const Committe = () => {
         
 
 
-          <div className="flex flex-wrap -m-2">
+          <div className="flex flex-wrap ">
             {members?.map(member => 
                   <div  key={member?._id} className="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div className="h-full  bg-gray-100 flex items-center border-gray-200 border p-4 rounded-lg">

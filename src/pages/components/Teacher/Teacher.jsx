@@ -30,7 +30,7 @@ const Teacher = () => {
         </div>
 
  
-          <div className="flex flex-wrap -m-4">
+          <div className="flex flex-wrap ">
             
             {data?.map(teacher => <div key={teacher?._id} className="p-4 w-full  lg:w-1/3">
             <div className="h-full flex flex-col items-center text-center  bg-gray-100 px-2 pt-1">

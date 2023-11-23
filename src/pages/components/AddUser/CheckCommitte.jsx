@@ -69,12 +69,13 @@ const CheckCommitte = () => {
 
 
     content = (
-        <div className="mt-9 px-2 w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
+        <div className="mt-9  w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
           <div className="flex justify-between items-center mt-2 mb-2">
             <h2 className='text-blue-900 font-bold font-2'>Check all committe members</h2>
             <button onClick={()=>navigate('/adminLayout/addcommitte')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
           </div>
-          <div className='overflow-x-auto'>
+          <div className='overflow-x-auto ml-2'>
+            <div className="table-container mt-8" style={{ maxHeight: "600px", overflowY: "auto" }}>
               <table className="table-auto w-full border border-gray-300">
                 <thead>
                   <tr>
@@ -134,6 +135,7 @@ const CheckCommitte = () => {
                   </tr>
                 </tfoot>
               </table>
+            </div>
           </div>
       </div>
     )
