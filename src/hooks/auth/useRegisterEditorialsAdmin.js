@@ -7,7 +7,7 @@ const useRegisterEditorialsAdmin = () => {
     const [error, setError] = useState(null);
   
     const insertAdmin = async (insert_doc) => {
-      setIsLoading(true);
+      setIsLoading(true)
         try {
             const response = await fetch('https://server-null.vercel.app/auth/signup',{
                 method: 'POST',
@@ -17,13 +17,13 @@ const useRegisterEditorialsAdmin = () => {
                 body: JSON.stringify(insert_doc),
             })
     
-            const data = await response.json();
+            const data = await response.json()
 
             setInsertRegResponse(data)
         } catch (err) {
-            setError(err);
+            setError(err)
         } finally {
-            setIsLoading(false);
+            setIsLoading(false)
         }
     }
       return [insertAdmin, insertRegResponse , isLoading , error]

@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import useUserdata from "../../../hooks/auth/useUserdata";
+import useImageUpload from "../../../hooks/additional/useImageUpload";
 
 
 const AddTeacher = () => {
   const navigate = useNavigate()
   const { u_role } = useUserdata()
   const [insertTeacher, insertStresponse, isLoading, error] = useInsertTeacher()
-  const [teacherData, setTeacherData] = useState([{name: "",number: "",img_link: ""}])
+  const [ imageUrl , imageDelUrl , uploadImage ] = useImageUpload()
+  const [teacherData, setTeacherData] = useState([{name: "",number: "",img_link: "",img_del_link:""}])
 
 
   useEffect(()=>{
@@ -66,7 +68,7 @@ const AddTeacher = () => {
 
 
   const handleAddField = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setTeacherData([
       ...teacherData,
       {
@@ -77,10 +79,27 @@ const AddTeacher = () => {
     ])
   }
 
-  const handleFieldChange = (index, key, newValue) => {
-    const updatedFields = [...teacherData];
-    updatedFields[index][key] = newValue;
-    setTeacherData(updatedFields);
+  const handleFieldChange = async(index, key, newValue) => {
+
+    if (key === 'img_link' && newValue) {
+      const userConfirmed = window.confirm('Are you sure you want to proceed?')
+
+      if (userConfirmed) {
+        try{
+          const res_data = await uploadImage(newValue[0])
+          const updatedFields = [...teacherData]
+          updatedFields[index][key] = res_data.display_url
+          updatedFields[index]['img_del_link'] = res_data.delete_url
+          setTeacherData(updatedFields)
+        }catch (error){
+          console.error('Error uploading image:', error.message)
+        }
+      }
+    }else{
+      const updatedFields = [...teacherData]
+      updatedFields[index][key] = newValue
+      setTeacherData(updatedFields)
+    } 
   }
 
 
@@ -129,7 +148,7 @@ const AddTeacher = () => {
                 placeholder="img_link"
                 className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2  lg:mx-3 lg:pl-2 border-b-2 mt-2"
                 onChange={(e) =>
-                  handleFieldChange(index, "img_link", e.target.value)
+                  handleFieldChange(index, "img_link", e.target.files)
                 }
               />
             </div>

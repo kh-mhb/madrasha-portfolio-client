@@ -5,12 +5,14 @@ import Loader from "../shared/Loader";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import useImageUpload from "../../../hooks/additional/useImageUpload";
 
 
 const AddCommitte = () => {
     const navigate = useNavigate()
-    const [webChecker, setWebChecker] = useState({name: "",email: "",number: "",occupation: ""})
+    const [ imageUrl , imageDelUrl , uploadImage ] = useImageUpload()
     const [ insertMember , insertResponse , isLoading , error ] = useInsertCommitteMember()
+    const [webChecker, setWebChecker] = useState({name: "",email: "",number: "",occupation: "",img_link:""})
 
 
     useEffect(() => {
@@ -55,13 +57,31 @@ const AddCommitte = () => {
       }
     }, [insertResponse])
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setWebChecker((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }))
-  }
+    const handleInputChange = async (e) => {
+        const { name, value, files } = e.target
+        
+        if (name === 'img_link' && files && files.length > 0) {
+        const userConfirmed = window.confirm('Are you sure you want to proceed?')
+
+        if (userConfirmed) {
+          try {
+              const imageData = await uploadImage(files[0]);
+              setWebChecker((prevData) => ({
+                ...prevData,
+                [name]: imageData.display_url,
+              }))
+            } catch (error) {
+              console.error('Error uploading image:', error.message)
+            }
+          }
+        }else {
+            setWebChecker((prevData) => ({
+              ...prevData,
+              [name]: value,
+            }))
+        }
+    }
+    
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -71,6 +91,7 @@ const AddCommitte = () => {
       email: "",
       number: "",
       occupation: "",
+      img_link: "",
     })
   }
 
@@ -135,6 +156,19 @@ const AddCommitte = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
+
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+            Image
+          </label>
+          <input
+            type="file"
+            name="img_link"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            onChange={handleInputChange}
+          />
+        </div>
+
         <button
           type="submit"
           className=" btn btn-sm bg-blue-600 text-white px-4 rounded hover:bg-green-600 focus:outline-none"

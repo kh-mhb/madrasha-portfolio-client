@@ -92,7 +92,7 @@ const CheckTeacher = () => {
                     <tr key={teacher?._id}>
                       <td className="border px-4 py-2">{index + 1}</td>
                       <td className="border px-4 py-2">
-                        <img src={teacher?.img_link}  className="max-w-full h-auto" />
+                        <img src={teacher?.img_link}  className="w-20 h-12" />
                       </td>
                       <td className="border px-4 py-2 text-sm">{teacher?.name}</td>
                       <td className="border px-4 py-2 text-sm">{teacher?.number}</td>

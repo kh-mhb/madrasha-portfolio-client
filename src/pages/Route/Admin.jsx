@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import useConsistancy from "../../hooks/additional/useConsistancy";
 
 const Admin = () => {
+  const location = useLocation()
+  const [trackConsistency] = useConsistancy()
 
+
+  useEffect(()=>{
+    trackConsistency()
+  },[location.pathname])
 
   return (
-
-
       <div className="mx-auto relative">
         <Header></Header>
         <div className="drawer ">

@@ -8,9 +8,6 @@ const Committe = () => {
   const navigate = useNavigate()
   const [ getAllMembers , members , isLoading , error] = useGetAllMember()
 
-  // console.log(members)
-
-
 
   content = isLoading ? <Loader /> : (
 
@@ -43,7 +40,7 @@ const Committe = () => {
                       <img
                         alt="team"
                         className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                        src="https://dummyimage.com/80x80"
+                        src={member?.img_link}
                       />
                       <div className="flex-grow">
                         <h2 className="text-gray-900 title-font font-medium">

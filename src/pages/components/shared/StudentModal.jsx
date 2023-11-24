@@ -225,21 +225,6 @@ const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetch
               />
             </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="dob"
-                className="block text-sm font-medium text-gray-700 p-2"
-              >
-                Image
-              </label>
-              <input
-                type="file"
-                placeholder="img_link"
-                className="block text-sm font-medium text-gray-700 p-2 ml-1"
-                onChange={(e) => handleFieldChange('img_link', e.target.value)}
-              />
-            </div>
-
             <div className="flex items-center justify-end mt-4">
               <button
                 type="submit"

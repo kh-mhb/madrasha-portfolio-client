@@ -80,6 +80,7 @@ const CheckCommitte = () => {
                 <thead>
                   <tr>
                     <th className="px-4 py-2">No</th>
+                    <th className="px-4 py-2">Image</th>
                     <th className="px-4 py-2">Name</th>
                     <th className="px-4 py-2">Email</th>
                     <th className="px-4 py-2">Occupation</th>
@@ -93,6 +94,7 @@ const CheckCommitte = () => {
                   {members?.map((member, index) => (
                     <tr key={member?._id}>
                       <td className="border px-4 py-2">{index + 1}</td>
+                      <td className="border px-4 py-2"><img src={member?.img_link} className="w-20 h-12" /></td>
                       <td className="border px-4 py-2 text-sm">{member?.name}</td>
                       <td className="border px-4 py-2 text-sm">{member?.email}</td>
                       <td className="border px-4 py-2 text-sm">{member?.occupation}</td>
@@ -126,6 +128,7 @@ const CheckCommitte = () => {
                 <tfoot>
                   <tr>
                     <th className="px-4 py-2">No</th>
+                    <th className="px-4 py-2">Image</th>
                     <th className="px-4 py-2">Name</th>
                     <th className="px-4 py-2">Email</th>
                     <th className="px-4 py-2">Occupation</th>

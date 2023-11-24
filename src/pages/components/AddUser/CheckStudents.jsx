@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import useDeleteStudent from "../../../hooks/student/useDeleteStudent";
-import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
-import Loader from "../shared/Loader";
-import StudentModal from "../shared/StudentModal";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { useEffect, useState } from "react"
+import useDeleteStudent from "../../../hooks/student/useDeleteStudent"
+import useGetAllStudents from "../../../hooks/student/useGetAllStudents"
+import Loader from "../shared/Loader"
+import StudentModal from "../shared/StudentModal"
+import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const CheckStudents = () => {
   let content
   const navigate = useNavigate()
-  const [fetchStart, data, isLoading1, error1] = useGetAllStudents();
-  const [deleteStudent, response, isLoading2, error2] = useDeleteStudent();
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [fetchStart, data, isLoading1, error1] = useGetAllStudents()
+  const [deleteStudent, response, isLoading2, error2] = useDeleteStudent()
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [editDataId, setEditDataId] = useState('')
 
 
@@ -65,10 +65,9 @@ const CheckStudents = () => {
     return (content = <Loader></Loader>);
   }
 
-  const handleDeleteStudent = async (id) => {
-    const res = await deleteStudent(id);
+  const handleDeleteStudent = async (id,link) => {
+    await deleteStudent(id)
   }
-
 
   content = (
     <div className="mt-9  w-full mx-auto absolute lg:relative">
@@ -100,7 +99,7 @@ const CheckStudents = () => {
                   <tr key={student?._id}>
                     <td className="border px-4 py-2">{index + 1}</td>
                     <td className="border px-4 py-2">
-                      <img src={student?.img_link} className="max-w-full h-auto" />
+                      <img src={student?.img_link} className="w-20 h-12" />
                     </td>
                     <td className="border px-4 py-2 text-sm">{student?.name}</td>
                     <td className="border px-4 py-2 text-sm">{student?.father_name}</td>
@@ -125,7 +124,7 @@ const CheckStudents = () => {
                         className="bg-red-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-red-600"
                         onClick={(e) => {
                           e.preventDefault();
-                          handleDeleteStudent(student?._id);
+                          handleDeleteStudent(student?._id)
                         }}
                       >
                         Delete

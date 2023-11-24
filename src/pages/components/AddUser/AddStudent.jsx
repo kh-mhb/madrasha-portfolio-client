@@ -2,26 +2,17 @@ import { useEffect, useState } from "react";
 import useInsertStudent from "../../../hooks/student/useInsertStudent";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useImageUpload from "../../../hooks/additional/useImageUpload";
 
 
 const AddStudent = () => {
   const navigate = useNavigate()
   const [insertStudent, insertStresponse, isLoading, error] = useInsertStudent()
+  const [ imageUrl , imageDelUrl , uploadImage ] = useImageUpload()
   const [addedstdnt,setAddedstdnt] = useState(0)
-  const [studentData,setStudentData] = useState([{
-    name:'',
-    father_name:'',
-    mother_name:'',
-    date_of_brth:'',
-    village:'',
-    district:'',
-    stnd_class:'',
-    img_link:'',
-  },])
+  const [studentData,setStudentData] = useState([{name:'',father_name:'',mother_name:'',date_of_brth:'',village:'',district:'',stnd_class:'',img_link:'',img_del_link:''},])
 
-
-
-
+ 
   useEffect(() => {
       if (insertStresponse && insertStresponse?.acknowledged) {
           toast.success(`Total ${addedstdnt+1} student/students added!`, {
@@ -79,15 +70,32 @@ const AddStudent = () => {
       district:'',
       stnd_class:'',
       img_link:'',
-    }]);
+      img_del_link:'',
+    }])
   }
 
-  const handleFieldChange = (index, key, newValue) => {
-    const updatedFields = [...studentData]
-    updatedFields[index][key] = newValue
-    setStudentData(updatedFields)
-  }
 
+  const handleFieldChange = async (index, key, newValue) => {
+    if (key === 'img_link' && newValue) {
+      const userConfirmed = window.confirm('Are you sure you want to proceed?')
+      console.log(newValue)
+      if (userConfirmed) {
+        try{
+          const res_data = await uploadImage(newValue[0])
+          const updatedFields = [...studentData]
+          updatedFields[index][key] = res_data.display_url
+          updatedFields[index]['img_del_link'] = res_data.delete_url
+          setStudentData(updatedFields)
+        }catch (error){
+          console.error('Error uploading image:', error.message)
+        }
+      }
+    }else{
+      const updatedFields = [...studentData]
+      updatedFields[index][key] = newValue
+      setStudentData(updatedFields)
+    }
+  }
 
 
   const handleStudentDataSubmit = async(e) =>{
@@ -159,7 +167,7 @@ const AddStudent = () => {
                 onChange={(e) => handleFieldChange(index, 'district', e.target.value)}
               />
               <input
-                type="text"
+                type="number"
                 placeholder="class"
                 className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2 lg:mx-3 lg:pl-2 border-b-2 mt-2"
                 value={field.stnd_class}
@@ -169,14 +177,14 @@ const AddStudent = () => {
                 type="file"
                 placeholder="img_link"
                 className="w-11/12 lg:w-1/3 mx-auto text-gray-700 text-sm font-bold  py-2 lg:mx-3 lg:pl-2 border-b-2 mt-2"
-                onChange={(e) => handleFieldChange(index, 'img_link', e.target.files[0])}
+                onChange={(e) => handleFieldChange(index, 'img_link', e.target.files)}
               />
             </div>
         
         ))}
 
 
-            <button onClick={handleAddField} className="btn btn-sm mx-3 my-4 bg-blue-300 text-white">Add field</button>
+            <button onClick={handleAddField} className="btn btn-sm mx-3 my-4 bg-green-500 text-white">Add field</button>
             <button onClick={handleStudentDataSubmit} className="btn btn-sm bg-blue-700 text-white">Submit</button>
         </form>
         <div className="flex justify-end mt-2">
