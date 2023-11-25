@@ -64,7 +64,7 @@ const EditTeacher = () => {
     }, [response])
 
 
-    
+
     const handleFieldChange = (fieldName, value) => {
         setTeacherData(prevData => ({
           ...prevData,

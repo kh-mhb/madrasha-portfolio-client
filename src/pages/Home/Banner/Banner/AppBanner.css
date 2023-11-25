@@ -1,0 +1,328 @@
+.land-holder{
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow-x: hidden;
+    animation: fadeIn 2s ease-in-out forwards;
+    -webkit-animation-duration:2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both ;
+    animation-fill-mode: both ;
+}
+
+.color-holder{
+    /* background: #444; */
+    position: absolute;
+    width: 350px;
+    height: 80vh;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-left: 120px;
+}
+
+.slanted-line {
+    width: 25px; 
+    height: 120px;
+    background-color: black; 
+    transform: rotate(25deg);
+    border-radius: 1rem;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.total{
+    margin-top: 20px;
+}
+
+.pg-crnt{
+    color: black;
+    margin-top: -2rem;
+    font-size: 85px;
+    font-weight: 900;
+}
+
+.pg-cnt{
+    color: black;
+    font-size: 85px;
+    font-weight: 900;
+    margin-top: 1rem;
+}
+
+
+
+
+.font-holder{
+    display: flex;
+    flex-direction: column;
+    margin-top: 400px;
+    margin-left: 30px;
+    width: 100px;
+    height: 20vh;
+    align-items: center;
+}
+
+/* nxt-prb-btn */
+.nxt-prb-btn{
+    padding: 1px 5px;
+    background-color: black;
+    color: white;
+    border:none;
+    margin-bottom: 2px;
+}
+
+.land-img{
+    display: flex;
+    position: absolute;
+    margin-top: 85vh;
+    margin-left: 80vh;
+}
+
+
+/* styling of slider starting */
+
+.slider{
+    position: absolute;
+    width: 60%;
+    height: 50vh;
+    margin-top: 120px;
+    margin-left: 290px;
+}
+
+
+.change{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change img{
+    height: 60vh;
+    width: 350px;
+    border-radius: 15px;
+
+}
+
+.change-des{
+    width: 340px;
+    margin-left: 50px;
+    color: white;
+}
+
+.change h1{
+    font-size: 55px;
+    color: white;
+    font-weight: 900;
+}
+
+.change h5{
+    font-size: 18px;
+    color: white;
+}
+
+
+.top-btn{
+    padding: 8px 14px;
+    border: 0;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: rgb(14, 22, 80);
+    color: white;
+    border-radius: 4px;
+    transition: 0.3s ease-in;
+}
+
+.top-btn:hover{
+    background-color: rgb(24, 56, 240);
+}
+
+
+
+.btm-btn{
+    padding: 8px 14px;
+    border: 0;
+    font-size: 12px;
+    font-weight: 600;
+    background: linear-gradient(rgba(3, 8, 68,0.5),rgba(0,0,0,0.7));
+    color: white;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: 0.3s ease-in;
+}
+
+.btm-btn:hover{
+    background: rgb(0, 3, 27);
+}
+
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+ }
+/* styling of slider ends here */
+
+
+
+
+
+
+
+
+
+
+@media  screen and (max-width:440px){
+    .land-holder{
+        width: 100%;
+        height: 75vh;
+        margin-top: 0;
+        margin-left: 0px;
+        margin-bottom: 10px;
+        overflow-x: hidden;
+    }
+    .color-holder{
+        width: 55%;
+        height: 60vh;
+        margin-top: 25px;
+        margin-left: 20px;
+        border-radius: 8px;
+    }
+
+    .font-holder{
+        border-radius: 7px;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50vh;
+        margin-left: 45%;
+    }
+
+    
+    .slanted-line {
+        margin-top: 15px;
+        margin-left: 5px;
+        width: 15px; 
+        height: 60px; 
+        background-color: white;
+    }
+
+    .pg-cnt{
+        color: white;
+        font-size: 50px;
+        font-weight: 900;
+        margin-left: 5px;
+    }
+
+    .total{
+        margin-top: 35px;
+    }
+    
+    .pg-crnt{
+        color: black;
+        /* margin-right: 3px; */
+        font-size: 65px;
+        font-weight: 900;
+    }
+    .nxt-prb-btn{
+        margin-top: 70px;
+        margin-left: 5px;
+        border-radius: 50%;
+        padding: 1px 5px;
+        background-color: black;
+        color: white;
+        border:none;
+        margin-bottom: 2px;
+    }
+
+
+    .slider{
+        position: absolute;
+        width: 75%;
+        height: 50vh;
+        margin-top: 60px;
+        margin-left: 20%;
+    }
+
+    .change{
+        display:unset;
+    }
+
+    .change img{
+        width: 100%;
+        height: 50vh;
+        border-radius: 8px;
+    }
+
+    .change-des{
+        position: relative;
+        width: 100%;
+        margin: -300px auto;
+        background: rgba(14, 14, 49, 0);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(0px);
+        border: 1px solid rgba(47, 47, 98, 0.67);
+    }
+
+
+    .change-des h1{
+        font-size: 45px;
+        color: white;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    .change-des h5{
+        font-size: 15px;
+        color: white;
+        margin-left: 5px;
+    }
+    .top-btn{
+        margin-top: 10px;
+        margin-left: 10px;
+        background-color: white;
+        color: black;
+    }
+
+    .top-btn:hover{
+        background-color: #efefef;
+        color: black;
+    }
+
+    .btm-btn{
+        margin-bottom: 10px;
+        margin-left: 10px;
+        background: rgb(31, 2, 2);
+        color: white;
+    }
+
+    .btm-btn:hover{
+        background: white;
+        color: black;
+    }
+
+    
+    /* .land-img{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-top: 60vh;
+        margin-left: 0;
+        margin-bottom: 0px;
+    } */
+
+
+
+}
