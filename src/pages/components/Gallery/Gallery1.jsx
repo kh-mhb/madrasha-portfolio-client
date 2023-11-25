@@ -1,4 +1,5 @@
 import React from "react";
+
 import img1 from "../../../assets/pillar/img1.jpeg";
 import img2 from "../../../assets/pillar/img2.jpeg";
 import img3 from "../../../assets/pillar/img3.jpeg";

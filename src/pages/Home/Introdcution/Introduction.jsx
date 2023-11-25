@@ -1,7 +1,9 @@
 import React from "react";
-import vdo from "../../../assets/video.mp4";
 
 const Introduction = () => {
+  // Replace the YouTube video ID with your actual video ID
+  const videoId = "7szLM_HzQcw";
+
   return (
     <div>
       <div className="text-center mt-10">
@@ -21,11 +23,14 @@ const Introduction = () => {
               allow you to quickly find any data you’re looking for.
             </p>
           </div>
-          <div className="w-full h-full ">
-            <video controls className="w-full h-full border ">
-              <source src={vdo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="w-full h-full">
+            <iframe
+              title="YouTube Video"
+              width="100%"
+              height="150%"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </section>
