@@ -11,7 +11,7 @@ const Donation = () => {
         <div className=" mx-auto ">
           <img className="h-[350px]" src={pubali} alt="" />
         </div>
-        <div>
+        <div className="p-3">
           <h3 className="mb-4">
             <span className="font-semibold text-xl font-serif">Bank Name:</span>
             <span className="font-thin text-lg"> Pubali Bank Limited</span>
