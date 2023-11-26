@@ -59,7 +59,7 @@
   .gallery_form{
     background-color:gray;
     border-radius: 10px;
-    height: 20vh;
+    height: 30vh;
     display: flex;
     margin-bottom: 10px;
     flex-direction: column;
@@ -72,5 +72,5 @@
     margin: 10px auto;
     padding: 5px 10px;
     outline: none;
-    border-radius: 2px;
+    border-radius: 5px;
   }
