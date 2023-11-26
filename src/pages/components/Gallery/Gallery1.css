@@ -74,3 +74,14 @@
     outline: none;
     border-radius: 5px;
   }
+
+
+  @media  screen and (max-width:440px){
+    .gallery_form{
+      width: 98%;
+      margin: 15px auto;
+    }
+    .gallery_input{
+      width: 90%;
+    }
+  }
