@@ -5,7 +5,7 @@ const useUploadGelleryImg = () => {
     const insertImage = async (insert_doc) => {
         const token = localStorage.getItem('access_token')
           try {
-              const response = await fetch('http://localhost:7071/auth/image/upload',{
+              const response = await fetch('https://server-null.vercel.app/auth/image/upload',{
                   method: 'PUT',
                   headers: {
                       'Content-Type': 'application/json',
