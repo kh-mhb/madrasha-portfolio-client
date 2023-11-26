@@ -1,19 +1,24 @@
 import './Gallery1.css'
-import { useState } from 'react';
-import useUserdata from '../../../hooks/auth/useUserdata';
-import useImageUpload from '../../../hooks/additional/useImageUpload';
-import useUploadGelleryImg from '../../../hooks/additional/useUploadGelleryImg';
-import { useEffect } from 'react';
-import toast from 'react-hot-toast';
-import getAllImageFromDb from '../../../hooks/additional/getAllImageFromDb';
+import { useState } from 'react'
+import useUserdata from '../../../hooks/auth/useUserdata'
+import useImageUpload from '../../../hooks/additional/useImageUpload'
+import useUploadGelleryImg from '../../../hooks/additional/useUploadGelleryImg'
+import { useEffect } from 'react'
+import toast from 'react-hot-toast'
+import getAllImageFromDb from '../../../hooks/additional/getAllImageFromDb'
+import useDeleteImageFromGallery from '../../../hooks/additional/useDeleteImageFromGallery'
 
 const Gallery = () => {
   const { u_email, u_role } = useUserdata()
   const [ images , getAllImagesFromDb] = getAllImageFromDb()
   const [galleryData, setGalleryData] = useState({ img_link: '', title: '' })
-  const  [ resp , insertImage ] = useUploadGelleryImg()
+  const [ resp , insertImage ] = useUploadGelleryImg()
+  const [ deleteResponse , error , isLoading , deleteImage ] = useDeleteImageFromGallery()
   const [ imageUrl , imageDelUrl , uploadImage ] = useImageUpload()
   
+  useEffect(()=>{
+    getAllImagesFromDb()
+  },[deleteResponse])
   useEffect(()=>{
       if(resp && resp?.acknowledged){
         toast.success(`Added successfully!`, {
@@ -35,6 +40,50 @@ const Gallery = () => {
           },
       })
     }else if(resp && !resp?.acknowledged){
+      toast.error('Failed', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'red',
+            color: '#fff',
+          },
+          className: '',
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        })
+      }
+  },[resp])
+  
+  
+  useEffect(()=>{
+      if(deleteResponse && deleteResponse?.deletedCount){
+        toast.success(`Deleted!`, {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: 'green',
+            color: '#fff',
+          },
+          icon: '👏',
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+      })
+    }else if(deleteResponse && !deleteResponse?.deletedCount){
       toast.error('Failed', {
           duration: 4000,
           position: 'top-right',
@@ -87,22 +136,32 @@ const Gallery = () => {
     e.preventDefault()
     await insertImage(galleryData)
     setGalleryData({ img_link: '', title: '' })
-  };
+  }
 
+  const handleDelete = async(e,id) => {
+    e.preventDefault()
+    await deleteImage(id)
+    console.log(id)
+    setGalleryData({ img_link: '', title: '' })
+  }
+
+  
   return (
     <div className="container">
         {(u_email &&(u_role==='admin'||u_role==='editor'))&&
-        <form className='mt-4 w-11/12 mx-auto' onSubmit={handleSubmit}>
+        <form className='gallery_form' onSubmit={handleSubmit}>
           <h1 className='text-gray-50 font-bold'>Upload Image For Gellery</h1>
               
               <input
                 type="file"
                 name="img_link"
+                className='gallery_input'
                 onChange={handleChange}
               />
               <input
                 type="text"
                 name="title"
+                className='gallery_input'
                 placeholder='Image title'
                 onChange={handleChange}
               />
@@ -113,6 +172,7 @@ const Gallery = () => {
           {images.map((image, index) => (
                 <li key={index}>
                   <img src={image?.img_link} alt="" />
+                  {(u_email &&(u_role==='admin'||u_role==='editor'))&&<button onClick={(e)=>handleDelete(e,image?._id)} className="btn btn-xs bg-red-500 text-red-50">Delete</button>}
                   <div className="overlay"><span>{image?.title}</span></div>
               </li>
           ))}
