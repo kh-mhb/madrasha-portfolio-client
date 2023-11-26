@@ -14,7 +14,7 @@ const AppBanner = () => {
 
   var sectionStyle = {
     borderRadius: "1rem",
-    backgroundImage: `linear-gradient(to left, rgba(52, 74, 95,0.5), rgba(51, 101, 101,0.8)), url(${SliderData[current].bck})`,
+    backgroundImage: `linear-gradient(to right, rgba(52, 74, 95,0.5), rgba(0,0,0,0.6)), url(${SliderData[current].bck})`,
   };
 
   const nextSlide = () => {
@@ -27,7 +27,7 @@ const AppBanner = () => {
 
   content = (
     <div className="land-holder " style={sectionStyle}>
-      <div className="color-holder bg-gray-300">
+      <div className="color-holder">
         <div className="font-holder">
           <div className="flex flex-row total">
             <h1 className="pg-crnt">{current + 1}</h1>

@@ -19,10 +19,10 @@ const Slider = ({sliderr,current,setIndexVal}) => {
                                 <div className='change'>
                                     <img src={slide.img} alt="" />
                                     <div className='change-des'>
-                                        <button className='top-btn'>{slide.but}</button>
                                         <h1>{slide.tit}</h1>
                                         <h5>{slide.des}</h5>
-                                        <button className='btm-btn'>Explore Process</button>
+                                        <button className='btm-btn'>{slide.but}</button>
+                                        {/* <button className='btm-btn'>Explore Process</button> */}
                                     </div>
                                 </div>
                             }
