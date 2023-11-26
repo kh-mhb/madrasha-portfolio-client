@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../../Header/Header";
 import { useMediaQuery } from "react-responsive";
-import Banner from "../Banner/Banner";
 import PillarCards from "../PillarCards/PillarCards";
 import AboutUs from "../AboutUs/AboutUs";
 import Introduction from "../Introdcution/Introduction";

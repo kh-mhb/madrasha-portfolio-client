@@ -5,6 +5,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { SliderData } from './appData'
 import Slider from './Slider'
 
+
 const AppBanner = () => {
     let content
     const [current,setCurrent] = useState(0);

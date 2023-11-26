@@ -1,7 +1,6 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Home/Home/Home";
-import Gallery from "../components/Gallery/Gallery";
 import Contact from "../components/Contact/Contact";
 import Donation from "../components/Donation/Donation";
 import Login from "../components/Login/Login";
@@ -23,6 +22,7 @@ import WebManagement from "../components/AddUser/WebManagement";
 import RequireAuth from "../../utilities/RequireAuth";
 import EditManagement from "../components/AddUser/EditManagement";
 import Profile from "../components/AddUser/Profile";
+import Gallery from "../components/Gallery/Gallery1";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/gallery",
-        element: <Gallery></Gallery>,
+        element: <Gallery />,
       },
       {
         path: "/contact",
