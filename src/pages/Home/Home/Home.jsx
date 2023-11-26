@@ -1,5 +1,3 @@
-import React from "react";
-import Header from "../../Header/Header";
 import PillarCards from "../PillarCards/PillarCards";
 import AboutUs from "../AboutUs/AboutUs";
 import Introduction from "../Introdcution/Introduction";

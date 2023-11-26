@@ -6,7 +6,6 @@ const useImageUpload = () => {
 
     const uploadImage = async (imageFile) => {
       try {
-        console.log(imageFile)
         const apiUrl = 'https://api.imgbb.com/1/upload?key=29da777125e8d898d02c70a855e926d3'
         const formData = new FormData()
         formData.append('image', imageFile)
