@@ -1,0 +1,19 @@
+.holder{
+    background: linear-gradient(180deg, 
+    rgba(206, 70, 68, 0.75), 
+    rgba(23, 66, 110, 0.75)),url('../../../assets/banner/not_found.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+h1{
+    color: white;
+    font-size: 55px;
+    font-weight: 900;
+}

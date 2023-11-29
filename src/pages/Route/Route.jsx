@@ -1,4 +1,5 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
+import Admin from "./Admin";
 import Main from "../Layout/Main";
 import Home from "../Home/Home/Home";
 import Contact from "../components/Contact/Contact";
@@ -8,7 +9,6 @@ import Register from "../components/Register/Register";
 import Committe from "../components/Committe/Committe";
 import Teacher from "../components/Teacher/Teacher";
 import Student from "../components/Student/Student";
-import Admin from "./Admin";
 import AddStudent from "../components/AddUser/AddStudent";
 import AddTeacher from "../components/AddUser/AddTeacher";
 import AddCommitte from "../components/AddUser/AddCommitte";
@@ -23,15 +23,17 @@ import RequireAuth from "../../utilities/RequireAuth";
 import EditManagement from "../components/AddUser/EditManagement";
 import Profile from "../components/AddUser/Profile";
 import Gallery from "../components/Gallery/Gallery1";
+import NotFound404 from "../components/shared/NotFound404";
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: <Main />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "/gallery",
@@ -39,31 +41,31 @@ export const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact></Contact>,
+        element: <Contact />,
       },
       {
         path: "/donate",
-        element: <Donation></Donation>,
+        element: <Donation />,
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
       {
         path: "/committe",
-        element: <Committe></Committe>,
+        element: <Committe />,
       },
       {
         path: "/teacher",
-        element: <Teacher></Teacher>,
+        element: <Teacher />,
       },
       {
         path: "/student",
-        element: <Student></Student>,
+        element: <Student />,
       },
     ],
   },
@@ -83,7 +85,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "addstudent",
-        element: <AddStudent></AddStudent>,
+        element: <AddStudent />,
       },
       {
         path: "checkstudent",
@@ -91,7 +93,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "addcommitte",
-        element: <AddCommitte></AddCommitte>,
+        element: <AddCommitte />,
       },
       {
         path: "checkcommitte",
@@ -103,12 +105,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "addteacher",
-        element: <AddTeacher></AddTeacher>,
+        element: <AddTeacher />,
       },
       {
         path: "checkteacher",
         element: <CheckTeacher />,
-      }, //
+      },
       {
         path: "editteacher/:id/:t_name",
         element: <EditTeacher />,
@@ -127,4 +129,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <NotFound404 />,
+  }
 ]);

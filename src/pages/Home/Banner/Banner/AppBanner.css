@@ -23,6 +23,7 @@
     /* border: 5px solid; */
 }
 
+
 .slanted-line {
     width: 25px; 
     height: 120px;
@@ -73,19 +74,11 @@
     margin-bottom: 2px;
 }
 
-.land-img{
-    display: flex;
-    position: absolute;
-    margin-top: 85vh;
-    margin-left: 80vh;
-}
-
 
 /* styling of slider starting */
 
 .slider{
     position: absolute;
-    width: 60%;
     height: 50vh;
     margin-top: 120px;
     margin-left: 290px;
@@ -106,7 +99,7 @@
 }
 
 .change-des{
-    width: 340px;
+    width: 650px;
     margin-left: 50px;
     color: white;
 }
