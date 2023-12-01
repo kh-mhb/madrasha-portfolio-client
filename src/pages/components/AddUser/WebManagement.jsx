@@ -58,7 +58,6 @@ const WebManagement = () => {
             primary: '#000',
             secondary: '#fff',
           },
-          // Aria
           ariaProps: {
             role: 'status',
             'aria-live': 'polite',
@@ -69,7 +68,29 @@ const WebManagement = () => {
 
 
     const handleDelete = async (id) =>{
-        await deleteEditorialsMember(id)
+        const present = editorials.find(editorial => editorial._id === id)
+        if(present.role === 'admin'){
+            toast.success(`Admin can't be deleted!`, {
+                duration: 4000,
+                position: 'top-right',
+                style: {
+                  background: 'red',
+                  color: '#fff',
+                },
+                icon: '👏',
+                iconTheme: {
+                  primary: '#000',
+                  secondary: '#fff',
+                },
+                // Aria
+                ariaProps: {
+                  role: 'status',
+                  'aria-live': 'polite',
+                },
+            })
+        }else{
+            await deleteEditorialsMember(id)
+        }
     }
 
     const handleNavigate = (id,email) =>{

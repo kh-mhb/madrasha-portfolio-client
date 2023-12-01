@@ -9,6 +9,7 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isAdminLayout = location.pathname.includes("/adminLayout");
+  const [checkWebAdmin, isAdminFound, isLoading] = useCheckAdmin();
   const {
     forceCheckLocalStorage,
     loading,
@@ -16,8 +17,7 @@ const Header = () => {
     u_role,
     setU_email,
     setU_role,
-  } = useUserdata();
-  const [checkWebAdmin, isAdminFound, isLoading] = useCheckAdmin();
+  } = useUserdata()
 
   useEffect(() => {
     if (!isLoading || !loading || u_email || u_role) {
@@ -25,19 +25,6 @@ const Header = () => {
       checkWebAdmin();
     }
   }, [location.pathname]);
-
-  if (loading) {
-    return <Loader />;
-  }
-
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("access_token")
-    setU_email("")
-    setU_role("")
-    forceCheckLocalStorage()
-    checkWebAdmin()
-  }
 
   return (
     <header className="text-white-900 body-font absolute top-0 rounded sticky bg-gray-300 z-50 py-1 px-1 mb-2">
@@ -60,11 +47,7 @@ const Header = () => {
           <Link to="/donate" className="mr-5 text-whit hover:text-gray-900">
             Donate
           </Link>
-          {!u_email ? (
-            <Link to="/login">Login</Link>
-          ) : (
-            <button onClick={(e) => handleLogOut(e)}>Logout</button>
-          )}
+          {!u_email && <Link to="/login">Login</Link>}
           {!isAdminFound && (
             <Link className="ps-4" to="/register">
               Sign Up

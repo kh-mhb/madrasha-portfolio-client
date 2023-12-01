@@ -2,15 +2,38 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import useConsistancy from "../../hooks/additional/useConsistancy";
+import useUserdata from "../../hooks/auth/useUserdata";
+import useCheckAdmin from "../../hooks/auth/useCheckAdmin";
 
 const Admin = () => {
   const location = useLocation()
   const [trackConsistency] = useConsistancy()
+  const {
+    forceCheckLocalStorage,
+    loading,
+    u_email,
+    u_role,
+    setU_email,
+    setU_role,
+  } = useUserdata()
+  const [checkWebAdmin, isAdminFound, isLoading] = useCheckAdmin()
 
 
   useEffect(()=>{
     trackConsistency()
+    forceCheckLocalStorage()
   },[location.pathname])
+
+  
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("access_token")
+    setU_email("")
+    setU_role("")
+    forceCheckLocalStorage()
+    checkWebAdmin()
+  }
+
 
   return (
       <div className="mx-auto relative">
@@ -39,6 +62,8 @@ const Admin = () => {
                 <Link to="/adminLayout/checkcommitte">Check committe</Link>
                 <Link to="/adminLayout/checkteacher">Check Teachers</Link>
                 <Link to="/adminLayout/checkeditorials">Check Editorials</Link>
+
+                <Link className="mt-28"><button onClick={(e) => handleLogOut(e)} className="btn  btn-sm bg-red-600 text-teal-50 font-bold">Logout</button></Link>
               </li>
             </ul>
           </div>
