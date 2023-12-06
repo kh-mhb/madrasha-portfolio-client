@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import useCreateEditorials from '../../../hooks/auth/useCreateEditorials';
-import Loader from '../shared/Loader';
+import useCreateEditorials from '../../../../hooks/auth/useCreateEditorials';
+import Loader from '../../shared/Loader';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import useUserdata from '../../../hooks/auth/useUserdata';
+import useUserdata from '../../../../hooks/auth/useUserdata';
 
 const AddWebManagement = () => {
     let content
@@ -12,7 +12,7 @@ const AddWebManagement = () => {
     const { u_role } = useUserdata()
     let [emptyFieldError,setEmptyFieldError] = useState('')
     const [ insertEditorials , insertResponse , isLoading , error ] = useCreateEditorials()
-    const [editorial , setEditorial] = useState({name: "",number: "",email: "",role: "",password: ""});
+    const [editorial , setEditorial] = useState({name: "",number: "",email: "",role: "",password: ""})
 
     if(u_role === 'editor'){
         navigate('/adminLayout/checkeditorials')
@@ -20,7 +20,6 @@ const AddWebManagement = () => {
         navigate('/adminLayout/checkeditorials')
     }
 
-    
 
     useEffect(() => {
         if(insertResponse && insertResponse?.acknowledged) {

@@ -61,9 +61,10 @@ const Admin = () => {
                 <Link to="/adminLayout/checkstudent">Check Student</Link>
                 <Link to="/adminLayout/checkcommitte">Check committe</Link>
                 <Link to="/adminLayout/checkteacher">Check Teachers</Link>
+                <Link to="/adminLayout/checknotice">Check Notice</Link>
                 <Link to="/adminLayout/checkeditorials">Check Editorials</Link>
 
-                <Link className="mt-28"><button onClick={(e) => handleLogOut(e)} className="btn  btn-sm bg-red-600 text-teal-50 font-bold">Logout</button></Link>
+                <button onClick={(e) => handleLogOut(e)} className="btn btn-sm fixed bottom-4 w-1/2 bg-red-600 text-teal-50 font-bold">Logout</button>
               </li>
             </ul>
           </div>

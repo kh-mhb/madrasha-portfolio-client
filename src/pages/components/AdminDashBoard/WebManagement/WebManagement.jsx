@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import useGetAllEditorial from "../../../hooks/auth/useGetAllEditorial";
-import useDeleteEditorials from "../../../hooks/auth/useDeleteEditorials";
+import useGetAllEditorial from "../../../../hooks/auth/useGetAllEditorial";
+import useDeleteEditorials from "../../../../hooks/auth/useDeleteEditorials";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import useUserdata from "../../../hooks/auth/useUserdata";
-import useCheckAdmin from "../../../hooks/auth/useCheckAdmin";
-import Loader from "../shared/Loader";
+import useUserdata from "../../../../hooks/auth/useUserdata";
+import useCheckAdmin from "../../../../hooks/auth/useCheckAdmin";
+import Loader from "../../shared/Loader";
 
 
 const WebManagement = () => {
@@ -15,7 +15,7 @@ const WebManagement = () => {
     const [ checkWebAdmin , isAdminFound , admin_e ] = useCheckAdmin()
     const [ getAllEditorials , editorials , isLoading , error] = useGetAllEditorial()
     const [ deleteEditorialsMember , deleteResponse , error1 , isLoading1 ] = useDeleteEditorials()
-    
+
 
     useEffect(() => {
         if(isLoading){

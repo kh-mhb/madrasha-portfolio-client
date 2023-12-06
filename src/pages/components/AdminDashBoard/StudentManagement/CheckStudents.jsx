@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import useDeleteStudent from "../../../hooks/student/useDeleteStudent"
-import useGetAllStudents from "../../../hooks/student/useGetAllStudents"
-import Loader from "../shared/Loader"
-import StudentModal from "../shared/StudentModal"
+import useDeleteStudent from "../../../../hooks/student/useDeleteStudent"
+import useGetAllStudents from "../../../../hooks/student/useGetAllStudents"
+import Loader from "../../shared/Loader"
+import StudentModal from "../../shared/StudentModal"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 
@@ -58,7 +58,6 @@ const CheckStudents = () => {
       });
     }
   }, [response])
-
 
   
   if (isLoading1 || isLoading2) {

@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import Loader from "../shared/Loader"
-import useUserdata from "../../../hooks/auth/useUserdata"
-import useCheckAdmin from "../../../hooks/auth/useCheckAdmin"
-import useUpdateEditorials from "../../../hooks/auth/useUpdateEditorials"
+import Loader from "../../shared/Loader"
+import useUserdata from "../../../../hooks/auth/useUserdata"
+import useCheckAdmin from "../../../../hooks/auth/useCheckAdmin"
+import useUpdateEditorials from "../../../../hooks/auth/useUpdateEditorials"
 import toast from "react-hot-toast"
 
 
@@ -22,7 +22,6 @@ const EditManagement = () => {
             navigate('/adminLayout')
         }
     },[u_role , u_email])
-
 
     useEffect(() => {
         if (resMessage && resMessage?.acknowledged) {

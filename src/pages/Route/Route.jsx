@@ -6,24 +6,38 @@ import Contact from "../components/Contact/Contact";
 import Donation from "../components/Donation/Donation";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
-import Committe from "../components/Committe/Committe";
-import Teacher from "../components/Teacher/Teacher";
-import Student from "../components/Student/Student";
-import AddStudent from "../components/AddUser/AddStudent";
-import AddTeacher from "../components/AddUser/AddTeacher";
-import AddCommitte from "../components/AddUser/AddCommitte";
-import CheckStudents from "../components/AddUser/CheckStudents";
-import CheckTeacher from "../components/AddUser/CheckTeacher";
-import EditTeacher from "../components/AddUser/EditTeacher";
-import CheckCommitte from "../components/AddUser/CheckCommitte";
-import EditCommitteMember from "../components/AddUser/EditCommitteMember";
-import AddWebManagement from "../components/AddUser/AddWebManagement";
-import WebManagement from "../components/AddUser/WebManagement";
+import Committe from "../components/AboutUs/Committe";
+import Teacher from "../components/AboutUs/Teacher";
+import Student from "../components/AboutUs/Student";
+
 import RequireAuth from "../../utilities/RequireAuth";
-import EditManagement from "../components/AddUser/EditManagement";
-import Profile from "../components/AddUser/Profile";
+import Profile from "../components/AdminDashBoard/Profile";
 import Gallery from "../components/Gallery/Gallery1";
+
 import NotFound404 from "../components/shared/NotFound404";
+import AboutUs from "../components/AboutUs/AboutUs";
+import Message from "../components/AboutUs/Message";
+
+import AddCommitte from "../components/AdminDashBoard/CommitteManagement/AddCommitte";
+import CheckCommitte from "../components/AdminDashBoard/CommitteManagement/CheckCommitte";
+import EditCommitteMember from "../components/AdminDashBoard/CommitteManagement/EditCommitteMember";
+
+import AddWebManagement from "../components/AdminDashBoard/WebManagement/AddWebManagement";
+import WebManagement from "../components/AdminDashBoard/WebManagement/WebManagement";
+import EditManagement from "../components/AdminDashBoard/WebManagement/EditManagement";
+
+import AddTeacher from "../components/AdminDashBoard/TeacherManagement/AddTeacher";
+import CheckTeacher from "../components/AdminDashBoard/TeacherManagement/CheckTeacher";
+import EditTeacher from "../components/AdminDashBoard/TeacherManagement/EditTeacher";
+
+import AddStudent from "../components/AdminDashBoard/StudentManagement/AddStudent";
+import CheckStudents from "../components/AdminDashBoard/StudentManagement/CheckStudents";
+import CheckNotice from "../components/AdminDashBoard/NoticeManagement/CheckNotice";
+import AddNotice from "../components/AdminDashBoard/NoticeManagement/AddNotice";
+import Notice from "../components/Notice/Notice";
+import NoticeDetails from "../components/Notice/NoticeDetails";
+
+
 
 
 export const router = createBrowserRouter([
@@ -48,25 +62,43 @@ export const router = createBrowserRouter([
         element: <Donation />,
       },
       {
+        path: "/notice",
+        element: <Notice />,
+      },
+      {
+        path: "/noticedetails/:id",
+        element: <NoticeDetails />,
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs />,
+        children:[
+          {
+            path: "",
+            element: <Message />,
+          },
+          {
+            path: "committe",
+            element: <Committe />,
+          },
+          {
+            path: "teacher",
+            element: <Teacher />,
+          },
+          {
+            path: "student",
+            element: <Student />,
+          },
+        ]
+      },
+      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/register",
         element: <Register />,
-      },
-      {
-        path: "/committe",
-        element: <Committe />,
-      },
-      {
-        path: "/teacher",
-        element: <Teacher />,
-      },
-      {
-        path: "/student",
-        element: <Student />,
-      },
+      }
     ],
   },
   {
@@ -126,6 +158,18 @@ export const router = createBrowserRouter([
       {
         path: "editmanagement/:id/:p_email",
         element: <EditManagement />,
+      },
+      {
+        path: "checknotice",
+        element: <CheckNotice />,
+      },
+      {
+        path: "editnotice/:id/:p_email",
+        element: <EditManagement />,
+      },
+      {
+        path: "addnotice",
+        element: <AddNotice />,
       },
     ],
   },

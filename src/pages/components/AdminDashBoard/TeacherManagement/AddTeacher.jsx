@@ -1,10 +1,10 @@
 import { useState } from "react";
-import useInsertTeacher from "../../../hooks/teacher/useInsertTeacher";
+import useInsertTeacher from "../../../../hooks/teacher/useInsertTeacher";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import useUserdata from "../../../hooks/auth/useUserdata";
-import useImageUpload from "../../../hooks/additional/useImageUpload";
+import useUserdata from "../../../../hooks/auth/useUserdata";
+import useImageUpload from "../../../../hooks/additional/useImageUpload";
 
 
 const AddTeacher = () => {
@@ -63,8 +63,6 @@ const AddTeacher = () => {
       });
     }
   }, [insertStresponse])
-
-
 
 
   const handleAddField = (e) => {

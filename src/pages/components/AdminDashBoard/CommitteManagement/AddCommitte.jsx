@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import useInsertCommitteMember from "../../../hooks/committe/useInsertCommitteMember";
-import Loader from "../shared/Loader";
+import useInsertCommitteMember from "../../../../hooks/committe/useInsertCommitteMember";
+import Loader from "../../shared/Loader";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import useImageUpload from "../../../hooks/additional/useImageUpload";
+import useImageUpload from "../../../../hooks/additional/useImageUpload";
 
 
 const AddCommitte = () => {
@@ -59,7 +59,6 @@ const AddCommitte = () => {
 
     const handleInputChange = async (e) => {
         const { name, value, files } = e.target
-        
         if (name === 'img_link' && files && files.length > 0) {
         const userConfirmed = window.confirm('Are you sure you want to proceed?')
 
@@ -138,7 +137,6 @@ const AddCommitte = () => {
             type="tel"
             id="number"
             name="number"
-            value={webChecker.number}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -151,7 +149,6 @@ const AddCommitte = () => {
             type="text"
             id="occupation"
             name="occupation"
-            value={webChecker.occupation}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />

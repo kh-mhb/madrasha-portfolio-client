@@ -12,10 +12,10 @@ const Committe = () => {
   content = isLoading ? <Loader /> : (
 
     <section className="text-gray-600 body-font">
-      <div className="container px-1 rounded py-24 mx-auto">
+      <div className="container px-0  mx-auto">
         
 
-      <div className="hero h-1/3 mb-7 bg-base-300">
+      {/* <div className="hero h-1/3 mb-7 bg-base-300">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold">Our committe</h1>
@@ -29,13 +29,13 @@ const Committe = () => {
             <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
           </div>
         </div>
-      </div>
+      </div> */}
         
 
 
           <div className="flex flex-wrap ">
             {members?.map(member => 
-                  <div  key={member?._id} className="p-2 lg:w-1/3 md:w-1/2 w-full">
+                  <div  key={member?._id} className="p-2 w-full mx-auto">
                     <div className="h-full  bg-gray-100 flex items-center border-gray-200 border p-4 rounded-lg">
                       <img
                         alt="team"

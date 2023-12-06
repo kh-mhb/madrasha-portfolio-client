@@ -1,8 +1,8 @@
 import React from 'react'
-import useGetAllMember from '../../../hooks/committe/useGetAllMember'
+import useGetAllMember from '../../../../hooks/committe/useGetAllMember'
 import { useNavigate } from 'react-router'
-import useDeleteCommitteMember from '../../../hooks/committe/useDeleteCommitteMember'
-import Loader from '../shared/Loader'
+import useDeleteCommitteMember from '../../../../hooks/committe/useDeleteCommitteMember'
+import Loader from '../../shared/Loader'
 import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 

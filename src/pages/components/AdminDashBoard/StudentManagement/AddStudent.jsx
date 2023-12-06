@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import useInsertStudent from "../../../hooks/student/useInsertStudent";
+import useInsertStudent from "../../../../hooks/student/useInsertStudent";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useImageUpload from "../../../hooks/additional/useImageUpload";
+import useImageUpload from "../../../../hooks/additional/useImageUpload";
 
 
 const AddStudent = () => {
@@ -73,7 +73,6 @@ const AddStudent = () => {
       img_del_link:'',
     }])
   }
-
 
   const handleFieldChange = async (index, key, newValue) => {
     if (key === 'img_link' && newValue) {

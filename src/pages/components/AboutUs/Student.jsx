@@ -11,11 +11,11 @@ const Student = () => {
   content = isLoading1 ? <Loader />  : (
 
     <section className="text-gray-600 body-font">
-      <div className="container px-1 py-24 mx-auto">
+      <div className="container px-0  mx-auto">
         
 
         
-      <div className="hero h-1/3 mb-7 bg-base-300">
+      {/* <div className="hero h-1/3 mb-7 bg-base-300">
           <div className="hero-content text-center">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Our Students</h1>
@@ -28,7 +28,7 @@ const Student = () => {
               <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
 
@@ -36,7 +36,7 @@ const Student = () => {
           
 
           {data?.map(student =>
-            <div key={student?._id} className="p-2 w-full mx-auto lg:w-1/2">
+            <div key={student?._id} className="p-2 w-full lg:w-1/2 mx-auto">
               <div className="h-full flex  bg-gray-100 p-2 rounded sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                 <img
                   alt="image"

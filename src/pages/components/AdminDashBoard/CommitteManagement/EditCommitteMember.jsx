@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
-import useUpdateMember from "../../../hooks/committe/useUpdateMember"
+import useUpdateMember from "../../../../hooks/committe/useUpdateMember"
 import toast from "react-hot-toast"
 
 

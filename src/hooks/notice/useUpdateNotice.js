@@ -1,16 +1,15 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-
-const useUpdateStudent = () => {
+const useUpdateNotice = () => {
+    const [message,setMessage] = useState(null)
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
-    const [response,setResponse] = useState(null)
-
-    const editStudent = async(data,id) =>{
+    
+    const updateNotice = async(data) =>{
         const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
-            const updateRes = await fetch(`https://server-null.vercel.app/student/edit/${id}`,{
+            const updateRes = await fetch(`https://server-null.vercel.app/insert/edit/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,23 +17,19 @@ const useUpdateStudent = () => {
                 },
                 body: JSON.stringify(data)
             })
-
             if (!updateRes.ok) {
                 throw new Error(`HTTP error! Status: ${updateRes.status}`);
             }
-
             const res = await updateRes.json()
-            setResponse(res)
-
+            setMessage(res)
         }catch(err){
             setError(err)
         }finally{
             setIsLoading(false)
         }
     }
-
-    return [editStudent , response , isLoading , error]
+    
+    return [updateNotice , message , error , isLoading]
 }
 
-
-export default useUpdateStudent
+export default useUpdateNotice

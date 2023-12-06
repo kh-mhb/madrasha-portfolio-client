@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router"
-import useUpdateTeacher from "../../../hooks/teacher/useUpdateTeacher"
+import useUpdateTeacher from "../../../../hooks/teacher/useUpdateTeacher"
 import { useEffect } from "react"
 import toast from "react-hot-toast"
-import useUserdata from "../../../hooks/auth/useUserdata"
+import useUserdata from "../../../../hooks/auth/useUserdata"
 
 
 const EditTeacher = () => {
@@ -62,7 +62,6 @@ const EditTeacher = () => {
           });
         }
     }, [response])
-
 
 
     const handleFieldChange = (fieldName, value) => {

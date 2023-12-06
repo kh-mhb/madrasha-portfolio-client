@@ -27,7 +27,7 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header className="text-white-900 body-font absolute top-0 rounded sticky bg-gray-300 z-50 py-1 px-1 mb-2">
+    <header className="text-white-900 body-font absolute top-0 sticky bg-gray-300 z-50 py-1 px-1 mb-2">
       <div className="container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
         <Link
           to="/"
@@ -46,6 +46,12 @@ const Header = () => {
           </Link>
           <Link to="/donate" className="mr-5 text-whit hover:text-gray-900">
             Donate
+          </Link>
+          <Link to="/aboutus" className="mr-5 text-whit hover:text-gray-900">
+            About Us
+          </Link>
+          <Link to="/notice" className="mr-5 text-whit hover:text-gray-900">
+            Notice
           </Link>
           {!u_email && <Link to="/login">Login</Link>}
           {!isAdminFound && (

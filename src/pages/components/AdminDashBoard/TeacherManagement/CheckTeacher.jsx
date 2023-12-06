@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import useGetAllTeacher from '../../../hooks/teacher/useGetAllTeacher'
-import useDeleteTeacher from '../../../hooks/teacher/useDeleteTeacher'
+import useGetAllTeacher from '../../../../hooks/teacher/useGetAllTeacher'
+import useDeleteTeacher from '../../../../hooks/teacher/useDeleteTeacher'
 import { useNavigate } from 'react-router'
-import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 
