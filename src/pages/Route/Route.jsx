@@ -36,6 +36,7 @@ import CheckNotice from "../components/AdminDashBoard/NoticeManagement/CheckNoti
 import AddNotice from "../components/AdminDashBoard/NoticeManagement/AddNotice";
 import Notice from "../components/Notice/Notice";
 import NoticeDetails from "../components/Notice/NoticeDetails";
+import EditNotice from "../components/AdminDashBoard/NoticeManagement/EditNotice";
 
 
 
@@ -164,8 +165,8 @@ export const router = createBrowserRouter([
         element: <CheckNotice />,
       },
       {
-        path: "editnotice/:id/:p_email",
-        element: <EditManagement />,
+        path: "editnotice/:id",
+        element: <EditNotice />,
       },
       {
         path: "addnotice",

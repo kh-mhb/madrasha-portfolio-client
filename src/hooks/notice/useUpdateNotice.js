@@ -4,12 +4,13 @@ const useUpdateNotice = () => {
     const [message,setMessage] = useState(null)
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
+    const [response,setResponse] = useState(null)
     
-    const updateNotice = async(data) =>{
+    const updateNotice = async(id,data) =>{
         const token = localStorage.getItem('access_token')
         setIsLoading(true)
         try{
-            const updateRes = await fetch(`https://server-null.vercel.app/insert/edit/${id}`,{
+            const updateRes = await fetch(`https://server-null.vercel.app/notice/update/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -21,7 +22,8 @@ const useUpdateNotice = () => {
                 throw new Error(`HTTP error! Status: ${updateRes.status}`);
             }
             const res = await updateRes.json()
-            setMessage(res)
+            setMessage(res?.message)
+            setResponse(res?.update)
         }catch(err){
             setError(err)
         }finally{
@@ -29,7 +31,7 @@ const useUpdateNotice = () => {
         }
     }
     
-    return [updateNotice , message , error , isLoading]
+    return [updateNotice , message , response , error , isLoading]
 }
 
 export default useUpdateNotice

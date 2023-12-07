@@ -53,6 +53,9 @@ const Header = () => {
           <Link to="/notice" className="mr-5 text-whit hover:text-gray-900">
             Notice
           </Link>
+          <Link to="/notice" className="mr-5 text-whit hover:text-gray-900">
+            Curriculum
+          </Link>
           {!u_email && <Link to="/login">Login</Link>}
           {!isAdminFound && (
             <Link className="ps-4" to="/register">

@@ -15,20 +15,20 @@ const Student = () => {
         
 
         
-      {/* <div className="hero h-1/3 mb-7 bg-base-300">
+      <div className="hero h-1/3 mb-7 bg-base-300 mt-4">
           <div className="hero-content text-center">
             <div className="max-w-md">
-              <h1 className="text-5xl font-bold">Our Students</h1>
+              <h1 className="text-5xl font-bold text-gray-900">Our Students</h1>
               <p className="py-6">
                 In seeking knowledge, you are lighting the path to wisdom. 
                 Embrace the journey, for learning is a sacred pursuit that 
                 leads to enlightenment and a deeper connection with Allah.</p>
-              <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
+              {/* <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
               <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
-              <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button>
+              <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button> */}
             </div>
           </div>
-        </div> */}
+        </div>
 
 
 

@@ -108,10 +108,7 @@ const CheckNotice = () => {
                           <td className="border px-2 py-2 text-sm">
                               <button
                                   className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
-                                  onClick={() => {
-                                  setIsEditModalOpen(true)
-                                  setEditDataId(notice?._id)
-                                  }}
+                                  onClick={() => navigate(`/adminLayout/editnotice/${notice?._id}`)}
                               >
                                   Edit
                               </button>
@@ -119,10 +116,7 @@ const CheckNotice = () => {
                           <td className="border px-2 py-2 text-sm">
                               <button
                                   className="bg-blue-500 text-white px-2 py-1 rounded-md focus:outline-none hover:bg-blue-600"
-                                  onClick={() => {
-                                  setIsEditModalOpen(true)
-                                  setEditDataId(notice?._id)
-                                  }}
+                                  onClick={() => navigate(`/noticedetails/${notice?._id}`)}
                               >
                                   Details
                               </button>

@@ -14,20 +14,20 @@ const Teacher = () => {
         <div className="container px-0  mx-auto">
           
         
-        {/* <div className="hero h-1/3 mb-7 bg-base-300 rounded">
+        <div className="hero h-1/3 mb-7 bg-base-300 rounded mt-4">
           <div className="hero-content text-center">
             <div className="max-w-md">
-              <h1 className="text-5xl font-bold">Our teacher's panel</h1>
+              <h1 className="text-5xl font-bold text-gray-900">Our teacher's panel</h1>
               <p className="py-6">
                 Teaching is an act of faith.
                 The teacher believes in the seeds they sow, 
                 and in the harvest they will reap in the hearts of their students.</p>
-              <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
+              {/* <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
               <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
-              <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button>
+              <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button> */}
             </div>
           </div>
-        </div> */}
+        </div>
 
  
           <div className="flex flex-wrap ">

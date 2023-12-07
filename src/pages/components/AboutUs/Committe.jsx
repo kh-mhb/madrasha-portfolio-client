@@ -15,21 +15,21 @@ const Committe = () => {
       <div className="container px-0  mx-auto">
         
 
-      {/* <div className="hero h-1/3 mb-7 bg-base-300">
+      <div className="hero h-1/3 mb-7 bg-base-300 mt-4">
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Our committe</h1>
+            <h1 className="text-5xl font-bold text-gray-900">Our committe</h1>
             <p className="py-6">
               In the pursuit of knowledge, the soul awakens, and in the 
               service of others, the heart finds peace. May the commitment 
               of our committee members be a beacon of light, guiding us 
               towards the path of wisdom, compassion, and unity.</p>
-            <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
+            {/* <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
             <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
-            <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
+            <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button> */}
           </div>
         </div>
-      </div> */}
+      </div>
         
 
 
