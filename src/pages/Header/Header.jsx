@@ -32,7 +32,7 @@ const Header = () => {
           <Link
               to="/"
               className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 text-xl">
+              <span className="ml-3 mt-1 text-xl">
                 <img className="h-[40px] sm:h-[40px] rounded-full"  src={title} />
               </span>
           </Link>
@@ -65,14 +65,14 @@ const Header = () => {
               </summary>
               <ul className="p-2 bg-base-100 rounded-t-none right-1">
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/notice">Notice</Link></li>
+                <li><Link to="/donate">Donate</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/donate">Donate</Link></li>
                 <li><Link to="/aboutus">About Us</Link></li>
-                <li><Link to="/notice">Notice</Link></li>
-                <li><Link to="/notice">Curriculum</Link></li>
-                {!u_email && <li><Link to="/notice">Login</Link></li>}
-                {!isAdminFound && <li><Link to="/notice">Signup</Link></li>}
+                <li><Link to="/curriculum">Curriculum</Link></li>
+                {/* {!u_email && <li><Link to="/login">Login</Link></li>} */}
+                {!isAdminFound && <li><Link to="/register">Signup</Link></li>}
               </ul>
             </details>
           </li>

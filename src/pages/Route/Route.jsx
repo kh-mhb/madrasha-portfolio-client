@@ -37,6 +37,7 @@ import AddNotice from "../components/AdminDashBoard/NoticeManagement/AddNotice";
 import Notice from "../components/Notice/Notice";
 import NoticeDetails from "../components/Notice/NoticeDetails";
 import EditNotice from "../components/AdminDashBoard/NoticeManagement/EditNotice";
+import Curriculum from "../components/Curriculum/Curriculum";
 
 
 
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "/notice",
         element: <Notice />,
+      },
+      {
+        path: "/curriculum",
+        element: <Curriculum />,
       },
       {
         path: "/noticedetails/:id",

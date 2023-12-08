@@ -4,6 +4,9 @@ import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import useConsistancy from "../../hooks/additional/useConsistancy";
 import useUserdata from "../../hooks/auth/useUserdata";
 import useCheckAdmin from "../../hooks/auth/useCheckAdmin";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
 
 const Admin = () => {
   const location = useLocation()
@@ -44,9 +47,9 @@ const Admin = () => {
             <Outlet></Outlet>
             <label
               htmlFor="my-drawer"
-              className="btn bg-blue-600 text-white absolute left-1 lg:top-0 btn-sm drawer-button"
+              className=" fixed bottom-8 right-8 lg:right-64"
             >
-              Dashboard
+              <FontAwesomeIcon className="text-red-900" size="3x" icon={faBars} fade pull="left"  />
             </label>
           </div>
           <div className="drawer-side">

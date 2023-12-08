@@ -146,7 +146,7 @@ const Gallery = () => {
   }
   
   return (
-    <div className="">
+    <div className="mt-2">
         {(u_email &&(u_role==='admin'||u_role==='editor'))&&
         <form className='gallery_form' onSubmit={handleSubmit}>
           <h1 className='text-gray-50 font-bold text-3xl lg:text-6xl mb-8'>Upload Image For Gellery</h1>

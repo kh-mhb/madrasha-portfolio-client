@@ -15,7 +15,7 @@ const Committe = () => {
       <div className="container px-0  mx-auto">
         
 
-      <div className="hero h-1/3 mb-7 bg-base-300 mt-4">
+      <div className="hero  mb-7 bg-base-300 rounded w-full lg:w-11/12 lg:mx-auto mt-3">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold text-gray-900">Our committe</h1>
@@ -24,9 +24,6 @@ const Committe = () => {
               service of others, the heart finds peace. May the commitment 
               of our committee members be a beacon of light, guiding us 
               towards the path of wisdom, compassion, and unity.</p>
-            {/* <button onClick={()=>navigate('/student')} className="btn btn-sm bg-blue-900 text-white">STUDENTS</button>
-            <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
-            <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button> */}
           </div>
         </div>
       </div>
@@ -38,11 +35,11 @@ const Committe = () => {
                   <div  key={member?._id} className="p-2 w-full mx-auto">
                     <div className="h-full  bg-gray-100 flex items-center border-gray-200 border p-4 rounded-lg">
                       <img
-                        alt="team"
-                        className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+                        alt="image"
+                        className="w-20 h-20 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full lg:ml-24"
                         src={member?.img_link}
                       />
-                      <div className="flex-grow">
+                      <div className="flex-grow ml-4 lg:ml-12">
                         <h2 className="text-gray-900 title-font font-medium">
                           Name: {member?.name}
                         </h2>

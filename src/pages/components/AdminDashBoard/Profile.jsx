@@ -8,15 +8,16 @@ const Profile = () => {
   const { u_email, u_role } = useUserdata()
 
   content = (
-    <div className="card w-11/12 lg:w-1/2  my-8  mx-auto bg-base-300 shadow-xl">
+    <div className="card w-96 mx-auto top-24 bg-base-100 shadow-xl">
       <div className="card-body">
-          <h2 className="card-title">Email- <span className="text-bold text-green-600">{u_email}</span></h2>
-          <h2 className="card-title">Role- <span className="text-bold text-green-600">{u_role}</span></h2>
+        <h2 className="card-title">Your profile</h2>
+        <p>Your Name: {u_email}</p>
+        <p>Your Role: {u_role}</p>
         <div className="card-actions justify-end">
-          <button onClick={() => navigate('/adminLayout/checkeditorials')} className="btn btn-sm bg-blue-600 text-white">edit</button>
+          <button onClick={() => navigate('/adminLayout/checkeditorials')} className="btn btn-sm">Edit</button>
         </div>
       </div>
-    </div>
+  </div>
   )
   
   return content
