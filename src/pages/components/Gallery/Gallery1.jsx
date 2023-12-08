@@ -144,9 +144,9 @@ const Gallery = () => {
     console.log(id)
     setGalleryData({ img_link: '', title: '' })
   }
-  // lg:text-6xl 
+  
   return (
-    <div className="container">
+    <div className="">
         {(u_email &&(u_role==='admin'||u_role==='editor'))&&
         <form className='gallery_form' onSubmit={handleSubmit}>
           <h1 className='text-gray-50 font-bold text-3xl lg:text-6xl mb-8'>Upload Image For Gellery</h1>
@@ -154,6 +154,7 @@ const Gallery = () => {
               <input
                 type="file"
                 name="img_link"
+                disabled={galleryData.img_link !== ''}
                 className='gallery_input'
                 onChange={handleChange}
               />
