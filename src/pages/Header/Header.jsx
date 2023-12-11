@@ -17,7 +17,7 @@ const Header = () => {
     u_role,
     setU_email,
     setU_role,
-  } = useUserdata()
+  } = useUserdata();
 
   useEffect(() => {
     if (!isLoading || !loading || u_email || u_role) {
@@ -27,52 +27,69 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex justify-center z-50 fixed top-0 sticky bg-gray-200 py-0">
+    <div className="flex justify-center z-50  top-0 sticky bg-gray-200 py-0">
       <div className="flex-1">
-          <Link
-              to="/"
-              className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <span className="ml-3 mt-1 text-xl">
-                <img className="h-[40px] sm:h-[40px] rounded-full"  src={title} />
-              </span>
-          </Link>
+        <Link
+          to="/"
+          className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span className="ml-3 mt-1 text-xl">
+            <img className="h-[40px] sm:h-[40px] rounded-full" src={title} />
+          </span>
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
-        {!isAdminLayout && (
-              <Link
-                to="adminLayout"
-                className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base"
+          {!isAdminLayout && (
+            <Link
+              to="adminLayout"
+              className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base"
+            >
+              Admin
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
               >
-                Admin
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </Link>
-            )}
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </Link>
+          )}
           <li>
             <details>
-              <summary>
-                Navigate
-              </summary>
+              <summary className="font-semibold">Go To</summary>
               <ul className="p-2 bg-base-100 rounded-t-none right-1">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/notice">Notice</Link></li>
-                <li><Link to="/donate">Donate</Link></li>
-                <li><Link to="/gallery">Gallery</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/aboutus">About Us</Link></li>
-                <li><Link to="/curriculum">Curriculum</Link></li>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/notice">Notice</Link>
+                </li>
+                <li>
+                  <Link to="/donate">Donate</Link>
+                </li>
+                <li>
+                  <Link to="/gallery">Gallery</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+                <li>
+                  <Link to="/aboutus">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/curriculum">Curriculum</Link>
+                </li>
                 {/* {!u_email && <li><Link to="/login">Login</Link></li>} */}
-                {!isAdminFound && <li><Link to="/register">Signup</Link></li>}
+                {!isAdminFound && (
+                  <li>
+                    <Link to="/register">Signup</Link>
+                  </li>
+                )}
               </ul>
             </details>
           </li>
@@ -82,36 +99,12 @@ const Header = () => {
   );
 };
 
-    
-
 export default Header;
 
+// <header className="text-white-900 body-font absolute top-0 sticky bg-green-400 z-50 py-1 px-1 ">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <header className="text-white-900 body-font absolute top-0 sticky bg-green-400 z-50 py-1 px-1 ">
-
-      {/* <div className="container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
+{
+  /* <div className="container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
         <Link
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
@@ -149,5 +142,6 @@ export default Header;
             </svg>
           </Link>
         )}
-      </div> */}
-    // </header>
+      </div> */
+}
+// </header>

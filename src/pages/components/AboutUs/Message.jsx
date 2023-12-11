@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from "../../../assets/profileimg.jpg";
+import { FaBeer } from "react-icons/fa";
 
 const Message = () => {
   return (
@@ -53,7 +53,7 @@ const Message = () => {
 
       <div>
         <section className="text-gray-600 body-font p-2 ">
-          <h3 className="text-3xl text-red-500 mb-2  px-2 border-l-4 border-red-500  ">
+          <h3 className="text-3xl text-red-500 mb-2   inline-block px-2 border-l-4 border-red-500  ">
             Message
           </h3>
           <div className="container px-5 mx-auto mt-10 border-l-4 border-red-500">
