@@ -68,7 +68,7 @@ const CheckNotice = () => {
     }
 
     content = (
-        <div className="mt-9  w-full mx-auto absolute lg:relative">
+        <div className="mt-9  w-full px-1 mx-auto absolute lg:relative">
             <div className="flex justify-between mt-6">
                 <h2 className='text-blue-900 font-bold font-2'>Check all notices</h2>
                 <button onClick={()=>navigate('/adminLayout/addnotice')}  className="btn btn-sm bg-blue-600 text-white py-2 px-4 rounded">Add notice</button>

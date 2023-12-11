@@ -99,7 +99,7 @@ const WebManagement = () => {
 
 
     content = (
-        <div className="mt-9 px-2 w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
+        <div className="mt-9 px-2 w-full px-1 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
             <div className="flex justify-between items-center mt-2 mb-2">
                 <h2 className='text-blue-900 font-bold font-2'>Check editorial panel!</h2>
                 <button onClick={()=>navigate('/adminLayout/addeditorials')}  className="btn btn-sm bg-blue-600 text-white rounded">Add editorials</button>

@@ -69,7 +69,7 @@ const CheckCommitte = () => {
 
 
     content = (
-        <div className="mt-9  w-11/12 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
+        <div className="mt-9  w-full px-1 mx-auto absolute overflow-x-hidden lg:w-full lg:relative lg:mx-auto">
           <div className="flex justify-between items-center mt-2 mb-2">
             <h2 className='text-blue-900 font-bold font-2'>Check all committe members</h2>
             <button onClick={()=>navigate('/adminLayout/addcommitte')}  className="btn btn-sm bg-blue-600 text-white rounded">Add member</button>
