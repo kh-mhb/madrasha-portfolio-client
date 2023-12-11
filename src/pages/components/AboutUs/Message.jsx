@@ -1,10 +1,19 @@
 import React from "react";
 import { FaBeer } from "react-icons/fa";
+import useGetAllMember from "../../../hooks/committe/useGetAllMember";
+import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
+import useGetAllTeacher from "../../../hooks/teacher/useGetAllTeacher";
+import useGetAllNotices from "../../../hooks/notice/useGetAllNotices";
 
 const Message = () => {
+  const [ getAllMembers , members , memberCount ] = useGetAllMember()
+  const [ fetchStart , dataStudent , studentsCount ] = useGetAllStudents()
+  const [ fetchStartTeacher , dataTeacher , teachersCount ] = useGetAllTeacher()
+  const [fetchNotices , notices , notesCount ] = useGetAllNotices()
+
   return (
     <div>
-      {/* div1 */}
+      
       <div>
         <section>
           <div className="flex flex-col mt-4  items-center  p-2">
@@ -128,7 +137,7 @@ const Message = () => {
           <h3 className="text-3xl text-red-500  px-2 border-l-4 border-red-500  ">
             Statistics
           </h3>
-          <div className="container px-5 mx-auto flex flex-wrap ">
+          <div className="container px-4 pt-1 mx-auto flex flex-wrap ">
             <div className="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10  border-l-4 border-red-500 ">
               <div className="w-full sm:p-4 px-4 mb-6">
                 <h1 className="title-font font-medium text-xl mb-2 text-gray-900">
@@ -141,27 +150,21 @@ const Message = () => {
               </div>
               <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
-                  2.7K
+                  {studentsCount}+
                 </h2>
                 <p className="leading-relaxed">Students</p>
               </div>
               <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
-                  1.8K
+                  {teachersCount}+
                 </h2>
                 <p className="leading-relaxed">Techers</p>
               </div>
               <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
-                  35
+                  {memberCount}+
                 </h2>
-                <p className="leading-relaxed">Member</p>
-              </div>
-              <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-                <h2 className="title-font font-medium text-3xl text-gray-900">
-                  4
-                </h2>
-                <p className="leading-relaxed">Products</p>
+                <p className="leading-relaxed">Committe</p>
               </div>
             </div>
             <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">

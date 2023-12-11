@@ -8,7 +8,7 @@ import toast from 'react-hot-toast'
 const CheckTeacher = () => {
     let content
     const navigate = useNavigate()
-    const [ fetchStart , data , isLoading , error ] = useGetAllTeacher()
+    const [ fetchStart , data , teachersCount , isLoading , error ] = useGetAllTeacher()
     const [deleteTeacher , response , isLoading1 , error1] = useDeleteTeacher()
 
 

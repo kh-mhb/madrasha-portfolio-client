@@ -3,11 +3,13 @@ import { useState } from "react"
 
 const useGetAllStudents = () => {
     const  [data,setData] = useState(null)
-    const  [isLoading,setIsLoading] = useState(true)
+    const  [isLoading,setIsLoading] = useState(false)
     const  [error,setError] = useState(null)
+    const  [studentsCount,setStudentsCount]  = useState(0)
 
 
         const fetchStart = async() =>{
+            setIsLoading(true)
             try{
                 fetch('https://server-null.vercel.app/student/all',{
                     method: 'GET'
@@ -15,6 +17,7 @@ const useGetAllStudents = () => {
                 .then(res => res.json())
                 .then(student => {
                     setData(student.students)
+                    setStudentsCount(student.count)
                 })
             }catch(err){
                 setError(err)
@@ -27,7 +30,8 @@ const useGetAllStudents = () => {
             fetchStart();
         }, []);
 
-    return [ fetchStart , data , isLoading , error ]
+    return [ fetchStart , data , studentsCount , isLoading , error ]
 }
+
 
 export default useGetAllStudents

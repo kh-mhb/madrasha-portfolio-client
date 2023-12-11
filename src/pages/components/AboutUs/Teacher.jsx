@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Teacher = () => {
   let content
-  const [ fetchStart , data , isLoading , error ] = useGetAllTeacher()
+  const [ fetchStart , data , teachersCount , isLoading , error ] = useGetAllTeacher()
   const navigate = useNavigate()
 
   content = isLoading? <Loader /> : (

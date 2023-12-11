@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const Student = () => {
   let content 
-  const [ fetchStart, data, isLoading1, error1 ] = useGetAllStudents()
+  const [ fetchStart , data , studentsCount , isLoading1 , error ] = useGetAllStudents()
   const navigate = useNavigate()
 
   content = isLoading1 ? <Loader />  : (
-
     <section className="text-gray-600 body-font">        
       
       <div className="hero h-1/3 w-full mb-7 bg-base-300 rounded lg:w-11/12 lg:mx-auto  mt-3">
@@ -20,9 +19,6 @@ const Student = () => {
               In seeking knowledge, you are lighting the path to wisdom. 
               Embrace the journey, for learning is a sacred pursuit that 
               leads to enlightenment and a deeper connection with Allah.</p>
-            {/* <button onClick={()=>navigate('/teacher')} className="btn btn-sm bg-blue-900 text-white">TEACHERS</button>
-            <button onClick={()=>navigate('/')} className="btn btn-sm bg-blue-900 text-white">HOME</button>
-            <button onClick={()=>navigate('/committe')} className="btn btn-sm bg-blue-900 text-white">COMMITTE</button> */}
           </div>
         </div>
       </div>

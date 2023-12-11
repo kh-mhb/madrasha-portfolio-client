@@ -6,16 +6,17 @@ const useGetAllNotices = () => {
     const [message,setMessage] = useState(null)
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(false)
+    const [notesCount,setNotesCount]  = useState(0)
     
     
     const fetchNotices = async() =>{
         setIsLoading(true)
         try{
             const res = await fetch('https://server-null.vercel.app/notice/all')
-            // const res = await fetch('http://localhost:7071/notice/all')
             const response = await res.json()
             setNotices(response?.notices)
             setMessage(response?.message)
+            setNotesCount(response?.count)
         }catch(err){
             setError(err)
         }finally{
@@ -27,7 +28,7 @@ const useGetAllNotices = () => {
         fetchNotices()
     },[])
 
-    return [fetchNotices , notices , message , error , isLoading]
+    return [fetchNotices , notices , notesCount , message , error , isLoading]
 }
 
 export default useGetAllNotices

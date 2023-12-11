@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Committe = () => {
   let content
   const navigate = useNavigate()
-  const [ getAllMembers , members , isLoading , error] = useGetAllMember()
+  const [ getAllMembers , members , memberCount , isLoading , error] = useGetAllMember()
+
 
 
   content = isLoading ? <Loader /> : (

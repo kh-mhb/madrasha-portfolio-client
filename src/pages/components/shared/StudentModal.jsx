@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import useUpdateStudent from "../../../hooks/student/useUpdateStudent";
-import useGetAllStudents from "../../../hooks/student/useGetAllStudents";
-import toast from "react-hot-toast";
-import Loader from "./Loader";
+import React, { useEffect } from "react"
+import { useState } from "react"
+import useUpdateStudent from "../../../hooks/student/useUpdateStudent"
+import toast from "react-hot-toast"
+import Loader from "./Loader"
 
 const StudentModal = ({ isEditModalOpen, setIsEditModalOpen , editDataId , fetchStart }) => {
   const [editStudent , response , isLoading , error] = useUpdateStudent()

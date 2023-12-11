@@ -9,7 +9,7 @@ import toast from "react-hot-toast"
 const CheckStudents = () => {
   let content
   const navigate = useNavigate()
-  const [fetchStart, data, isLoading1, error1] = useGetAllStudents()
+  const [ fetchStart , data , studentsCount , isLoading1 , error ] = useGetAllStudents()
   const [deleteStudent, response, isLoading2, error2] = useDeleteStudent()
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [editDataId, setEditDataId] = useState('')
@@ -59,9 +59,9 @@ const CheckStudents = () => {
     }
   }, [response])
 
-  
+
   if (isLoading1 || isLoading2) {
-    return (content = <Loader></Loader>);
+    return content = <Loader></Loader>
   }
 
   const handleDeleteStudent = async (id,link) => {

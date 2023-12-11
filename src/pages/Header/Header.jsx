@@ -61,7 +61,7 @@ const Header = () => {
           )}
           <li>
             <details>
-              <summary className="font-semibold">Go To</summary>
+              <summary className="font-semibold">GOTO</summary>
               <ul className="p-2 bg-base-100 rounded-t-none right-1">
                 <li>
                   <Link to="/">Home</Link>
