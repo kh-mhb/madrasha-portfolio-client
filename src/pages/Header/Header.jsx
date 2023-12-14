@@ -87,7 +87,7 @@ const Header = () => {
       <div className="flex justify-center z-50 top-0 sticky bg-gray-600 py-2">
         <div className="flex-1">
           <Link
-            className="flex title-font font-medium items-center text-gray-900  md:mb-0"
+            to="/" className="flex title-font font-medium items-center text-gray-900 md:mb-0"
           >
             <span className="ml-3 mt-1 text-xl">
               <img className="h-[40px] sm:h-[40px] rounded-full" src={title} />
