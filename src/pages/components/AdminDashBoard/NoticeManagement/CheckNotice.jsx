@@ -147,6 +147,7 @@ const CheckNotice = () => {
                       <th className="px-4 py-2">Edited_by(last)</th>
                       <th className="px-4 py-2">Edited(times)</th>
                       <th className="px-4 py-2">Edit</th>
+                      <th className="px-4 py-2">Details</th>
                       <th className="px-4 py-2">Delete</th>
                       </tr>
                   </tfoot>
