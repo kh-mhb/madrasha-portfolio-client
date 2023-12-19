@@ -14,7 +14,7 @@ const EditManagement = () => {
     const [ checkWebAdmin , isAdminFound ] = useCheckAdmin() 
     const { id , p_email} = useParams()
     const navigate = useNavigate()
-    const [ updateEditorials , isLoading , error , resMessage ] = useUpdateEditorials()
+    const [ updateEditorials , isLoading , error , resMessage , message] = useUpdateEditorials()
     const [memberData , setMemberData] = useState({name: "",number: "",email: "",password: "", role: ""})
 
     useEffect(()=>{
@@ -25,7 +25,7 @@ const EditManagement = () => {
 
     useEffect(() => {
         if (resMessage && resMessage?.acknowledged) {
-            toast.success(`Member updated!`, {
+            toast.success(`${message}`, {
             duration: 4000,
             position: 'top-right',
             style: {
@@ -45,7 +45,27 @@ const EditManagement = () => {
         })
         checkWebAdmin()
       }else if(resMessage && !resMessage?.acknowledged){
-        toast.error('Failed', {
+        toast.error(`${message}`, {
+            duration: 4000,
+            position: 'top-right',
+            style: {
+              background: 'red',
+              color: '#fff',
+            },
+            className: '',
+            icon: '👏',
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+          });
+        }else if(!resMessage && message){
+        toast.error(`${message}`, {
             duration: 4000,
             position: 'top-right',
             style: {
@@ -76,9 +96,10 @@ const EditManagement = () => {
     };
     
     const handleUpdateTeacher = async() =>{
-
         await updateEditorials(id,memberData) 
     }
+
+    console.log(message,resMessage)
     
 
     content = (

@@ -35,8 +35,7 @@ const Register = () => {
 
 
   const handleRegSubmit = async (e) => {
-    e.preventDefault();
-    console.log(regInfo)
+    e.preventDefault()
     await insertAdmin(regInfo)
     setReginInfo({
       name: '',
@@ -51,17 +50,15 @@ const Register = () => {
     const access_token = insertRegResponse?.access_token
     localStorage.setItem('access_token',access_token)
   }
-
+  // http://localhost:5173/register
   content = isLoading ? <Loader /> : (
-    <div>
       <section className="px-4 pb-24 mx-auto max-w-7xl">
-        <header className="flex items-center justify-center py-5 mb-5 "></header>
         <div className="w-full py-6 mx-auto md:w-3/5 lg:w-2/5">
           <h1 className="mb-1 text-xl font-medium text-center text-gray-800 md:text-3xl">
             Create your admin account
           </h1>
           
-          <form className="mt-8 space-y-4"  onSubmit={handleRegSubmit}>
+          <form className="mt-8 space-y-4 bg-gray-300 p-4 rounded"  onSubmit={handleRegSubmit}>
             
           <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -113,7 +110,7 @@ const Register = () => {
 
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                Number
+                Password
               </label>
               
               <input
@@ -136,7 +133,6 @@ const Register = () => {
 
         </div>
       </section>
-    </div>
   )
 
   return content

@@ -5,6 +5,7 @@ const useUpdateEditorials = () => {
     const [isLoading,setIsLoading]  = useState(false)
     const [error,setError]  = useState(null)
     const [resMessage,setResMessage]  = useState(null)
+    const [message,setMessage]  = useState(null)
 
     const updateEditorials = async(id,data) =>{
         const token = localStorage.getItem('access_token')
@@ -20,8 +21,9 @@ const useUpdateEditorials = () => {
             })
     
             const res = await response.json()
-
-            setResMessage(res)
+            console.log(res)
+            setMessage(res.message)
+            setResMessage(res.result)
         }catch(err){
             setError(err)
         }finally{
@@ -29,7 +31,7 @@ const useUpdateEditorials = () => {
         }
     }
 
-    return [ updateEditorials , isLoading , error , resMessage ]
+    return [ updateEditorials , isLoading , error , resMessage , message ]
 }
 
 export default useUpdateEditorials
