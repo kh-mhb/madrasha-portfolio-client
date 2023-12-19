@@ -9,11 +9,12 @@ const Curriculum = () => {
         <div className="container px-5 py-10 mx-auto">
           <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-              Pitchfork Kickstarter Taxidermy
+              Curriculum Highlights from Lutifa Atimkhana
             </h1>
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-              gentrify, subway tile poke farm-to-table.
+              Exploring Educational Milestones: Delving into the Rich Curriculum
+              Journey at Lutifa Atimkhana, Fostering Knowledge, Character, and
+              Lifelong Learning.
             </p>
           </div>
           <div className="flex flex-wrap -m-4">
@@ -33,11 +34,11 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Shooting Stars
+                  Qur'an Studies
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Hifz, Tajweed rules, and Tafsir lessons enhance Quranic
+                  understanding profoundly.
                 </p>
               </div>
             </div>
@@ -59,11 +60,11 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  The Catalyzer
+                  Hadith Studies
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Memorize Hadiths, applying context for practical understanding
+                  in daily life.
                 </p>
               </div>
             </div>
@@ -84,11 +85,11 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Neptune
+                  Fiqh (Jurisprudence)
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Learn basic Islamic jurisprudence; apply in daily rituals and
+                  transactions.
                 </p>
               </div>
             </div>
@@ -108,11 +109,11 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Melanchole
+                  Islamic History
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Explore Prophet Muhammad's key events and historical
+                  developments in Islam.
                 </p>
               </div>
             </div>
@@ -132,11 +133,11 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Bunker
+                  Aqeedah (Beliefs)
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Study Islamic beliefs' fundamentals and engage in comparative
+                  religion studies.
                 </p>
               </div>
             </div>
@@ -156,18 +157,15 @@ const Curriculum = () => {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Ramona Falls
+                  Arabic Language
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Master Arabic alphabet, pronunciation, basic grammar, and
+                  essential vocabulary skills.
                 </p>
               </div>
             </div>
           </div>
-          <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            Button
-          </button>
         </div>
       </section>
     </div>
